@@ -6,7 +6,7 @@ const Index = () => {
     {
       id: "dimension-group",
       type: "checkbox-group" as const,
-      position: { top: 360, left: 235 },
+      position: { top: 345, left: 235 },
       checkboxes: [
         { id: "check3ft", label: "3 ft", qtyId: "qty3ft" },
         { id: "check4ft", label: "4 ft", qtyId: "qty4ft" },
@@ -17,7 +17,7 @@ const Index = () => {
     {
       id: "cabin-light-group",
       type: "checkbox-group" as const,
-      position: { top: 340, left: 825 },
+      position: { top: 340, left: 815 },
       checkboxes: [
         { id: "cabinNW", label: "N W", qtyId: "CNW" },
         { id: "cabinCW", label: "C W", qtyId: "CCW" },
@@ -26,7 +26,7 @@ const Index = () => {
     {
       id: "skirting-light-group",
       type: "checkbox-group" as const,
-      position: { top: 340, left: 955 },
+      position: { top: 340, left: 945 },
       checkboxes: [
         { id: "skirtingNW", label: "N W", qtyId: "SNW" },
         { id: "skirtingWW", label: "W W", qtyId: "SWW" },
@@ -35,7 +35,7 @@ const Index = () => {
     {
       id: "drop-light-group",
       type: "checkbox-group" as const,
-      position: { top: 340, left: 1100 },
+      position: { top: 340, left: 1090 },
       checkboxes: [
         { id: "dropNW", label: "N W", qtyId: "DNW" },
         { id: "dropWW", label: "W W", qtyId: "DWW" },
@@ -44,7 +44,7 @@ const Index = () => {
     {
       id: "createdDate",
       type: "date" as const,
-      position: { top: 26, left: 360 },
+      position: { top: 23, left: 360 },
       placeholder: "DD/MM/YYYY",
     },
     {
