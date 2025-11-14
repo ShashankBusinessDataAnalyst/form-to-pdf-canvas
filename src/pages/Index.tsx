@@ -6,43 +6,31 @@ import { generatePDF } from "@/lib/pdfGenerator";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft, FileText } from "lucide-react";
 import { toast } from "sonner";
+import coldTemplate from "@/assets/cold-template.png";
 
-// Sample templates - you can replace these with your own HTML templates
+// Templates based on your product specification sheets
 const sampleTemplates: Template[] = [
   {
-    id: "product-1",
-    name: "Product Specification Sheet",
-    description: "Standard product details and specifications",
-    thumbnail: "/placeholder.svg",
+    id: "shannon-cold",
+    name: "SHANNON COLD - Refrigeration Unit",
+    description: "Technical specification sheet for refrigeration display units",
+    thumbnail: coldTemplate,
     fields: [
-      { id: "productName", label: "Product Name", type: "text", position: { x: 10, y: 15 }, width: 40, required: true },
-      { id: "productCode", label: "Product Code", type: "text", position: { x: 10, y: 25 }, width: 30, required: true },
-      { id: "description", label: "Description", type: "textarea", position: { x: 10, y: 35 }, width: 80, required: true },
-      { id: "price", label: "Price", type: "number", position: { x: 10, y: 60 }, width: 20, required: true },
-      { id: "manufacturer", label: "Manufacturer", type: "text", position: { x: 40, y: 60 }, width: 30, required: false },
-    ],
-  },
-  {
-    id: "product-2",
-    name: "Technical Data Sheet",
-    description: "Detailed technical specifications",
-    thumbnail: "/placeholder.svg",
-    fields: [
-      { id: "title", label: "Title", type: "text", position: { x: 10, y: 10 }, width: 80, required: true },
-      { id: "model", label: "Model Number", type: "text", position: { x: 10, y: 20 }, width: 30, required: true },
-      { id: "specs", label: "Specifications", type: "textarea", position: { x: 10, y: 30 }, width: 80, required: true },
-      { id: "date", label: "Date", type: "date", position: { x: 10, y: 70 }, width: 20, required: true },
-    ],
-  },
-  {
-    id: "product-3",
-    name: "Product Label",
-    description: "Simple product labeling format",
-    thumbnail: "/placeholder.svg",
-    fields: [
-      { id: "name", label: "Product Name", type: "text", position: { x: 20, y: 30 }, width: 60, required: true },
-      { id: "sku", label: "SKU", type: "text", position: { x: 20, y: 45 }, width: 30, required: true },
-      { id: "barcode", label: "Barcode", type: "text", position: { x: 20, y: 55 }, width: 40, required: false },
+      { id: "model", label: "Model Name", type: "text", position: { x: 9, y: 3.5 }, width: 15, required: true },
+      { id: "dateOfCreation", label: "Date of Creation", type: "date", position: { x: 30, y: 3.5 }, width: 12, required: true },
+      { id: "productionOrderNo", label: "Production Order No.", type: "text", position: { x: 30, y: 46 }, width: 20, required: true },
+      { id: "clientName", label: "Client Name", type: "text", position: { x: 30, y: 107 }, width: 25, required: true },
+      { id: "soNumber", label: "S.O No.", type: "text", position: { x: 30, y: 110 }, width: 15, required: false },
+      { id: "soDate", label: "S.O Date", type: "date", position: { x: 45, y: 110 }, width: 12, required: false },
+      { id: "approvedDate", label: "Client Approved Date", type: "date", position: { x: 60, y: 110 }, width: 12, required: false },
+      { id: "handOverDate", label: "Production Hand Over Date", type: "date", position: { x: 80, y: 110 }, width: 12, required: false },
+      { id: "length3ft", label: "Length 3ft Qty", type: "number", position: { x: 18, y: 51 }, width: 6, required: false },
+      { id: "length4ft", label: "Length 4ft Qty", type: "number", position: { x: 18, y: 55 }, width: 6, required: false },
+      { id: "length5ft", label: "Length 5ft Qty", type: "number", position: { x: 18, y: 59 }, width: 6, required: false },
+      { id: "length6ft", label: "Length 6ft Qty", type: "number", position: { x: 18, y: 63 }, width: 6, required: false },
+      { id: "preparedBy", label: "Prepared By", type: "text", position: { x: 2, y: 105 }, width: 10, required: false },
+      { id: "reviewedBy", label: "Reviewed By", type: "text", position: { x: 12, y: 105 }, width: 10, required: false },
+      { id: "approvedBy", label: "Approved By", type: "text", position: { x: 22, y: 105 }, width: 10, required: false },
     ],
   },
 ];
