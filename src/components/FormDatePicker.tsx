@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Calendar } from "@/components/ui/calendar";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { cn } from "@/lib/utils";
+import { usePrintMode } from "@/contexts/PrintModeContext";
 
 interface FormDatePickerProps {
   id: string;
@@ -21,6 +22,7 @@ export const FormDatePicker: React.FC<FormDatePickerProps> = ({
   value: controlledValue,
   onChange,
 }) => {
+  const { isPrintMode } = usePrintMode();
   const [internalValue, setInternalValue] = useState<Date | undefined>(controlledValue);
   const value = controlledValue !== undefined ? controlledValue : internalValue;
 
@@ -28,6 +30,24 @@ export const FormDatePicker: React.FC<FormDatePickerProps> = ({
     setInternalValue(date);
     onChange?.(date);
   };
+
+  // Render as plain text div in print mode
+  if (isPrintMode) {
+    return (
+      <div
+        className="absolute text-center text-xs text-black"
+        style={{
+          top: `${position.top + 2}px`,
+          left: `${position.left + 20}px`,
+          width: '90px',
+          lineHeight: '16px',
+        }}
+      >
+        {value ? format(value, "dd/MM/yyyy") : ""}
+      </div>
+    );
+  }
+
   return (
     <div
       className="absolute"

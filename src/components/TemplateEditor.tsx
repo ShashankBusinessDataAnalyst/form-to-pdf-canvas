@@ -6,6 +6,7 @@ import { Switch } from "@/components/ui/switch";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { generatePDF } from "@/lib/pdfGenerator";
 import { toast } from "sonner";
+import { usePrintMode } from "@/contexts/PrintModeContext";
 
 interface TemplateEditorProps {
   templateImage: string;
@@ -20,6 +21,7 @@ export const TemplateEditor: React.FC<TemplateEditorProps> = ({
   children,
   onClearAll,
 }) => {
+  const { setPrintMode } = usePrintMode();
   const [showGrid, setShowGrid] = useState(false);
   const [gridSpacing, setGridSpacing] = useState(50);
 
@@ -29,7 +31,7 @@ export const TemplateEditor: React.FC<TemplateEditorProps> = ({
 
   const handleDownload = async () => {
     try {
-      await generatePDF("captureArea", `${templateName}-form`);
+      await generatePDF("captureArea", `${templateName}-form`, setPrintMode);
       toast.success("PDF downloaded successfully!");
     } catch (error) {
       toast.error("Failed to generate PDF");

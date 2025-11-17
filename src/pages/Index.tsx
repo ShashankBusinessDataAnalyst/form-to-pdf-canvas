@@ -4,6 +4,7 @@ import { FormCheckbox } from "@/components/FormCheckbox";
 import { FormTextInput } from "@/components/FormTextInput";
 import { FormNumberInput } from "@/components/FormNumberInput";
 import { FormDatePicker } from "@/components/FormDatePicker";
+import { PrintModeProvider } from "@/contexts/PrintModeContext";
 import coldTemplate from "@/assets/cold-template.png";
 
 const Index = () => {
@@ -120,11 +121,12 @@ const Index = () => {
   };
 
   return (
-    <TemplateEditor
-      templateImage={coldTemplate}
-      templateName="SHANNON COLD - Technical Drawing"
-      onClearAll={handleClearAll}
-    >
+    <PrintModeProvider>
+      <TemplateEditor
+        templateImage={coldTemplate}
+        templateName="SHANNON COLD - Technical Drawing"
+        onClearAll={handleClearAll}
+      >
       {/* Date Pickers */}
       <FormDatePicker
         id="createdDate"
@@ -490,6 +492,7 @@ const Index = () => {
       />
 
     </TemplateEditor>
+    </PrintModeProvider>
   );
 };
 
