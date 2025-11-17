@@ -483,17 +483,7 @@ const Index = () => {
           position={{ top: 574, left: 952 }}
         />
 
-        {/* Material Choice - Reference*/}
-
-        <FormTextInput
-          id="materialReference"
-          value={formData.materialReference}
-          onChange={(val) => handleFieldChange("materialReference", val)}
-          position={{ top: 535, left: 977 }}
-          width={200}
-          placeholder="Material Reference"
-        />
-
+        
         {/* Special Notes Textarea */}
         <FormTextarea
           id="specialNotes"
@@ -502,6 +492,17 @@ const Index = () => {
           position={{ top: 540, left: 50 }}
           width={600}
           height={160}
+          placeholder="Enter special notes here..."
+        />
+
+        {/* Special Notes Textarea */}
+        <FormTextarea
+          id="ReferenceNotes"
+          value={formData.ReferenceNotes}
+          onChange={(val) => handleFieldChange("ReferenceNotes", val)}
+          position={{ top: 4900, left: 1050 }}
+          width={60}
+          height={30}
           placeholder="Enter special notes here..."
         />
       </TemplateEditor>
