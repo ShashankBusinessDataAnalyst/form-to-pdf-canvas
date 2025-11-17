@@ -11,12 +11,14 @@ interface TemplateEditorProps {
   templateImage: string;
   templateName: string;
   children?: React.ReactNode;
+  onClearAll?: () => void;
 }
 
 export const TemplateEditor: React.FC<TemplateEditorProps> = ({
   templateImage,
   templateName,
   children,
+  onClearAll,
 }) => {
   const [showGrid, setShowGrid] = useState(false);
   const [gridSpacing, setGridSpacing] = useState(50);
@@ -98,6 +100,15 @@ export const TemplateEditor: React.FC<TemplateEditorProps> = ({
         <Button onClick={handleSave} className="w-full mt-3">
           Save
         </Button>
+        {onClearAll && (
+          <Button
+            onClick={onClearAll}
+            variant="destructive"
+            className="w-full mt-3"
+          >
+            Clear All
+          </Button>
+        )}
         <Button
           onClick={handleDownload}
           className="w-full mt-3 bg-[#00DD00] hover:bg-[#00BB00] text-black"
