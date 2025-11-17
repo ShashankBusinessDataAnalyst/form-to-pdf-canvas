@@ -69,7 +69,7 @@ export const FormCheckbox: React.FC<FormCheckboxProps> = ({
         checked={checked}
         onCheckedChange={handleChange}
         className={cn(
-          "h-3 w-4 border- border-black ",
+          "h-3 w-4 border border-black",
           "data-[state=checked]:bg-transparent",
           "data-[state=checked]:text-black",
           "[&>svg]:h-7 [&>svg]:w-6"
