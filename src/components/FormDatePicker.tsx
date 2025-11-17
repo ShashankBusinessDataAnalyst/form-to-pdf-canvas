@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { format } from "date-fns";
 import { CalendarIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -25,6 +25,11 @@ export const FormDatePicker: React.FC<FormDatePickerProps> = ({
   const { isPrintMode } = usePrintMode();
   const [internalValue, setInternalValue] = useState<Date | undefined>(controlledValue);
   const value = controlledValue !== undefined ? controlledValue : internalValue;
+
+  // Sync internal value when controlled value changes (including when cleared)
+  useEffect(() => {
+    setInternalValue(controlledValue);
+  }, [controlledValue]);
 
   const handleChange = (date: Date | undefined) => {
     setInternalValue(date);
