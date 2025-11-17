@@ -36,7 +36,16 @@ export const FormTextInput: React.FC<FormTextInputProps> = ({
           top: `${position.top}px`,
           left: `${position.left}px`,
           width: `${width}px`,
-          lineHeight: '20px',
+          lineHeight: '1',
+          fontSize: '14px',
+          fontFamily: 'system-ui, -apple-system, sans-serif',
+          padding: '0',
+          margin: '0',
+          boxSizing: 'border-box',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          height: '20px',
         }}
       >
         {value || ""}

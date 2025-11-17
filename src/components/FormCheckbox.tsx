@@ -29,14 +29,19 @@ export const FormCheckbox: React.FC<FormCheckboxProps> = ({
   if (isPrintMode) {
     return (
       <div
-        className="absolute w-4 h-4 border-2 border-black flex items-center justify-center bg-white"
+        className="absolute border-2 border-black flex items-center justify-center bg-white"
         style={{
           top: `${position.top}px`,
           left: `${position.left}px`,
+          width: '16px',
+          height: '16px',
+          boxSizing: 'border-box',
+          padding: '0',
+          margin: '0',
         }}
       >
         {checked && (
-          <svg viewBox="0 0 24 24" className="w-3 h-3">
+          <svg viewBox="0 0 24 24" className="w-3 h-3" style={{ display: 'block' }}>
             <path
               d="M20 6L9 17l-5-5"
               stroke="black"
