@@ -44,7 +44,7 @@ export const FormDatePicker: React.FC<FormDatePickerProps> = ({
             id={id}
             variant="outline"
             className={cn(
-              "w-[140px] h-7 justify-start text-left font-normal text-xs px-2 bg-white border border-gray-300 hover:bg-gray-50 rounded",
+              "w-[110px] h-5 justify-start text-left font-normal text-xs px-2 bg-transparent hover:bg-transparent border border-gray-300 rounded",
               !value && "text-muted-foreground"
             )}
           >
