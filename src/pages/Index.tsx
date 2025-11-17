@@ -499,9 +499,9 @@ const Index = () => {
           id="ReferenceNotes"
           value={formData.ReferenceNotes}
           onChange={(val) => handleFieldChange("ReferenceNotes", val)}
-          position={{ top: 490, left: 1050 }}
-          width={60}
-          height={30}
+          position={{ top: 530, left: 960 }}
+          width={180}
+          height={90}
           placeholder="Enter special notes here..."
         />
       </TemplateEditor>
