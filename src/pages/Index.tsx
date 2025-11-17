@@ -23,6 +23,7 @@ const Index = () => {
     TCD: "",
     materialReference: "",
     specialNotes: "",
+    ReferenceNotes: "",
     // Number fields
     qty3ft: "",
     qty4ft: "",
@@ -82,6 +83,7 @@ const Index = () => {
       TCD: "",
       materialReference: "",
       specialNotes: "",
+      ReferenceNotes: "",
       qty3ft: "",
       qty4ft: "",
       qty5ft: "",
