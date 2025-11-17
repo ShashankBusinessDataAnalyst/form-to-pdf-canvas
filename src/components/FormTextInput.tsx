@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { usePrintMode } from "@/contexts/PrintModeContext";
 
 interface FormTextInputProps {
   id: string;
@@ -17,6 +18,7 @@ export const FormTextInput: React.FC<FormTextInputProps> = ({
   value: controlledValue,
   onChange,
 }) => {
+  const { isPrintMode } = usePrintMode();
   const [internalValue, setInternalValue] = useState(controlledValue ?? "");
   const value = controlledValue !== undefined ? controlledValue : internalValue;
 
@@ -24,6 +26,23 @@ export const FormTextInput: React.FC<FormTextInputProps> = ({
     setInternalValue(newValue);
     onChange?.(newValue);
   };
+
+  // Render as plain text div in print mode
+  if (isPrintMode) {
+    return (
+      <div
+        className="absolute text-center text-sm text-black"
+        style={{
+          top: `${position.top}px`,
+          left: `${position.left}px`,
+          width: `${width}px`,
+          lineHeight: '20px',
+        }}
+      >
+        {value || ""}
+      </div>
+    );
+  }
 
   return (
     <input

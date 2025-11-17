@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Checkbox } from "@/components/ui/checkbox";
 import { cn } from "@/lib/utils";
+import { usePrintMode } from "@/contexts/PrintModeContext";
 
 interface FormCheckboxProps {
   id: string;
@@ -15,6 +16,7 @@ export const FormCheckbox: React.FC<FormCheckboxProps> = ({
   checked: controlledChecked,
   onChange,
 }) => {
+  const { isPrintMode } = usePrintMode();
   const [internalChecked, setInternalChecked] = useState(controlledChecked ?? false);
   const checked = controlledChecked !== undefined ? controlledChecked : internalChecked;
 
@@ -22,6 +24,32 @@ export const FormCheckbox: React.FC<FormCheckboxProps> = ({
     setInternalChecked(newChecked);
     onChange?.(newChecked);
   };
+
+  // Render as plain div with checkmark in print mode
+  if (isPrintMode) {
+    return (
+      <div
+        className="absolute w-4 h-4 border-2 border-black flex items-center justify-center bg-white"
+        style={{
+          top: `${position.top}px`,
+          left: `${position.left}px`,
+        }}
+      >
+        {checked && (
+          <svg viewBox="0 0 24 24" className="w-3 h-3">
+            <path
+              d="M20 6L9 17l-5-5"
+              stroke="black"
+              strokeWidth="3"
+              fill="none"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </svg>
+        )}
+      </div>
+    );
+  }
 
   return (
     <div

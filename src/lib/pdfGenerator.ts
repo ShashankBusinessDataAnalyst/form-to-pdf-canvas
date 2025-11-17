@@ -3,7 +3,8 @@ import html2canvas from "html2canvas";
 
 export const generatePDF = async (
   elementId: string,
-  fileName: string
+  fileName: string,
+  setPrintMode?: (value: boolean) => void
 ): Promise<void> => {
   const element = document.getElementById(elementId);
   if (!element) {
@@ -11,6 +12,13 @@ export const generatePDF = async (
   }
 
   try {
+    // Enable print mode if callback provided
+    if (setPrintMode) {
+      setPrintMode(true);
+      // Wait for React to re-render with print mode components
+      await new Promise(resolve => setTimeout(resolve, 100));
+    }
+
     // Hide grid overlay during capture
     const gridOverlay = element.querySelector('[data-html2canvas-ignore="true"]');
     if (gridOverlay) {
@@ -31,6 +39,11 @@ export const generatePDF = async (
       (gridOverlay as HTMLElement).style.display = '';
     }
 
+    // Disable print mode
+    if (setPrintMode) {
+      setPrintMode(false);
+    }
+
     const imgData = canvas.toDataURL("image/png");
     const pdf = new jsPDF({
       orientation: canvas.width > canvas.height ? "landscape" : "portrait",
@@ -42,6 +55,10 @@ export const generatePDF = async (
     pdf.save(`${fileName}.pdf`);
   } catch (error) {
     console.error("Error generating PDF:", error);
+    // Make sure to disable print mode on error
+    if (setPrintMode) {
+      setPrintMode(false);
+    }
     throw new Error("Failed to generate PDF");
   }
 };
