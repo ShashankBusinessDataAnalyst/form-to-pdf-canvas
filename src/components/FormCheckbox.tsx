@@ -29,12 +29,12 @@ export const FormCheckbox: React.FC<FormCheckboxProps> = ({
   if (isPrintMode) {
     return (
       <div
-        className="absolute border-2 border-black flex items-center justify-center bg-white"
+        className="absolute border border-black flex items-center justify-center bg-white"
         style={{
           top: `${position.top}px`,
           left: `${position.left}px`,
           width: '16px',
-          height: '16px',
+          height: '12px',
           boxSizing: 'border-box',
           padding: '0',
           margin: '0',
@@ -45,7 +45,7 @@ export const FormCheckbox: React.FC<FormCheckboxProps> = ({
             <path
               d="M20 6L9 17l-5-5"
               stroke="black"
-              strokeWidth="3"
+              strokeWidth="2"
               fill="none"
               strokeLinecap="round"
               strokeLinejoin="round"
@@ -69,7 +69,7 @@ export const FormCheckbox: React.FC<FormCheckboxProps> = ({
         checked={checked}
         onCheckedChange={handleChange}
         className={cn(
-          "h-4 w-4 border-2 border-black ",
+          "h-3 w-4 border- border-black ",
           "data-[state=checked]:bg-transparent",
           "data-[state=checked]:text-black",
           "[&>svg]:h-7 [&>svg]:w-6"

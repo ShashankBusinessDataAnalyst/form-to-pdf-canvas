@@ -155,7 +155,7 @@ const Index = () => {
         id="clientName"
         value={formData.clientName}
         onChange={(val) => handleFieldChange("clientName", val)}
-        position={{ top: 745, left: 300 }}
+        position={{ top: 742, left: 300 }}
         width={300}
         placeholder="Client Name"
       />
@@ -163,7 +163,7 @@ const Index = () => {
         id="soNumber"
         value={formData.soNumber}
         onChange={(val) => handleFieldChange("soNumber", val)}
-        position={{ top: 760, left: 345 }}
+        position={{ top: 758, left: 345 }}
         width={100}
         placeholder="SO Number"
       />
@@ -171,7 +171,7 @@ const Index = () => {
         id="FCR"
         value={formData.FCR}
         onChange={(val) => handleFieldChange("FCR", val)}
-        position={{ top: 595, left: 860 }}
+        position={{ top: 590, left: 860 }}
         width={100}
         placeholder="FCR"
       />
@@ -179,7 +179,7 @@ const Index = () => {
         id="FCD"
         value={formData.FCD}
         onChange={(val) => handleFieldChange("FCD", val)}
-        position={{ top: 595, left: 1050 }}
+        position={{ top: 590, left: 1050 }}
         width={100}
         placeholder="FCD"
       />
@@ -187,7 +187,7 @@ const Index = () => {
         id="TCR"
         value={formData.TCR}
         onChange={(val) => handleFieldChange("TCR", val)}
-        position={{ top: 613, left: 860 }}
+        position={{ top: 608, left: 860 }}
         width={100}
         placeholder="TCR"
       />
@@ -195,7 +195,7 @@ const Index = () => {
         id="TCD"
         value={formData.TCD}
         onChange={(val) => handleFieldChange("TCD", val)}
-        position={{ top: 613, left: 1050 }}
+        position={{ top: 608, left: 1050 }}
         width={100}
         placeholder="TCD"
       />
@@ -205,13 +205,13 @@ const Index = () => {
         id="check3ft"
         checked={formData.check3ft}
         onChange={(val) => handleFieldChange("check3ft", val)}
-        position={{ top: 347, left: 221 }}
+        position={{ top: 350, left: 224 }}
       />
       <FormNumberInput
         id="qty3ft"
         value={formData.qty3ft}
         onChange={(val) => handleFieldChange("qty3ft", val)}
-        position={{ top: 347, left: 290 }}
+        position={{ top: 345, left: 320 }}
         width={50}
         placeholder="Qty"
       />
@@ -220,13 +220,13 @@ const Index = () => {
         id="check4ft"
         checked={formData.check4ft}
         onChange={(val) => handleFieldChange("check4ft", val)}
-        position={{ top: 367, left: 221 }}
+        position={{ top: 370, left: 224 }}
       />
       <FormNumberInput
         id="qty4ft"
         value={formData.qty4ft}
         onChange={(val) => handleFieldChange("qty4ft", val)}
-        position={{ top: 367, left: 290 }}
+        position={{ top: 365, left: 320 }}
         width={50}
         placeholder="Qty"
       />
@@ -235,13 +235,13 @@ const Index = () => {
         id="check5ft"
         checked={formData.check5ft}
         onChange={(val) => handleFieldChange("check5ft", val)}
-        position={{ top: 385, left: 221 }}
+        position={{ top: 389, left: 224 }}
       />
       <FormNumberInput
         id="qty5ft"
         value={formData.qty5ft}
         onChange={(val) => handleFieldChange("qty5ft", val)}
-        position={{ top: 385, left: 290 }}
+        position={{ top: 383, left: 320 }}
         width={50}
         placeholder="Qty"
       />
@@ -250,13 +250,13 @@ const Index = () => {
         id="check6ft"
         checked={formData.check6ft}
         onChange={(val) => handleFieldChange("check6ft", val)}
-        position={{ top: 403, left: 221 }}
+        position={{ top: 406, left: 224 }}
       />
       <FormNumberInput
         id="qty6ft"
         value={formData.qty6ft}
         onChange={(val) => handleFieldChange("qty6ft", val)}
-        position={{ top: 403, left: 290 }}
+        position={{ top: 401, left: 320 }}
         width={50}
         placeholder="Qty"
       />
@@ -266,14 +266,14 @@ const Index = () => {
         id="cabinNW"
         checked={formData.cabinNW}
         onChange={(val) => handleFieldChange("cabinNW", val)}
-        position={{ top: 329, left: 875 }}
+        position={{ top: 333, left: 875 }}
       />
 
       <FormCheckbox
         id="cabinCW"
         checked={formData.cabinCW}
         onChange={(val) => handleFieldChange("cabinCW", val)}
-        position={{ top: 348, left: 875 }}
+        position={{ top: 353, left: 875 }}
       />
 
       {/* Skirting Light Checkboxes */}
@@ -281,14 +281,14 @@ const Index = () => {
         id="skirtingNW"
         checked={formData.skirtingNW}
         onChange={(val) => handleFieldChange("skirtingNW", val)}
-        position={{ top: 329, left: 1003 }}
+        position={{ top: 333, left: 1003 }}
       />
 
       <FormCheckbox
         id="skirtingWW"
         checked={formData.skirtingWW}
         onChange={(val) => handleFieldChange("skirtingWW", val)}
-        position={{ top: 348, left: 1003 }}
+        position={{ top: 353, left: 1003 }}
       />
 
       {/* Drop Light Checkboxes */}
@@ -296,14 +296,14 @@ const Index = () => {
         id="dropNW"
         checked={formData.dropNW}
         onChange={(val) => handleFieldChange("dropNW", val)}
-        position={{ top: 329, left: 1157 }}
+        position={{ top: 333, left: 1155 }}
       />
 
       <FormCheckbox
         id="dropWW"
         checked={formData.dropWW}
         onChange={(val) => handleFieldChange("dropWW", val)}
-        position={{ top: 348, left: 1157 }}
+        position={{ top: 352, left: 1155 }}
       />
 
       {/* Leg */}
@@ -311,7 +311,7 @@ const Index = () => {
         id="leg"
         checked={formData.leg}
         onChange={(val) => handleFieldChange("leg", val)}
-        position={{ top: 403, left: 875 }}
+        position={{ top: 406, left: 875 }}
       />
 
       {/* Shelves */}
@@ -319,14 +319,14 @@ const Index = () => {
         id="b3"
         checked={formData.b3}
         onChange={(val) => handleFieldChange("b3", val)}
-        position={{ top: 403, left: 1003 }}
+        position={{ top: 406, left: 1003 }}
       />
 
       <FormCheckbox
         id="b4"
         checked={formData.b4}
         onChange={(val) => handleFieldChange("b4", val)}
-        position={{ top: 423, left: 1003 }}
+        position={{ top: 425, left: 1003 }}
       />
 
       {/* Beading finishes */}
@@ -334,42 +334,42 @@ const Index = () => {
         id="SSMT"
         checked={formData.SSMT}
         onChange={(val) => handleFieldChange("SSMT", val)}
-        position={{ top: 403, left: 1073 }}
+        position={{ top: 406, left: 1073 }}
       />
 
       <FormCheckbox
         id="RGMT"
         checked={formData.RGMT}
         onChange={(val) => handleFieldChange("RGMT", val)}
-        position={{ top: 422, left: 1073 }}
+        position={{ top: 425, left: 1073 }}
       />
 
       <FormCheckbox
         id="GMT"
         checked={formData.GMT}
         onChange={(val) => handleFieldChange("GMT", val)}
-        position={{ top: 441, left: 1073 }}
+        position={{ top: 444, left: 1073 }}
       />
 
       <FormCheckbox
         id="SSMR"
         checked={formData.SSMR}
         onChange={(val) => handleFieldChange("SSMR", val)}
-        position={{ top: 403, left: 1155 }}
+        position={{ top: 406, left: 1155 }}
       />
 
       <FormCheckbox
         id="RGMR"
         checked={formData.RGMR}
         onChange={(val) => handleFieldChange("RGMR", val)}
-        position={{ top: 422, left: 1155 }}
+        position={{ top: 425, left: 1155 }}
       />
 
       <FormCheckbox
         id="GMR"
         checked={formData.GMR}
         onChange={(val) => handleFieldChange("GMR", val)}
-        position={{ top: 441, left: 1155 }}
+        position={{ top: 444, left: 1155 }}
       />
               
       {/* Material Choice */}
@@ -377,35 +377,35 @@ const Index = () => {
         id="CorianwithDesign"
         checked={formData.CorianwithDesign}
         onChange={(val) => handleFieldChange("CorianwithDesign", val)}
-        position={{ top: 497, left: 877 }}
+        position={{ top: 499, left: 877 }}
       />
 
       <FormCheckbox
         id="RafterWithDesign"
         checked={formData.RafterWithDesign}
         onChange={(val) => handleFieldChange("RafterWithDesign", val)}
-        position={{ top: 515, left: 877 }}
+        position={{ top: 517, left: 877 }}
       />
 
       <FormCheckbox
         id="Porsaline"
         checked={formData.Porsaline}
         onChange={(val) => handleFieldChange("Porsaline", val)}
-        position={{ top: 533, left: 877 }}
+        position={{ top: 535, left: 877 }}
       />
 
       <FormCheckbox
         id="Alabaster"
         checked={formData.Alabaster}
         onChange={(val) => handleFieldChange("Alabaster", val)}
-        position={{ top: 553, left: 877 }}
+        position={{ top: 555, left: 877 }}
       />
 
       <FormCheckbox
         id="SSFinish"
         checked={formData.SSFinish}
         onChange={(val) => handleFieldChange("SSFinish", val)}
-        position={{ top: 572, left: 877 }}
+        position={{ top: 574, left: 877 }}
       />
 
       {/* Material Choice - Front*/}
@@ -413,35 +413,35 @@ const Index = () => {
         id="FCorianwithDesign"
         checked={formData.FCorianwithDesign}
         onChange={(val) => handleFieldChange("FCorianwithDesign", val)}
-        position={{ top: 497, left: 910 }}
+        position={{ top: 499, left: 910 }}
       />
 
       <FormCheckbox
         id="FRafterWithDesign"
         checked={formData.FRafterWithDesign}
         onChange={(val) => handleFieldChange("FRafterWithDesign", val)}
-        position={{ top: 515, left: 910 }}
+        position={{ top: 517, left: 910 }}
       />
 
       <FormCheckbox
         id="FPorsaline"
         checked={formData.FPorsaline}
         onChange={(val) => handleFieldChange("FPorsaline", val)}
-        position={{ top: 533, left: 910 }}
+        position={{ top: 535, left: 910 }}
       />
 
       <FormCheckbox
         id="FAlabaster"
         checked={formData.FAlabaster}
         onChange={(val) => handleFieldChange("FAlabaster", val)}
-        position={{ top: 553, left: 910 }}
+        position={{ top: 555, left: 910 }}
       />
 
       <FormCheckbox
         id="FSSFinish"
         checked={formData.FSSFinish}
         onChange={(val) => handleFieldChange("FSSFinish", val)}
-        position={{ top: 572, left: 910 }}
+        position={{ top: 574, left: 910 }}
       />
 
       {/* Material Choice - Top*/}
@@ -449,35 +449,35 @@ const Index = () => {
         id="TCorianwithDesign"
         checked={formData.TCorianwithDesign}
         onChange={(val) => handleFieldChange("TCorianwithDesign", val)}
-        position={{ top: 497, left: 952 }}
+        position={{ top: 499, left: 952 }}
       />
 
       <FormCheckbox
         id="TRafterWithDesign"
         checked={formData.TRafterWithDesign}
         onChange={(val) => handleFieldChange("TRafterWithDesign", val)}
-        position={{ top: 515, left: 952 }}
+        position={{ top: 517, left: 952 }}
       />
 
       <FormCheckbox
         id="TPorsaline"
         checked={formData.TPorsaline}
         onChange={(val) => handleFieldChange("TPorsaline", val)}
-        position={{ top: 533, left: 952 }}
+        position={{ top: 535, left: 952 }}
       />
 
       <FormCheckbox
         id="TAlabaster"
         checked={formData.TAlabaster}
         onChange={(val) => handleFieldChange("TAlabaster", val)}
-        position={{ top: 553, left: 952 }}
+        position={{ top: 555, left: 952 }}
       />
 
       <FormCheckbox
         id="TSSFinish"
         checked={formData.TSSFinish}
         onChange={(val) => handleFieldChange("TSSFinish", val)}
-        position={{ top: 572, left: 952 }}
+        position={{ top: 574, left: 952 }}
       />
 
       {/* Material Choice - Reference*/}
