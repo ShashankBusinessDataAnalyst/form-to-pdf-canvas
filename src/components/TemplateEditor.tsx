@@ -1,10 +1,15 @@
 import React, { useState } from "react";
+import { format } from "date-fns";
+import { CalendarIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Checkbox } from "@/components/ui/checkbox";
+import { Calendar } from "@/components/ui/calendar";
+import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { generatePDF } from "@/lib/pdfGenerator";
 import { toast } from "sonner";
+import { cn } from "@/lib/utils";
 
 interface FieldPosition {
   top: number;
@@ -39,6 +44,7 @@ export const TemplateEditor: React.FC<TemplateEditorProps> = ({
 }) => {
   const [formData, setFormData] = useState<Record<string, string>>({});
   const [checkboxStates, setCheckboxStates] = useState<Record<string, boolean>>({});
+  const [dateValues, setDateValues] = useState<Record<string, Date | undefined>>({});
 
   const handleInputChange = (id: string, value: string) => {
     setFormData((prev) => ({ ...prev, [id]: value }));
@@ -46,6 +52,16 @@ export const TemplateEditor: React.FC<TemplateEditorProps> = ({
 
   const handleCheckboxChange = (checkboxId: string, checked: boolean) => {
     setCheckboxStates((prev) => ({ ...prev, [checkboxId]: checked }));
+  };
+
+  const handleDateChange = (id: string, date: Date | undefined) => {
+    setDateValues((prev) => ({ ...prev, [id]: date }));
+    if (date) {
+      const formatted = format(date, "dd/MM/yyyy");
+      setFormData((prev) => ({ ...prev, [id]: formatted }));
+    } else {
+      setFormData((prev) => ({ ...prev, [id]: "" }));
+    }
   };
 
   const handleSave = () => {
@@ -159,7 +175,44 @@ export const TemplateEditor: React.FC<TemplateEditorProps> = ({
                 );
               }
 
-              if (field.type === "date" || field.type === "text") {
+              if (field.type === "date") {
+                return (
+                  <div
+                    key={field.id}
+                    className="absolute"
+                    style={{ top: `${field.position.top}px`, left: `${field.position.left}px` }}
+                  >
+                    <Popover>
+                      <PopoverTrigger asChild>
+                        <button
+                          className={cn(
+                            "border-none bg-transparent outline-none text-sm text-center flex items-center justify-center gap-1",
+                            field.className || "w-[100px]",
+                            !dateValues[field.id] && "text-muted-foreground"
+                          )}
+                        >
+                          {dateValues[field.id] ? (
+                            format(dateValues[field.id]!, "dd/MM/yyyy")
+                          ) : (
+                            <span className="text-xs">{field.placeholder || "DD/MM/YYYY"}</span>
+                          )}
+                          <CalendarIcon className="h-3 w-3" />
+                        </button>
+                      </PopoverTrigger>
+                      <PopoverContent className="w-auto p-0" align="start">
+                        <Calendar
+                          mode="single"
+                          selected={dateValues[field.id]}
+                          onSelect={(date) => handleDateChange(field.id, date)}
+                          initialFocus
+                        />
+                      </PopoverContent>
+                    </Popover>
+                  </div>
+                );
+              }
+
+              if (field.type === "text") {
                 return (
                   <div
                     key={field.id}
