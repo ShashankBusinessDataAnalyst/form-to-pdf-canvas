@@ -44,7 +44,7 @@ const Index = () => {
     {
       id: "createdDate",
       type: "date" as const,
-      position: { top: 23, left: 360 },
+      position: { top: 20, left: 330 },
       placeholder: "DD/MM/YYYY",
     },
     {
