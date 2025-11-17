@@ -4,6 +4,7 @@ import { FormCheckbox } from "@/components/FormCheckbox";
 import { FormTextInput } from "@/components/FormTextInput";
 import { FormNumberInput } from "@/components/FormNumberInput";
 import { FormDatePicker } from "@/components/FormDatePicker";
+import { FormTextarea } from "@/components/FormTextarea";
 import { PrintModeProvider } from "@/contexts/PrintModeContext";
 import coldTemplate from "@/assets/cold-template.png";
 
@@ -21,6 +22,7 @@ const Index = () => {
     TCR: "",
     TCD: "",
     materialReference: "",
+    specialNotes: "",
     // Number fields
     qty3ft: "",
     qty4ft: "",
@@ -79,6 +81,7 @@ const Index = () => {
       TCR: "",
       TCD: "",
       materialReference: "",
+      specialNotes: "",
       qty3ft: "",
       qty4ft: "",
       qty5ft: "",
@@ -489,6 +492,17 @@ const Index = () => {
         position={{ top: 535, left: 977 }}
         width={200}
         placeholder="Material Reference"
+      />
+
+      {/* Special Notes Textarea */}
+      <FormTextarea
+        id="specialNotes"
+        value={formData.specialNotes}
+        onChange={(val) => handleFieldChange("specialNotes", val)}
+        position={{ top: 620, left: 50 }}
+        width={600}
+        height={180}
+        placeholder="Enter special notes here..."
       />
 
     </TemplateEditor>
