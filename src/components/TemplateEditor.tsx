@@ -126,11 +126,12 @@ export const TemplateEditor: React.FC<TemplateEditorProps> = ({
       </div>
 
       {/* MAIN DRAWING AREA */}
-      <div className="ml-[260px] flex-1 bg-[#E0E0E0] flex justify-center items-center h-screen overflow-auto">
-        <div
-          id="captureArea"
-          className="relative bg-white border-2 border-purple-600 p-2.5 inline-block"
-        >
+      <div className="ml-[260px] flex-1 bg-[#E0E0E0] min-h-screen overflow-y-auto py-8">
+        <div className="flex justify-center">
+          <div
+            id="captureArea"
+            className="relative bg-white border-2 border-purple-600 p-2.5 inline-block"
+          >
           {/* IMAGE */}
           <div className="relative">
             <img
@@ -233,6 +234,7 @@ export const TemplateEditor: React.FC<TemplateEditorProps> = ({
               return null;
             })}
           </div>
+        </div>
         </div>
       </div>
     </div>
