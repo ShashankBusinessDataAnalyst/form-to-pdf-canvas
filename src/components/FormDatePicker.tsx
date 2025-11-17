@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { format } from "date-fns";
 import { CalendarIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -18,9 +18,16 @@ export const FormDatePicker: React.FC<FormDatePickerProps> = ({
   id,
   position,
   placeholder = "DD/MM/YYYY",
-  value,
+  value: controlledValue,
   onChange,
 }) => {
+  const [internalValue, setInternalValue] = useState<Date | undefined>(controlledValue);
+  const value = controlledValue !== undefined ? controlledValue : internalValue;
+
+  const handleChange = (date: Date | undefined) => {
+    setInternalValue(date);
+    onChange?.(date);
+  };
   return (
     <div
       className="absolute"
@@ -37,7 +44,7 @@ export const FormDatePicker: React.FC<FormDatePickerProps> = ({
             id={id}
             variant="outline"
             className={cn(
-              "w-[140px] h-7 justify-start text-left font-normal text-xs px-2 bg-transparent border-none hover:bg-transparent hover:border-b hover:border-gray-400 rounded-none",
+              "w-[140px] h-7 justify-start text-left font-normal text-xs px-2 bg-white border border-gray-300 hover:bg-gray-50 rounded",
               !value && "text-muted-foreground"
             )}
           >
@@ -49,7 +56,7 @@ export const FormDatePicker: React.FC<FormDatePickerProps> = ({
           <Calendar
             mode="single"
             selected={value}
-            onSelect={onChange}
+            onSelect={handleChange}
             initialFocus
             className={cn("p-3 pointer-events-auto")}
           />
