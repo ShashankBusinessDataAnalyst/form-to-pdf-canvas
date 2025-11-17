@@ -128,10 +128,69 @@ export const TemplateEditor: React.FC<TemplateEditorProps> = ({
       {/* MAIN DRAWING AREA */}
       <div className="ml-[260px] flex-1 bg-[#E0E0E0] min-h-screen overflow-y-auto py-8">
         <div className="flex justify-center">
-          <div
-            id="captureArea"
-            className="relative bg-white border-2 border-purple-600 p-2.5 inline-block"
-          >
+          <div className="relative">
+            {/* HORIZONTAL RULER (TOP) */}
+            <div className="flex">
+              <div className="w-[30px] h-[30px] bg-[#C0C0C0]"></div>
+              <div className="w-[1200px] h-[30px] bg-[#F0F0F0] border-b border-r border-gray-400 relative">
+                {Array.from({ length: 13 }).map((_, i) => {
+                  const position = i * 100;
+                  return (
+                    <div
+                      key={`h-${i}`}
+                      className="absolute top-0 h-full"
+                      style={{ left: `${position}px` }}
+                    >
+                      <div className="w-px h-3 bg-gray-600"></div>
+                      <span className="absolute top-3 -translate-x-1/2 text-[10px] text-gray-700">
+                        {position}
+                      </span>
+                      {/* Minor ticks every 50px */}
+                      {i < 12 && (
+                        <div
+                          className="absolute w-px h-2 bg-gray-400"
+                          style={{ left: '50px', top: 0 }}
+                        ></div>
+                      )}
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+
+            {/* MAIN CONTENT WITH VERTICAL RULER */}
+            <div className="flex">
+              {/* VERTICAL RULER (LEFT) */}
+              <div className="w-[30px] h-[800px] bg-[#F0F0F0] border-r border-b border-gray-400 relative">
+                {Array.from({ length: 9 }).map((_, i) => {
+                  const position = i * 100;
+                  return (
+                    <div
+                      key={`v-${i}`}
+                      className="absolute left-0 w-full"
+                      style={{ top: `${position}px` }}
+                    >
+                      <div className="h-px w-3 bg-gray-600"></div>
+                      <span className="absolute left-3 top-0 -translate-y-1/2 text-[10px] text-gray-700">
+                        {position}
+                      </span>
+                      {/* Minor ticks every 50px */}
+                      {i < 8 && (
+                        <div
+                          className="absolute h-px w-2 bg-gray-400"
+                          style={{ top: '50px', left: 0 }}
+                        ></div>
+                      )}
+                    </div>
+                  );
+                })}
+              </div>
+
+              {/* DRAWING AREA */}
+              <div
+                id="captureArea"
+                className="relative bg-white border-2 border-purple-600 p-2.5 inline-block"
+              >
           {/* IMAGE */}
           <div className="relative">
             <img
@@ -235,6 +294,8 @@ export const TemplateEditor: React.FC<TemplateEditorProps> = ({
             })}
           </div>
         </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
