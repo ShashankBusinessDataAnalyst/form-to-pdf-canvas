@@ -483,7 +483,6 @@ const Index = () => {
           position={{ top: 574, left: 952 }}
         />
 
-        
         {/* Special Notes Textarea */}
         <FormTextarea
           id="specialNotes"
@@ -500,7 +499,7 @@ const Index = () => {
           id="ReferenceNotes"
           value={formData.ReferenceNotes}
           onChange={(val) => handleFieldChange("ReferenceNotes", val)}
-          position={{ top: 4900, left: 1050 }}
+          position={{ top: 490, left: 1050 }}
           width={60}
           height={30}
           placeholder="Enter special notes here..."
