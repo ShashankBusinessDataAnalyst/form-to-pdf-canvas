@@ -7,6 +7,8 @@ import { Label } from "@/components/ui/label";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Calendar } from "@/components/ui/calendar";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
+import { Switch } from "@/components/ui/switch";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { generatePDF } from "@/lib/pdfGenerator";
 import { toast } from "sonner";
 import { cn } from "@/lib/utils";
@@ -45,6 +47,8 @@ export const TemplateEditor: React.FC<TemplateEditorProps> = ({
   const [formData, setFormData] = useState<Record<string, string>>({});
   const [checkboxStates, setCheckboxStates] = useState<Record<string, boolean>>({});
   const [dateValues, setDateValues] = useState<Record<string, Date | undefined>>({});
+  const [showGrid, setShowGrid] = useState(false);
+  const [gridSpacing, setGridSpacing] = useState(50);
 
   const handleInputChange = (id: string, value: string) => {
     setFormData((prev) => ({ ...prev, [id]: value }));
@@ -112,6 +116,34 @@ export const TemplateEditor: React.FC<TemplateEditorProps> = ({
             className="w-full mt-1"
             onChange={(e) => handleInputChange("model", e.target.value)}
           />
+        </div>
+
+        <div className="mb-3 border-t border-black/20 pt-3 mt-4">
+          <Label className="text-black font-semibold mb-2 block">Grid Settings</Label>
+          
+          <div className="flex items-center justify-between mb-3">
+            <Label htmlFor="showGrid" className="text-black">Show Grid</Label>
+            <Switch 
+              id="showGrid"
+              checked={showGrid}
+              onCheckedChange={setShowGrid}
+            />
+          </div>
+          
+          <div className="mb-2">
+            <Label className="text-black">Grid Spacing</Label>
+            <Select value={gridSpacing.toString()} onValueChange={(val) => setGridSpacing(Number(val))}>
+              <SelectTrigger className="w-full mt-1">
+                <SelectValue />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="10">10px</SelectItem>
+                <SelectItem value="25">25px</SelectItem>
+                <SelectItem value="50">50px</SelectItem>
+                <SelectItem value="100">100px</SelectItem>
+              </SelectContent>
+            </Select>
+          </div>
         </div>
 
         <Button onClick={handleSave} className="w-full mt-3">
@@ -198,6 +230,43 @@ export const TemplateEditor: React.FC<TemplateEditorProps> = ({
               alt={templateName}
               className="block w-[1200px] h-[800px]"
             />
+
+            {/* GRID OVERLAY */}
+            {showGrid && (
+              <svg
+                className="absolute top-0 left-0 pointer-events-none"
+                width="1200"
+                height="800"
+                style={{ zIndex: 10 }}
+                data-html2canvas-ignore="true"
+              >
+                {/* Vertical lines */}
+                {Array.from({ length: Math.floor(1200 / gridSpacing) + 1 }).map((_, i) => (
+                  <line
+                    key={`v-${i}`}
+                    x1={i * gridSpacing}
+                    y1={0}
+                    x2={i * gridSpacing}
+                    y2={800}
+                    stroke="rgba(0,0,0,0.15)"
+                    strokeWidth="1"
+                  />
+                ))}
+                
+                {/* Horizontal lines */}
+                {Array.from({ length: Math.floor(800 / gridSpacing) + 1 }).map((_, i) => (
+                  <line
+                    key={`h-${i}`}
+                    x1={0}
+                    y1={i * gridSpacing}
+                    x2={1200}
+                    y2={i * gridSpacing}
+                    stroke="rgba(0,0,0,0.15)"
+                    strokeWidth="1"
+                  />
+                ))}
+              </svg>
+            )}
 
             {/* OVERLAY INPUTS */}
             {fields.map((field) => {
