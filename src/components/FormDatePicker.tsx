@@ -34,8 +34,6 @@ export const FormDatePicker: React.FC<FormDatePickerProps> = ({
       style={{
         top: `${position.top}px`,
         left: `${position.left}px`,
-        transform: "translateZ(0)",
-        willChange: "transform",
       }}
     >
       <Popover>

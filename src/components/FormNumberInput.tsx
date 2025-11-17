@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 interface FormNumberInputProps {
   id: string;
@@ -18,15 +18,23 @@ export const FormNumberInput: React.FC<FormNumberInputProps> = ({
   width = 80,
   min,
   max,
-  value = "",
+  value: controlledValue,
   onChange,
 }) => {
+  const [internalValue, setInternalValue] = useState(controlledValue ?? "");
+  const value = controlledValue !== undefined ? controlledValue : internalValue;
+
+  const handleChange = (newValue: string) => {
+    setInternalValue(newValue);
+    onChange?.(newValue);
+  };
+
   return (
     <input
       id={id}
       type="number"
       value={value}
-      onChange={(e) => onChange?.(e.target.value)}
+      onChange={(e) => handleChange(e.target.value)}
       placeholder={placeholder}
       min={min}
       max={max}
@@ -35,8 +43,6 @@ export const FormNumberInput: React.FC<FormNumberInputProps> = ({
         top: `${position.top}px`,
         left: `${position.left}px`,
         width: `${width}px`,
-        transform: "translateZ(0)",
-        willChange: "transform",
       }}
     />
   );

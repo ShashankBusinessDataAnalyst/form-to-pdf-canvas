@@ -11,12 +11,25 @@ export const generatePDF = async (
   }
 
   try {
+    // Hide grid overlay during capture
+    const gridOverlay = element.querySelector('[data-html2canvas-ignore="true"]');
+    if (gridOverlay) {
+      (gridOverlay as HTMLElement).style.display = 'none';
+    }
+
     const canvas = await html2canvas(element, {
-      scale: 2,
+      scale: 3,
       useCORS: true,
       logging: false,
       backgroundColor: "#ffffff",
+      windowWidth: element.scrollWidth,
+      windowHeight: element.scrollHeight,
     });
+
+    // Restore grid overlay
+    if (gridOverlay) {
+      (gridOverlay as HTMLElement).style.display = '';
+    }
 
     const imgData = canvas.toDataURL("image/png");
     const pdf = new jsPDF({
