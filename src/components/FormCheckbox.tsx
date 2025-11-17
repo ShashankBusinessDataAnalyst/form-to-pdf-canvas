@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Label } from "@/components/ui/label";
 
@@ -14,9 +14,16 @@ export const FormCheckbox: React.FC<FormCheckboxProps> = ({
   id,
   label,
   position,
-  checked = false,
+  checked: controlledChecked,
   onChange,
 }) => {
+  const [internalChecked, setInternalChecked] = useState(controlledChecked ?? false);
+  const checked = controlledChecked !== undefined ? controlledChecked : internalChecked;
+
+  const handleChange = (newChecked: boolean) => {
+    setInternalChecked(newChecked);
+    onChange?.(newChecked);
+  };
   return (
     <div
       className="absolute flex items-center space-x-1"
@@ -30,7 +37,7 @@ export const FormCheckbox: React.FC<FormCheckboxProps> = ({
       <Checkbox
         id={id}
         checked={checked}
-        onCheckedChange={onChange}
+        onCheckedChange={handleChange}
       />
       <Label
         htmlFor={id}
