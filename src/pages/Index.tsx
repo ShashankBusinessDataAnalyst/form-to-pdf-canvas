@@ -499,7 +499,7 @@ const Index = () => {
           id="ReferenceNotes"
           value={formData.ReferenceNotes}
           onChange={(val) => handleFieldChange("ReferenceNotes", val)}
-          position={{ top: 530, left: 960 }}
+          position={{ top: 500, left: 990 }}
           width={180}
           height={90}
           placeholder="Enter special notes here..."
