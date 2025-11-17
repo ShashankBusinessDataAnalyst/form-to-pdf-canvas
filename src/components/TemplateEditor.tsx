@@ -222,9 +222,21 @@ export const TemplateEditor: React.FC<TemplateEditorProps> = ({
               <div
                 id="captureArea"
                 className="relative bg-white border-2 border-purple-600 p-2.5 inline-block"
+                style={{
+                  transform: 'translateZ(0)',
+                  isolation: 'isolate'
+                }}
               >
           {/* IMAGE */}
-          <div className="relative">
+          <div 
+            className="relative"
+            style={{
+              transform: 'translateZ(0)',
+              willChange: 'transform',
+              backfaceVisibility: 'hidden',
+              WebkitFontSmoothing: 'antialiased'
+            }}
+          >
             <img
               src={templateImage}
               alt={templateName}
@@ -275,7 +287,12 @@ export const TemplateEditor: React.FC<TemplateEditorProps> = ({
                   <div
                     key={field.id}
                     className="absolute"
-                    style={{ top: `${field.position.top}px`, left: `${field.position.left}px` }}
+                    style={{ 
+                      top: `${field.position.top}px`, 
+                      left: `${field.position.left}px`,
+                      transform: 'translateZ(0)',
+                      willChange: 'transform'
+                    }}
                   >
                     {field.checkboxes.map((checkbox) => (
                       <div key={checkbox.id} className="flex items-center mb-0.5">
@@ -309,7 +326,12 @@ export const TemplateEditor: React.FC<TemplateEditorProps> = ({
                   <div
                     key={field.id}
                     className="absolute"
-                    style={{ top: `${field.position.top}px`, left: `${field.position.left}px` }}
+                    style={{ 
+                      top: `${field.position.top}px`, 
+                      left: `${field.position.left}px`,
+                      transform: 'translateZ(0)',
+                      willChange: 'transform'
+                    }}
                   >
                     <Popover>
                       <PopoverTrigger asChild>
@@ -346,7 +368,12 @@ export const TemplateEditor: React.FC<TemplateEditorProps> = ({
                   <div
                     key={field.id}
                     className="absolute"
-                    style={{ top: `${field.position.top}px`, left: `${field.position.left}px` }}
+                    style={{ 
+                      top: `${field.position.top}px`, 
+                      left: `${field.position.left}px`,
+                      transform: 'translateZ(0)',
+                      willChange: 'transform'
+                    }}
                   >
                     <input
                       id={field.id}
