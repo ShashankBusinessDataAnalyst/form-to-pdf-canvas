@@ -182,21 +182,9 @@ export const TemplateEditor: React.FC<TemplateEditorProps> = ({
               <div
                 id="captureArea"
                 className="relative bg-white border-2 border-purple-600 p-2.5 inline-block"
-                style={{
-                  transform: 'translateZ(0)',
-                  isolation: 'isolate'
-                }}
               >
           {/* IMAGE */}
-          <div 
-            className="relative"
-            style={{
-              transform: 'translateZ(0)',
-              willChange: 'transform',
-              backfaceVisibility: 'hidden',
-              WebkitFontSmoothing: 'antialiased'
-            }}
-          >
+          <div className="relative">
             <img
               src={templateImage}
               alt={templateName}
