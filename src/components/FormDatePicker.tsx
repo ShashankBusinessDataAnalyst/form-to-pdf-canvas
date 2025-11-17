@@ -40,7 +40,16 @@ export const FormDatePicker: React.FC<FormDatePickerProps> = ({
           top: `${position.top + 2}px`,
           left: `${position.left + 20}px`,
           width: '90px',
-          lineHeight: '16px',
+          lineHeight: '1',
+          fontSize: '12px',
+          fontFamily: 'system-ui, -apple-system, sans-serif',
+          padding: '0',
+          margin: '0',
+          boxSizing: 'border-box',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          height: '16px',
         }}
       >
         {value ? format(value, "dd/MM/yyyy") : ""}

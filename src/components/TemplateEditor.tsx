@@ -42,7 +42,7 @@ export const TemplateEditor: React.FC<TemplateEditorProps> = ({
 
     // Enable print mode
     setPrintMode(true);
-    await new Promise(resolve => setTimeout(resolve, 100));
+    await new Promise(resolve => setTimeout(resolve, 200));
 
     // Hide grid overlay during capture
     const gridOverlay = element.querySelector('[data-html2canvas-ignore="true"]');
@@ -50,13 +50,24 @@ export const TemplateEditor: React.FC<TemplateEditorProps> = ({
       (gridOverlay as HTMLElement).style.display = 'none';
     }
 
+    // Get exact dimensions
+    const rect = element.getBoundingClientRect();
+
     const canvas = await html2canvas(element, {
       scale: 3,
       useCORS: true,
       logging: false,
       backgroundColor: "#ffffff",
-      windowWidth: element.scrollWidth,
-      windowHeight: element.scrollHeight,
+      width: rect.width,
+      height: rect.height,
+      windowWidth: rect.width,
+      windowHeight: rect.height,
+      scrollX: 0,
+      scrollY: 0,
+      x: 0,
+      y: 0,
+      allowTaint: false,
+      foreignObjectRendering: false,
     });
 
     // Restore grid overlay
@@ -245,7 +256,7 @@ export const TemplateEditor: React.FC<TemplateEditorProps> = ({
               {/* DRAWING AREA */}
               <div
                 id="captureArea"
-                className="relative bg-white border-2 border-purple-600 p-2.5 inline-block"
+                className="relative bg-white border-2 border-purple-600 inline-block"
               >
           {/* IMAGE */}
           <div className="relative">

@@ -27,20 +27,21 @@ export const PrintPreviewDialog: React.FC<PrintPreviewDialogProps> = ({
 }) => {
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="max-w-[95vw] max-h-[95vh] p-6">
-        <DialogHeader>
+      <DialogContent className="max-w-[90vw] max-h-[90vh] p-6 flex flex-col">
+        <DialogHeader className="flex-shrink-0">
           <DialogTitle>PDF Preview</DialogTitle>
           <DialogDescription>
             Preview how your {templateName} will look in the downloaded PDF
           </DialogDescription>
         </DialogHeader>
         
-        <div className="flex-1 overflow-auto border rounded-lg bg-gray-50 p-4">
+        <div className="flex-1 overflow-auto border rounded-lg bg-gray-50 p-4 min-h-0">
           {previewImage ? (
             <img
               src={previewImage}
               alt="PDF Preview"
-              className="w-full h-auto mx-auto shadow-lg"
+              className="max-w-full h-auto mx-auto shadow-lg"
+              style={{ maxHeight: '60vh' }}
             />
           ) : (
             <div className="flex items-center justify-center h-64 text-muted-foreground">
@@ -49,7 +50,7 @@ export const PrintPreviewDialog: React.FC<PrintPreviewDialogProps> = ({
           )}
         </div>
 
-        <DialogFooter className="gap-2">
+        <DialogFooter className="gap-2 flex-shrink-0 mt-4">
           <Button
             variant="outline"
             onClick={() => onOpenChange(false)}

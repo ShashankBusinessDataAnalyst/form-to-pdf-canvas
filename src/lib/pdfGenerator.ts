@@ -16,7 +16,7 @@ export const generatePDF = async (
     if (setPrintMode) {
       setPrintMode(true);
       // Wait for React to re-render with print mode components
-      await new Promise(resolve => setTimeout(resolve, 100));
+      await new Promise(resolve => setTimeout(resolve, 200));
     }
 
     // Hide grid overlay during capture
@@ -25,13 +25,24 @@ export const generatePDF = async (
       (gridOverlay as HTMLElement).style.display = 'none';
     }
 
+    // Get exact dimensions
+    const rect = element.getBoundingClientRect();
+
     const canvas = await html2canvas(element, {
       scale: 3,
       useCORS: true,
       logging: false,
       backgroundColor: "#ffffff",
-      windowWidth: element.scrollWidth,
-      windowHeight: element.scrollHeight,
+      width: rect.width,
+      height: rect.height,
+      windowWidth: rect.width,
+      windowHeight: rect.height,
+      scrollX: 0,
+      scrollY: 0,
+      x: 0,
+      y: 0,
+      allowTaint: false,
+      foreignObjectRendering: false,
     });
 
     // Restore grid overlay
