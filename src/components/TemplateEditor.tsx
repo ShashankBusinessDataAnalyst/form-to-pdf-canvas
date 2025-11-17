@@ -7,6 +7,9 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { generatePDF } from "@/lib/pdfGenerator";
 import { toast } from "sonner";
 import { usePrintMode } from "@/contexts/PrintModeContext";
+import { PrintPreviewDialog } from "./PrintPreviewDialog";
+import html2canvas from "html2canvas";
+import { Eye } from "lucide-react";
 
 interface TemplateEditorProps {
   templateImage: string;
@@ -24,15 +27,66 @@ export const TemplateEditor: React.FC<TemplateEditorProps> = ({
   const { setPrintMode } = usePrintMode();
   const [showGrid, setShowGrid] = useState(false);
   const [gridSpacing, setGridSpacing] = useState(50);
+  const [previewOpen, setPreviewOpen] = useState(false);
+  const [previewImage, setPreviewImage] = useState<string | null>(null);
 
   const handleSave = () => {
     toast.success("Data saved successfully!");
+  };
+
+  const capturePreview = async (): Promise<string> => {
+    const element = document.getElementById("captureArea");
+    if (!element) {
+      throw new Error("Element not found");
+    }
+
+    // Enable print mode
+    setPrintMode(true);
+    await new Promise(resolve => setTimeout(resolve, 100));
+
+    // Hide grid overlay during capture
+    const gridOverlay = element.querySelector('[data-html2canvas-ignore="true"]');
+    if (gridOverlay) {
+      (gridOverlay as HTMLElement).style.display = 'none';
+    }
+
+    const canvas = await html2canvas(element, {
+      scale: 3,
+      useCORS: true,
+      logging: false,
+      backgroundColor: "#ffffff",
+      windowWidth: element.scrollWidth,
+      windowHeight: element.scrollHeight,
+    });
+
+    // Restore grid overlay
+    if (gridOverlay) {
+      (gridOverlay as HTMLElement).style.display = '';
+    }
+
+    // Disable print mode
+    setPrintMode(false);
+
+    return canvas.toDataURL("image/png");
+  };
+
+  const handlePreview = async () => {
+    try {
+      setPreviewOpen(true);
+      setPreviewImage(null);
+      const imageData = await capturePreview();
+      setPreviewImage(imageData);
+    } catch (error) {
+      toast.error("Failed to generate preview");
+      setPreviewOpen(false);
+    }
   };
 
   const handleDownload = async () => {
     try {
       await generatePDF("captureArea", `${templateName}-form`, setPrintMode);
       toast.success("PDF downloaded successfully!");
+      setPreviewOpen(false);
     } catch (error) {
       toast.error("Failed to generate PDF");
     }
@@ -112,10 +166,18 @@ export const TemplateEditor: React.FC<TemplateEditorProps> = ({
           </Button>
         )}
         <Button
+          onClick={handlePreview}
+          variant="outline"
+          className="w-full mt-3 gap-2"
+        >
+          <Eye className="h-4 w-4" />
+          Preview PDF
+        </Button>
+        <Button
           onClick={handleDownload}
           className="w-full mt-3 bg-[#00DD00] hover:bg-[#00BB00] text-black"
         >
-          Download
+          Download PDF
         </Button>
       </div>
 
@@ -238,6 +300,14 @@ export const TemplateEditor: React.FC<TemplateEditorProps> = ({
           </div>
         </div>
       </div>
+
+      <PrintPreviewDialog
+        open={previewOpen}
+        onOpenChange={setPreviewOpen}
+        previewImage={previewImage}
+        onDownload={handleDownload}
+        templateName={templateName}
+      />
     </div>
   );
 };
