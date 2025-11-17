@@ -1,75 +1,27 @@
 import React, { useState } from "react";
-import { format } from "date-fns";
-import { CalendarIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Checkbox } from "@/components/ui/checkbox";
-import { Calendar } from "@/components/ui/calendar";
-import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { Switch } from "@/components/ui/switch";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { generatePDF } from "@/lib/pdfGenerator";
 import { toast } from "sonner";
-import { cn } from "@/lib/utils";
-
-interface FieldPosition {
-  top: number;
-  left: number;
-}
-
-interface CheckboxField {
-  id: string;
-  label: string;
-  qtyId?: string;
-}
-
-interface FieldGroup {
-  id: string;
-  type: "checkbox-group" | "text" | "date" | "number";
-  position: FieldPosition;
-  checkboxes?: CheckboxField[];
-  placeholder?: string;
-  className?: string;
-}
 
 interface TemplateEditorProps {
   templateImage: string;
   templateName: string;
-  fields: FieldGroup[];
+  children?: React.ReactNode;
 }
 
 export const TemplateEditor: React.FC<TemplateEditorProps> = ({
   templateImage,
   templateName,
-  fields,
+  children,
 }) => {
-  const [formData, setFormData] = useState<Record<string, string>>({});
-  const [checkboxStates, setCheckboxStates] = useState<Record<string, boolean>>({});
-  const [dateValues, setDateValues] = useState<Record<string, Date | undefined>>({});
   const [showGrid, setShowGrid] = useState(false);
   const [gridSpacing, setGridSpacing] = useState(50);
 
-  const handleInputChange = (id: string, value: string) => {
-    setFormData((prev) => ({ ...prev, [id]: value }));
-  };
-
-  const handleCheckboxChange = (checkboxId: string, checked: boolean) => {
-    setCheckboxStates((prev) => ({ ...prev, [checkboxId]: checked }));
-  };
-
-  const handleDateChange = (id: string, date: Date | undefined) => {
-    setDateValues((prev) => ({ ...prev, [id]: date }));
-    if (date) {
-      const formatted = format(date, "dd/MM/yyyy");
-      setFormData((prev) => ({ ...prev, [id]: formatted }));
-    } else {
-      setFormData((prev) => ({ ...prev, [id]: "" }));
-    }
-  };
-
   const handleSave = () => {
-    console.log("Form data saved:", formData);
     toast.success("Data saved successfully!");
   };
 
@@ -94,7 +46,6 @@ export const TemplateEditor: React.FC<TemplateEditorProps> = ({
             type="text"
             id="salesPerson"
             className="w-full mt-1"
-            onChange={(e) => handleInputChange("salesPerson", e.target.value)}
           />
         </div>
 
@@ -104,7 +55,6 @@ export const TemplateEditor: React.FC<TemplateEditorProps> = ({
             type="date"
             id="date"
             className="w-full mt-1"
-            onChange={(e) => handleInputChange("date", e.target.value)}
           />
         </div>
 
@@ -114,7 +64,6 @@ export const TemplateEditor: React.FC<TemplateEditorProps> = ({
             type="text"
             id="model"
             className="w-full mt-1"
-            onChange={(e) => handleInputChange("model", e.target.value)}
           />
         </div>
 
@@ -280,114 +229,8 @@ export const TemplateEditor: React.FC<TemplateEditorProps> = ({
               </svg>
             )}
 
-            {/* OVERLAY INPUTS */}
-            {fields.map((field) => {
-              if (field.type === "checkbox-group" && field.checkboxes) {
-                return (
-                  <div
-                    key={field.id}
-                    className="absolute"
-                    style={{ 
-                      top: `${field.position.top}px`, 
-                      left: `${field.position.left}px`,
-                      transform: 'translateZ(0)',
-                      willChange: 'transform'
-                    }}
-                  >
-                    {field.checkboxes.map((checkbox) => (
-                      <div key={checkbox.id} className="flex items-center mb-0.5">
-                        <label className="flex items-center text-sm">
-                          {checkbox.label}
-                          <Checkbox
-                            className="ml-8"
-                            checked={checkboxStates[checkbox.id] || false}
-                            onCheckedChange={(checked) =>
-                              handleCheckboxChange(checkbox.id, checked === true)
-                            }
-                          />
-                        </label>
-                        {checkbox.qtyId && checkboxStates[checkbox.id] && (
-                          <input
-                            id={checkbox.qtyId}
-                            type="number"
-                            placeholder="Qty"
-                            className="border-none outline-none bg-transparent w-[50px] ml-5 text-sm"
-                            onChange={(e) => handleInputChange(checkbox.qtyId!, e.target.value)}
-                          />
-                        )}
-                      </div>
-                    ))}
-                  </div>
-                );
-              }
-
-              if (field.type === "date") {
-                return (
-                  <div
-                    key={field.id}
-                    className="absolute"
-                    style={{ 
-                      top: `${field.position.top}px`, 
-                      left: `${field.position.left}px`,
-                      transform: 'translateZ(0)',
-                      willChange: 'transform'
-                    }}
-                  >
-                    <Popover>
-                      <PopoverTrigger asChild>
-                        <button
-                          className={cn(
-                            "border-none bg-transparent outline-none text-sm text-center flex items-center justify-center gap-1",
-                            field.className || "w-[100px]",
-                            !dateValues[field.id] && "text-muted-foreground"
-                          )}
-                        >
-                          {dateValues[field.id] ? (
-                            format(dateValues[field.id]!, "dd/MM/yyyy")
-                          ) : (
-                            <span className="text-xs">{field.placeholder || "DD/MM/YYYY"}</span>
-                          )}
-                          <CalendarIcon className="h-3 w-3" />
-                        </button>
-                      </PopoverTrigger>
-                      <PopoverContent className="w-auto p-0" align="start">
-                        <Calendar
-                          mode="single"
-                          selected={dateValues[field.id]}
-                          onSelect={(date) => handleDateChange(field.id, date)}
-                          initialFocus
-                        />
-                      </PopoverContent>
-                    </Popover>
-                  </div>
-                );
-              }
-
-              if (field.type === "text") {
-                return (
-                  <div
-                    key={field.id}
-                    className="absolute"
-                    style={{ 
-                      top: `${field.position.top}px`, 
-                      left: `${field.position.left}px`,
-                      transform: 'translateZ(0)',
-                      willChange: 'transform'
-                    }}
-                  >
-                    <input
-                      id={field.id}
-                      type="text"
-                      placeholder={field.placeholder || ""}
-                      className={`border-none bg-transparent outline-none text-sm text-center ${field.className || "w-[100px]"}`}
-                      onChange={(e) => handleInputChange(field.id, e.target.value)}
-                    />
-                  </div>
-                );
-              }
-
-              return null;
-            })}
+                  {/* FORM ELEMENTS */}
+                  {children}
           </div>
         </div>
             </div>
