@@ -79,7 +79,7 @@ export const TemplateEditor: React.FC<TemplateEditorProps> = ({
   };
 
   return (
-    <div className="flex h-screen overflow-hidden">
+    <div className="flex h-screen overflow-x-auto min-w-[1440px]">
       {/* LEFT SIDEBAR */}
       <div className="w-[260px] bg-[#7286FF] p-5 fixed top-0 left-0 h-full overflow-y-auto">
         <h2 className="text-black text-xl font-bold mb-4 mt-0">Company Logo</h2>
