@@ -213,7 +213,7 @@ export const TemplateEditor: React.FC<TemplateEditorProps> = ({
         
         {/* Right Template Area - 80% */}
         <div 
-          className="flex-1 flex items-center justify-center overflow-hidden px-4"
+          className="flex-1 flex items-start justify-center overflow-hidden px-4 py-4"
           onMouseDown={handleMouseDown}
           onMouseMove={handleMouseMove}
           onMouseUp={handleMouseUp}
