@@ -93,31 +93,6 @@ export const TemplateEditor: React.FC<TemplateEditorProps> = ({
     setDragButton(null);
   };
 
-  // Wheel zoom handler - zoom centered on cursor position
-  const handleWheel = (e: React.WheelEvent) => {
-    e.preventDefault();
-    
-    const container = e.currentTarget;
-    const rect = container.getBoundingClientRect();
-    
-    // Get mouse position relative to container
-    const mouseX = e.clientX - rect.left - rect.width / 2;
-    const mouseY = e.clientY - rect.top - rect.height / 2;
-    
-    // Calculate zoom change
-    const zoomDelta = e.deltaY > 0 ? -0.1 : 0.1;
-    const newZoomLevel = Math.max(0.25, Math.min(2, zoomLevel + zoomDelta));
-    
-    if (newZoomLevel !== zoomLevel) {
-      // Calculate how much to adjust pan to keep zoom centered on cursor
-      const scaleFactor = newZoomLevel / zoomLevel;
-      const newPanX = mouseX - (mouseX - panOffset.x) * scaleFactor;
-      const newPanY = mouseY - (mouseY - panOffset.y) * scaleFactor;
-      
-      setZoomLevel(newZoomLevel);
-      setPanOffset({ x: newPanX, y: newPanY });
-    }
-  };
 
   // Prevent default middle-click behavior (auto-scroll)
   useEffect(() => {
@@ -218,7 +193,6 @@ export const TemplateEditor: React.FC<TemplateEditorProps> = ({
           onMouseMove={handleMouseMove}
           onMouseUp={handleMouseUp}
           onMouseLeave={handleMouseLeave}
-          onWheel={handleWheel}
           style={{
             cursor: isDragging 
               ? 'grabbing' 
