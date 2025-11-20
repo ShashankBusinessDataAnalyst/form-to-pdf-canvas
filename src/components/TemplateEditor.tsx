@@ -66,6 +66,45 @@ export const TemplateEditor: React.FC<TemplateEditorProps> = ({
     return () => document.removeEventListener('mousedown', preventMiddleClick);
   }, []);
 
+  // Reset pan offset when zoom returns to 1
+  useEffect(() => {
+    if (zoomLevel === 1) {
+      setPanOffset({ x: 0, y: 0 });
+    }
+  }, [zoomLevel]);
+
+  // Handle mouse down - start dragging
+  const handleMouseDown = (e: React.MouseEvent) => {
+    // Support both left-click (button 0) and middle-click (button 1)
+    if (e.button === 0 || e.button === 1) {
+      setIsDragging(true);
+      setDragButton(e.button);
+      setDragStart({ x: e.clientX - panOffset.x, y: e.clientY - panOffset.y });
+      e.preventDefault();
+    }
+  };
+
+  // Handle mouse move - update pan position
+  const handleMouseMove = (e: React.MouseEvent) => {
+    if (isDragging) {
+      const newX = e.clientX - dragStart.x;
+      const newY = e.clientY - dragStart.y;
+      setPanOffset({ x: newX, y: newY });
+    }
+  };
+
+  // Handle mouse up - stop dragging
+  const handleMouseUp = () => {
+    setIsDragging(false);
+    setDragButton(null);
+  };
+
+  // Handle mouse leave - stop dragging when leaving the container
+  const handleMouseLeave = () => {
+    setIsDragging(false);
+    setDragButton(null);
+  };
+
   const capturePreview = async (): Promise<string> => {
     const element = document.getElementById("captureArea");
     if (!element) {
@@ -149,6 +188,13 @@ export const TemplateEditor: React.FC<TemplateEditorProps> = ({
         {/* Right Template Area - 80% */}
         <div 
           className="flex-1 flex items-start justify-center overflow-hidden px-4 py-4"
+          onMouseDown={handleMouseDown}
+          onMouseMove={handleMouseMove}
+          onMouseUp={handleMouseUp}
+          onMouseLeave={handleMouseLeave}
+          style={{
+            cursor: isDragging ? 'grabbing' : 'grab'
+          }}
         >
           <div className="flex justify-center overflow-hidden">
             {/* MAIN DRAWING AREA */}
@@ -160,7 +206,7 @@ export const TemplateEditor: React.FC<TemplateEditorProps> = ({
                 style={{
                   width: '1123px',   // A4 landscape width at 72 DPI
                   height: '794px',  // A4 landscape height at 72 DPI
-                  transform: `scale(${scale})`,
+                  transform: `translate(${panOffset.x}px, ${panOffset.y}px) scale(${scale})`,
                   transformOrigin: 'center center',
                 }}
               >
