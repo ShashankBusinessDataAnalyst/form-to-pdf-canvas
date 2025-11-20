@@ -95,49 +95,36 @@ export const TemplateEditor: React.FC<TemplateEditorProps> = ({
       <TemplateHeader templateName={templateName} />
       
       {/* Main Content */}
-      <div className="pt-[60px] pb-8">
-        <div className="flex justify-center">
+      <div className="pt-[60px] pb-4 px-4 h-screen flex items-center justify-center">
+        <div className="flex justify-center max-h-[calc(100vh-80px)]">
           {/* MAIN DRAWING AREA */}
-          <div className="relative">
-            {/* Top Ruler */}
-            <div className="h-8 bg-gray-100 border-b border-gray-300 flex items-center justify-center text-xs text-gray-500 mb-2">
-              Ruler (inches)
-            </div>
+          <div className="relative h-full flex items-center">
+            {/* Drawing Area */}
+            <div id="captureArea" className="relative bg-white shadow-xl max-h-full">
+              <img
+                src={templateImage}
+                alt="Technical Drawing Template"
+                className="max-h-[calc(100vh-80px)] w-auto object-contain"
+                draggable={false}
+              />
 
-            {/* Left Ruler and Drawing Area */}
-            <div className="flex">
-              {/* Left Ruler */}
-              <div className="w-8 bg-gray-100 border-r border-gray-300 flex items-center justify-center text-xs text-gray-500 mr-2 writing-mode-vertical">
-                Ruler
-              </div>
-
-              {/* Drawing Area */}
-              <div id="captureArea" className="relative bg-white shadow-xl">
-                <img
-                  src={templateImage}
-                  alt="Technical Drawing Template"
-                  className="w-full h-auto block"
-                  draggable={false}
+              {/* Grid Overlay (hidden during PDF generation) */}
+              {showGrid && (
+                <div
+                  data-html2canvas-ignore="true"
+                  className="absolute inset-0 pointer-events-none"
+                  style={{
+                    backgroundImage: `
+                      linear-gradient(to right, rgba(0,0,0,0.1) 1px, transparent 1px),
+                      linear-gradient(to bottom, rgba(0,0,0,0.1) 1px, transparent 1px)
+                    `,
+                    backgroundSize: `50px 50px`
+                  }}
                 />
+              )}
 
-                {/* Grid Overlay (hidden during PDF generation) */}
-                {showGrid && (
-                  <div
-                    data-html2canvas-ignore="true"
-                    className="absolute inset-0 pointer-events-none"
-                    style={{
-                      backgroundImage: `
-                        linear-gradient(to right, rgba(0,0,0,0.1) 1px, transparent 1px),
-                        linear-gradient(to bottom, rgba(0,0,0,0.1) 1px, transparent 1px)
-                      `,
-                      backgroundSize: `50px 50px`
-                    }}
-                  />
-                )}
-
-                {/* Form Elements Overlay */}
-                {children}
-              </div>
+              {/* Form Elements Overlay */}
+              {children}
             </div>
           </div>
         </div>
