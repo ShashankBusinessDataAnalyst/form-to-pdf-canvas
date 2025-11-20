@@ -24,7 +24,7 @@ export const FloatingActionPanel: React.FC<FloatingActionPanelProps> = ({
       <div className="w-[180px] bg-background border-2 border-border rounded-lg p-4 shadow-lg">
         <div className="flex items-center justify-between mb-2">
           <span className="text-sm font-medium text-foreground">Zoom</span>
-          <span className="text-sm font-bold text-primary">{Math.round(zoom * 100)}%</span>
+          <span className="text-sm font-bold text-primary">{Math.round(zoom * 120)}%</span>
         </div>
         <div className="flex items-center gap-2">
           <Button
