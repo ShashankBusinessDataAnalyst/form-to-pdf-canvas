@@ -4,6 +4,7 @@ import { toast } from "sonner";
 import { usePrintMode } from "@/contexts/PrintModeContext";
 import { PrintPreviewDialog } from "./PrintPreviewDialog";
 import { TemplateHeader } from "./TemplateHeader";
+import { TemplateFooter } from "./TemplateFooter";
 import { FloatingActionPanel } from "./FloatingActionPanel";
 import html2canvas from "html2canvas";
 interface TemplateEditorProps {
@@ -95,7 +96,7 @@ export const TemplateEditor: React.FC<TemplateEditorProps> = ({
       <TemplateHeader templateName={templateName} />
       
       {/* Main Content */}
-      <div className="pt-[60px] pb-4 px-4 h-screen flex items-center justify-center">
+      <div className="pt-[80px] pb-[72px] px-4 h-screen flex items-center justify-center">
         <div className="flex justify-center max-h-[calc(100vh-80px)]">
           {/* MAIN DRAWING AREA */}
           <div className="relative h-full flex items-center">
@@ -146,6 +147,9 @@ export const TemplateEditor: React.FC<TemplateEditorProps> = ({
         onDownload={handleDownload}
         templateName={templateName}
       />
+      
+      {/* Footer */}
+      <TemplateFooter />
     </div>
   );
 };
