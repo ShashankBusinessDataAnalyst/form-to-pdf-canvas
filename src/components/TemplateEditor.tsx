@@ -5,7 +5,7 @@ import { usePrintMode } from "@/contexts/PrintModeContext";
 import { PrintPreviewDialog } from "./PrintPreviewDialog";
 import { TemplateHeader } from "./TemplateHeader";
 import { TemplateFooter } from "./TemplateFooter";
-import { FloatingActionPanel } from "./FloatingActionPanel";
+import { ControlSidebar } from "./ControlSidebar";
 import html2canvas from "html2canvas";
 interface TemplateEditorProps {
   templateImage: string;
@@ -33,8 +33,8 @@ export const TemplateEditor: React.FC<TemplateEditorProps> = ({
   // Calculate automatic scale factor to fit template in viewport
   useEffect(() => {
     const calculateScale = () => {
-      const availableHeight = window.innerHeight - 160;
-      const availableWidth = window.innerWidth - 32;
+      const availableHeight = window.innerHeight - 160; // header + footer
+      const availableWidth = (window.innerWidth * 0.8) - 32; // 80% of screen - padding
       const containerHeight = 1000;
       const containerWidth = 1400;
       
@@ -130,9 +130,7 @@ export const TemplateEditor: React.FC<TemplateEditorProps> = ({
     document.addEventListener('mousedown', preventMiddleClick);
     return () => document.removeEventListener('mousedown', preventMiddleClick);
   }, []);
-  const handleSave = () => {
-    toast.success("Data saved successfully!");
-  };
+
   const capturePreview = async (): Promise<string> => {
     const element = document.getElementById("captureArea");
     if (!element) {
@@ -202,75 +200,77 @@ export const TemplateEditor: React.FC<TemplateEditorProps> = ({
       {/* Top Header */}
       <TemplateHeader templateName={templateName} />
       
-      {/* Main Content */}
-      <div 
-        className="pt-[80px] pb-[72px] px-4 h-screen flex items-center justify-center overflow-hidden"
-        onMouseDown={handleMouseDown}
-        onMouseMove={handleMouseMove}
-        onMouseUp={handleMouseUp}
-        onMouseLeave={handleMouseLeave}
-        onWheel={handleWheel}
-        style={{
-          cursor: isDragging 
-            ? 'grabbing' 
-            : (dragButton === 1 || zoomLevel > 1) 
-            ? 'grab' 
-            : 'default',
-        }}
-      >
-        <div className="flex justify-center overflow-hidden">
-          {/* MAIN DRAWING AREA */}
-          <div className="relative flex items-center overflow-hidden">
-            {/* Drawing Area - Fixed size container that scales as a unit */}
-            <div 
-              id="captureArea" 
-              className="relative bg-white shadow-xl"
-              style={{
-                width: '1400px',
-                height: '1000px',
-                transform: `scale(${scale}) translate(${panOffset.x / scale}px, ${panOffset.y / scale}px)`,
-                transformOrigin: 'center center',
-                transition: isDragging ? 'none' : 'transform 0.1s ease-out',
-              }}
-            >
-              <img
-                src={templateImage}
-                alt="Technical Drawing Template"
-                className="w-full h-full object-contain"
-                draggable={false}
-              />
-
-              {/* Grid Overlay (hidden during PDF generation) */}
-              {showGrid && (
-                <div
-                  data-html2canvas-ignore="true"
-                  className="absolute inset-0 pointer-events-none"
-                  style={{
-                    backgroundImage: `
-                      linear-gradient(to right, rgba(0,0,0,0.1) 1px, transparent 1px),
-                      linear-gradient(to bottom, rgba(0,0,0,0.1) 1px, transparent 1px)
-                    `,
-                    backgroundSize: `50px 50px`
-                  }}
+      {/* Main Content Area with Sidebar */}
+      <div className="flex pt-[80px] pb-[72px] h-screen">
+        {/* Left Control Sidebar - 20% */}
+        <ControlSidebar
+          zoom={zoomLevel}
+          onZoomChange={setZoomLevel}
+          onClear={onClearAll}
+          onPreview={handlePreview}
+          onDownload={handleDownload}
+        />
+        
+        {/* Right Template Area - 80% */}
+        <div 
+          className="flex-1 flex items-center justify-center overflow-hidden px-4"
+          onMouseDown={handleMouseDown}
+          onMouseMove={handleMouseMove}
+          onMouseUp={handleMouseUp}
+          onMouseLeave={handleMouseLeave}
+          onWheel={handleWheel}
+          style={{
+            cursor: isDragging 
+              ? 'grabbing' 
+              : (dragButton === 1 || zoomLevel > 1) 
+              ? 'grab' 
+              : 'default',
+          }}
+        >
+          <div className="flex justify-center overflow-hidden">
+            {/* MAIN DRAWING AREA */}
+            <div className="relative flex items-center overflow-hidden">
+              {/* Drawing Area - Fixed size container that scales as a unit */}
+              <div 
+                id="captureArea" 
+                className="relative bg-white shadow-xl"
+                style={{
+                  width: '1400px',
+                  height: '1000px',
+                  transform: `scale(${scale}) translate(${panOffset.x / scale}px, ${panOffset.y / scale}px)`,
+                  transformOrigin: 'center center',
+                  transition: isDragging ? 'none' : 'transform 0.1s ease-out',
+                }}
+              >
+                <img
+                  src={templateImage}
+                  alt="Technical Drawing Template"
+                  className="w-full h-full object-contain"
+                  draggable={false}
                 />
-              )}
 
-              {/* Form Elements Overlay */}
-              {children}
+                {/* Grid Overlay (hidden during PDF generation) */}
+                {showGrid && (
+                  <div
+                    data-html2canvas-ignore="true"
+                    className="absolute inset-0 pointer-events-none"
+                    style={{
+                      backgroundImage: `
+                        linear-gradient(to right, rgba(0,0,0,0.1) 1px, transparent 1px),
+                        linear-gradient(to bottom, rgba(0,0,0,0.1) 1px, transparent 1px)
+                      `,
+                      backgroundSize: `50px 50px`
+                    }}
+                  />
+                )}
+
+                {/* Form Elements Overlay */}
+                {children}
+              </div>
             </div>
           </div>
         </div>
       </div>
-      
-      {/* Floating Action Panel */}
-      <FloatingActionPanel
-        onSave={handleSave}
-        onClear={onClearAll}
-        onPreview={handlePreview}
-        onDownload={handleDownload}
-        zoom={zoomLevel}
-        onZoomChange={setZoomLevel}
-      />
       
       {/* Preview Dialog */}
       <PrintPreviewDialog
