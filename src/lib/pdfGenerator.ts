@@ -4,7 +4,8 @@ import html2canvas from "html2canvas";
 export const generatePDF = async (
   elementId: string,
   fileName: string,
-  setPrintMode?: (value: boolean) => void
+  setPrintMode?: (value: boolean) => void,
+  currentScale?: number
 ): Promise<void> => {
   const element = document.getElementById(elementId);
   if (!element) {
@@ -17,6 +18,14 @@ export const generatePDF = async (
       setPrintMode(true);
       // Wait for React to re-render with print mode components
       await new Promise(resolve => setTimeout(resolve, 200));
+    }
+
+    // Temporarily remove scale transform for full-resolution PDF
+    const originalTransform = (element as HTMLElement).style.transform;
+    if (currentScale) {
+      (element as HTMLElement).style.transform = 'scale(1)';
+      (element as HTMLElement).style.transformOrigin = 'top left';
+      await new Promise(resolve => setTimeout(resolve, 50));
     }
 
     // Hide grid overlay during capture
@@ -50,6 +59,11 @@ export const generatePDF = async (
       (gridOverlay as HTMLElement).style.display = '';
     }
 
+    // Restore original scale transform
+    if (currentScale) {
+      (element as HTMLElement).style.transform = originalTransform;
+    }
+
     // Disable print mode
     if (setPrintMode) {
       setPrintMode(false);
@@ -66,7 +80,11 @@ export const generatePDF = async (
     pdf.save(`${fileName}.pdf`);
   } catch (error) {
     console.error("Error generating PDF:", error);
-    // Make sure to disable print mode on error
+    // Restore scale and print mode on error
+    const element = document.getElementById(elementId);
+    if (element && currentScale) {
+      (element as HTMLElement).style.transform = `scale(${currentScale})`;
+    }
     if (setPrintMode) {
       setPrintMode(false);
     }

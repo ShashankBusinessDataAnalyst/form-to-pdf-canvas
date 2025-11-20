@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { generatePDF } from "@/lib/pdfGenerator";
 import { toast } from "sonner";
 import { usePrintMode } from "@/contexts/PrintModeContext";
@@ -23,6 +23,27 @@ export const TemplateEditor: React.FC<TemplateEditorProps> = ({
   const [showGrid] = useState(false);
   const [previewOpen, setPreviewOpen] = useState(false);
   const [previewImage, setPreviewImage] = useState<string | null>(null);
+  const [scale, setScale] = useState(1);
+
+  // Calculate scale factor to fit template in viewport while maintaining aspect ratio
+  useEffect(() => {
+    const calculateScale = () => {
+      const availableHeight = window.innerHeight - 160; // Account for header (80px) + footer (72px) + padding
+      const availableWidth = window.innerWidth - 32; // Account for horizontal padding
+      const containerHeight = 1000; // Fixed reference height
+      const containerWidth = 1400; // Fixed reference width
+      
+      const scaleHeight = availableHeight / containerHeight;
+      const scaleWidth = availableWidth / containerWidth;
+      
+      // Use the smaller scale to ensure it fits, and don't scale up beyond 1
+      setScale(Math.min(scaleHeight, scaleWidth, 1));
+    };
+    
+    calculateScale();
+    window.addEventListener('resize', calculateScale);
+    return () => window.removeEventListener('resize', calculateScale);
+  }, []);
   const handleSave = () => {
     toast.success("Data saved successfully!");
   };
@@ -83,7 +104,7 @@ export const TemplateEditor: React.FC<TemplateEditorProps> = ({
   };
   const handleDownload = async () => {
     try {
-      await generatePDF("captureArea", `${templateName}-form`, setPrintMode);
+      await generatePDF("captureArea", `${templateName}-form`, setPrintMode, scale);
       toast.success("PDF downloaded successfully!");
       setPreviewOpen(false);
     } catch (error) {
@@ -97,15 +118,24 @@ export const TemplateEditor: React.FC<TemplateEditorProps> = ({
       
       {/* Main Content */}
       <div className="pt-[80px] pb-[72px] px-4 h-screen flex items-center justify-center overflow-hidden">
-        <div className="flex justify-center max-h-[calc(100vh-160px)] overflow-hidden">
+        <div className="flex justify-center overflow-hidden">
           {/* MAIN DRAWING AREA */}
-          <div className="relative h-full flex items-center overflow-hidden">
-            {/* Drawing Area */}
-            <div id="captureArea" className="relative bg-white shadow-xl max-h-full overflow-hidden">
+          <div className="relative flex items-center overflow-hidden">
+            {/* Drawing Area - Fixed size container that scales as a unit */}
+            <div 
+              id="captureArea" 
+              className="relative bg-white shadow-xl"
+              style={{
+                width: '1400px',
+                height: '1000px',
+                transform: `scale(${scale})`,
+                transformOrigin: 'center center',
+              }}
+            >
               <img
                 src={templateImage}
                 alt="Technical Drawing Template"
-                className="max-h-[calc(100vh-160px)] w-auto object-contain"
+                className="w-full h-full object-contain"
                 draggable={false}
               />
 
