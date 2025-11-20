@@ -11,6 +11,7 @@ import { PrintPreviewDialog } from "./PrintPreviewDialog";
 import html2canvas from "html2canvas";
 import { Eye, ArrowLeft } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import williamsLogo from "@/assets/williams-logo.png";
 interface TemplateEditorProps {
   templateImage: string;
   templateName: string;
@@ -110,7 +111,7 @@ export const TemplateEditor: React.FC<TemplateEditorProps> = ({
           <ArrowLeft className="h-4 w-4 mr-2" />
           Back to Products
         </Button>
-        <h2 className="text-black text-xl font-bold mb-4 mt-0">Company Logo</h2>
+        <img src={williamsLogo} alt="Williams Refrigeration" className="h-16 mb-4" />
 
         <div className="mb-3">
           <Label htmlFor="salesPerson" className="text-black">Sales Person Name</Label>
