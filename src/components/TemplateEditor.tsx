@@ -97,7 +97,7 @@ export const TemplateEditor: React.FC<TemplateEditorProps> = ({
       
       {/* Main Content */}
       <div className="pt-[80px] pb-[72px] px-4 h-screen flex items-center justify-center">
-        <div className="flex justify-center max-h-[calc(100vh-80px)]">
+        <div className="flex justify-center max-h-[calc(100vh-200px)]">
           {/* MAIN DRAWING AREA */}
           <div className="relative h-full flex items-center">
             {/* Drawing Area */}
@@ -105,7 +105,7 @@ export const TemplateEditor: React.FC<TemplateEditorProps> = ({
               <img
                 src={templateImage}
                 alt="Technical Drawing Template"
-                className="max-h-[calc(100vh-80px)] w-auto object-contain"
+                className="max-h-[calc(100vh-200px)] w-auto object-contain"
                 draggable={false}
               />
 
