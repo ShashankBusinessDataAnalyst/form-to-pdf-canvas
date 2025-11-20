@@ -3,6 +3,7 @@ import { Input } from "@/components/ui/input";
 import { Search } from "lucide-react";
 import { ProductCard } from "@/components/ProductCard";
 import { products } from "@/data/products";
+import williamsLogo from "@/assets/williams-logo.png";
 
 const Index = () => {
   const [searchQuery, setSearchQuery] = useState("");
@@ -18,7 +19,7 @@ const Index = () => {
         <div className="container mx-auto px-6 py-6">
           <div className="flex items-center justify-between gap-8">
             <div className="flex items-center gap-4">
-              <div className="text-2xl font-bold text-foreground">Williams</div>
+              <img src={williamsLogo} alt="Williams Refrigeration" className="h-16" />
               <h1 className="text-xl font-semibold text-foreground">Product Approval System</h1>
             </div>
             <div className="relative w-96">
