@@ -16,7 +16,7 @@ export const FloatingActionPanel: React.FC<FloatingActionPanelProps> = ({
   onPreview,
   onDownload,
   zoom,
-  onZoomChange
+  onZoomChange,
 }) => {
   return (
     <div className="fixed right-6 top-1/2 -translate-y-1/2 flex flex-col gap-3 z-40">
@@ -52,13 +52,8 @@ export const FloatingActionPanel: React.FC<FloatingActionPanelProps> = ({
             <ZoomIn className="h-4 w-4" />
           </Button>
         </div>
-        <Button
-          variant="ghost"
-          size="sm"
-          className="w-full mt-2 h-7 text-xs"
-          onClick={() => onZoomChange(1)}
-        >
-          Reset (100%)
+        <Button variant="ghost" size="sm" className="w-full mt-2 h-7 text-xs" onClick={() => onZoomChange(1)}>
+          Reset (125%)
         </Button>
       </div>
 
