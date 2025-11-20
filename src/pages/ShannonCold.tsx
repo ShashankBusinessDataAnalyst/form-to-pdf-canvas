@@ -47,7 +47,7 @@ const ShannonCold = () => {
           id="sampleDate"
           value={formData.sampleDate}
           onChange={(val) => handleFieldChange("sampleDate", val)}
-          position={{ top: 350, left: 600 }}
+          position={{ top: 250, left: 200 }}
           placeholder="DD/MM/YYYY"
         />
 
@@ -56,7 +56,7 @@ const ShannonCold = () => {
           id="sampleText"
           value={formData.sampleText}
           onChange={(val) => handleFieldChange("sampleText", val)}
-          position={{ top: 425, left: 600 }}
+          position={{ top: 350, left: 200 }}
           width={200}
         />
 
@@ -65,7 +65,7 @@ const ShannonCold = () => {
           id="sampleNumber"
           value={formData.sampleNumber}
           onChange={(val) => handleFieldChange("sampleNumber", val)}
-          position={{ top: 500, left: 600 }}
+          position={{ top: 450, left: 200 }}
           width={150}
         />
 
@@ -74,7 +74,7 @@ const ShannonCold = () => {
           id="sampleCheckbox"
           checked={formData.sampleCheckbox}
           onChange={(val) => handleFieldChange("sampleCheckbox", val)}
-          position={{ top: 575, left: 650 }}
+          position={{ top: 550, left: 250 }}
         />
 
         {/* Textarea - Sample */}
@@ -82,8 +82,8 @@ const ShannonCold = () => {
           id="sampleTextarea"
           value={formData.sampleTextarea}
           onChange={(val) => handleFieldChange("sampleTextarea", val)}
-          position={{ top: 625, left: 600 }}
-          width={300}
+          position={{ top: 600, left: 200 }}
+          width={250}
           height={100}
         />
       </TemplateEditor>
