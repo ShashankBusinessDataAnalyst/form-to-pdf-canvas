@@ -35,8 +35,8 @@ export const TemplateEditor: React.FC<TemplateEditorProps> = ({
     const calculateScale = () => {
       const availableHeight = window.innerHeight - 160; // header + footer
       const availableWidth = (window.innerWidth * 0.8) - 32; // 80% of screen - padding
-      const containerHeight = 842; // A4 portrait height at 72 DPI
-      const containerWidth = 595;  // A4 portrait width at 72 DPI
+      const containerHeight = 595; // A4 landscape height at 72 DPI
+      const containerWidth = 842;  // A4 landscape width at 72 DPI
       
       const scaleHeight = availableHeight / containerHeight;
       const scaleWidth = availableWidth / containerWidth;
@@ -235,8 +235,8 @@ export const TemplateEditor: React.FC<TemplateEditorProps> = ({
                 id="captureArea" 
                 className="relative bg-white shadow-xl"
                 style={{
-                  width: '595px',   // A4 width at 72 DPI
-                  height: '842px',  // A4 height at 72 DPI
+                  width: '842px',   // A4 landscape width at 72 DPI
+                  height: '595px',  // A4 landscape height at 72 DPI
                   transform: `scale(${scale}) translate(${panOffset.x / scale}px, ${panOffset.y / scale}px)`,
                   transformOrigin: 'center center',
                   transition: isDragging ? 'none' : 'transform 0.1s ease-out',
