@@ -22,7 +22,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({
       className="overflow-hidden hover:shadow-lg transition-all duration-300 cursor-pointer group border-border bg-card"
       onClick={() => navigate(route)}
     >
-      <div className="aspect-[4/3] bg-muted relative overflow-hidden">
+      <div className="aspect-[1/1] bg-muted relative overflow-hidden">
         <img 
           src={thumbnail} 
           alt={name}

@@ -44,47 +44,149 @@ const ShannonCold = () => {
         
         {/* Date Picker - Sample */}
         <FormDatePicker
-          id="sampleDate"
+          id="creationDate"
           value={formData.sampleDate}
-          onChange={(val) => handleFieldChange("sampleDate", val)}
-          position={{ top: 150, left: 320 }}
+          onChange={(val) => handleFieldChange("creationDate", val)}
+          position={{ top: 19, left: 340 }}
+          placeholder="DD/MM/YYYY"
+        />
+        <FormDatePicker
+          id="SODate"
+          value={formData.sampleDate}
+          onChange={(val) => handleFieldChange("SODate", val)}
+          position={{ top: 750, left: 470 }}
           placeholder="DD/MM/YYYY"
         />
 
         {/* Text Input - Sample */}
         <FormTextInput
-          id="sampleText"
+          id="clientName"
           value={formData.sampleText}
-          onChange={(val) => handleFieldChange("sampleText", val)}
-          position={{ top: 225, left: 320 }}
+          onChange={(val) => handleFieldChange("clientName", val)}
+          position={{ top: 733, left: 320 }}
           width={200}
+          placeholder="clientName"
         />
 
-        {/* Number Input - Sample */}
-        <FormNumberInput
-          id="sampleNumber"
-          value={formData.sampleNumber}
-          onChange={(val) => handleFieldChange("sampleNumber", val)}
-          position={{ top: 300, left: 320 }}
-          width={150}
+        <FormTextInput
+          id="SONumber"
+          value={formData.sampleText}
+          onChange={(val) => handleFieldChange("SONumber", val)}
+          position={{ top: 750, left: 280 }}
+          width={200}
+          placeholder="SONumber"
         />
-
-        {/* Checkbox - Sample */}
+        {/* Checkbox - dimension */}
         <FormCheckbox
-          id="sampleCheckbox"
+          id="3ft"
           checked={formData.sampleCheckbox}
-          onChange={(val) => handleFieldChange("sampleCheckbox", val)}
-          position={{ top: 375, left: 370 }}
+          onChange={(val) => handleFieldChange("3ft", val)}
+          position={{ top: 344, left: 260 }}
         />
+
+        {/* Number Input - dimension */}
+        <FormNumberInput
+          id="3ftd"
+          value={formData.sampleNumber}
+          onChange={(val) => handleFieldChange("3ftd", val)}
+          position={{ top: 346, left: 320 }}
+          width={50}
+          placeholder="QTY"
+        />
+        <FormCheckbox
+          id="4ft"
+          checked={formData.sampleCheckbox}
+          onChange={(val) => handleFieldChange("4ft", val)}
+          position={{ top: 364, left: 260 }}
+        />
+        
+        <FormNumberInput
+          id="4ftd"
+          value={formData.sampleNumber}
+          onChange={(val) => handleFieldChange("4ftd", val)}
+          position={{ top: 366, left: 320 }}
+          width={50}
+          placeholder="QTY"
+        />
+        <FormCheckbox
+          id="5ft"
+          checked={formData.sampleCheckbox}
+          onChange={(val) => handleFieldChange("5ft", val)}
+          position={{ top: 380, left: 260 }}
+        />
+        
+        <FormNumberInput
+          id="5ftd"
+          value={formData.sampleNumber}
+          onChange={(val) => handleFieldChange("5ftd", val)}
+          position={{ top: 382, left: 320 }}
+          width={50}
+          placeholder="QTY"
+        />
+        <FormCheckbox
+          id="6ft"
+          checked={formData.sampleCheckbox}
+          onChange={(val) => handleFieldChange("6ft", val)}
+          position={{ top: 400, left: 260 }}
+        />
+        
+        <FormNumberInput
+          id="6ftd"
+          value={formData.sampleNumber}
+          onChange={(val) => handleFieldChange("6ftd", val)}
+          position={{ top: 400, left: 320 }}
+          width={50}
+          placeholder="QTY"
+        />
+        {/* Checkbox - Cabin Light */}
+        <FormCheckbox
+          id="CNW"
+          checked={formData.sampleCheckbox}
+          onChange={(val) => handleFieldChange("CNW", val)}
+          position={{ top: 324, left: 817 }}
+        />
+        <FormCheckbox
+          id="CCW"
+          checked={formData.sampleCheckbox}
+          onChange={(val) => handleFieldChange("CCW", val)}
+          position={{ top: 344, left: 817 }}
+        />
+        {/* Checkbox - Skirting Light */}
+        <FormCheckbox
+          id="SNW"
+          checked={formData.sampleCheckbox}
+          onChange={(val) => handleFieldChange("SNW", val)}
+          position={{ top: 324, left: 937 }}
+        />
+        <FormCheckbox
+          id="SCW"
+          checked={formData.sampleCheckbox}
+          onChange={(val) => handleFieldChange("SCW", val)}
+          position={{ top: 344, left: 937 }}
+        />
+        {/* Checkbox - Drop Light */}
+        <FormCheckbox
+          id="DNW"
+          checked={formData.sampleCheckbox}
+          onChange={(val) => handleFieldChange("DNW", val)}
+          position={{ top: 324, left: 1077 }}
+        />
+        <FormCheckbox
+          id="DCW"
+          checked={formData.sampleCheckbox}
+          onChange={(val) => handleFieldChange("DCW", val)}
+          position={{ top: 344, left: 1077 }}
+        />
+
 
         {/* Textarea - Sample */}
         <FormTextarea
           id="sampleTextarea"
           value={formData.sampleTextarea}
           onChange={(val) => handleFieldChange("sampleTextarea", val)}
-          position={{ top: 425, left: 320 }}
-          width={250}
-          height={100}
+          position={{ top: 535, left: 40 }}
+          width={650}
+          height={180}
         />
       </TemplateEditor>
     </PrintModeProvider>

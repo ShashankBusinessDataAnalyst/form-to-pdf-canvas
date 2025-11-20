@@ -11,7 +11,7 @@ export const products: ProductInfo[] = [
   {
     id: "shannon-cold",
     name: "Shannon Cold",
-    thumbnail: "/src/assets/cold-template.png",
+    thumbnail: "/src/assets/Shannon-thumbnail.png",
     route: "/shannon-cold",
     category: "Cold Storage",
     description: "Technical drawing template for cold storage units"
