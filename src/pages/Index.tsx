@@ -16,10 +16,10 @@ const Index = () => {
     <div className="min-h-screen bg-background">
       {/* Header */}
       <header className="border-b border-border bg-card">
-        <div className="container mx-auto px-6 py-6">
+        <div className="container mx-auto px-6 py-4">
           <div className="flex items-center justify-between gap-8">
             <div className="flex items-center gap-4">
-              <img src={williamsLogo} alt="Williams Refrigeration" className="h-16" />
+              <img src={williamsLogo} alt="Williams Refrigeration" className="h-14" />
               <h1 className="text-xl font-semibold text-foreground">Product Approval System</h1>
             </div>
             <div className="relative w-96">

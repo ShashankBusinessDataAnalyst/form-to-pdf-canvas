@@ -17,7 +17,7 @@ export const TemplateNavigation = ({
               Home
             </Button>
           </Link>
-          <div className="h-6 w-px bg-border" />
+          <div className="h-6 w-4 bg-border" />
           
           <Link to="/shannon-hot">
             
