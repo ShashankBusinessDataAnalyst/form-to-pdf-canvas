@@ -7,7 +7,9 @@ import { products } from "@/data/products";
 const Index = () => {
   const [searchQuery, setSearchQuery] = useState("");
 
-  const filteredProducts = products.filter((product) => product.name.toLowerCase().includes(searchQuery.toLowerCase()));
+  const filteredProducts = products.filter((product) =>
+    product.name.toLowerCase().includes(searchQuery.toLowerCase())
+  );
 
   return (
     <div className="min-h-screen bg-background">
@@ -40,7 +42,7 @@ const Index = () => {
             <p className="text-muted-foreground text-lg">No products found</p>
           </div>
         ) : (
-          <div className="grid grid-cols-1 sm:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {filteredProducts.map((product) => (
               <ProductCard
                 key={product.id}
@@ -57,7 +59,9 @@ const Index = () => {
 
       {/* Footer */}
       <footer className="fixed bottom-0 left-0 right-0 border-t border-border bg-card">
-        <div className="container mx-auto px-6 py-4 text-center text-muted-foreground">Created By Shashank H.P</div>
+        <div className="container mx-auto px-6 py-4 text-center text-muted-foreground">
+          Created By Shashank H.P
+        </div>
       </footer>
     </div>
   );
