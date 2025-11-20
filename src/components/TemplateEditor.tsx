@@ -158,8 +158,8 @@ export const TemplateEditor: React.FC<TemplateEditorProps> = ({
                 id="captureArea" 
                 className="relative bg-white shadow-xl"
                 style={{
-                  width: '842px',   // A4 landscape width at 72 DPI
-                  height: '595px',  // A4 landscape height at 72 DPI
+                  width: '1123px',   // A4 landscape width at 72 DPI
+                  height: '794px',  // A4 landscape height at 72 DPI
                   transform: `scale(${scale})`,
                   transformOrigin: 'center center',
                 }}
