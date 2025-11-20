@@ -23,27 +23,30 @@ export const TemplateEditor: React.FC<TemplateEditorProps> = ({
   const [showGrid] = useState(false);
   const [previewOpen, setPreviewOpen] = useState(false);
   const [previewImage, setPreviewImage] = useState<string | null>(null);
-  const [scale, setScale] = useState(1);
+  const [autoScale, setAutoScale] = useState(1);
+  const [zoomLevel, setZoomLevel] = useState(1);
 
-  // Calculate scale factor to fit template in viewport while maintaining aspect ratio
+  // Calculate automatic scale factor to fit template in viewport
   useEffect(() => {
     const calculateScale = () => {
-      const availableHeight = window.innerHeight - 160; // Account for header (80px) + footer (72px) + padding
-      const availableWidth = window.innerWidth - 32; // Account for horizontal padding
-      const containerHeight = 1000; // Fixed reference height
-      const containerWidth = 1400; // Fixed reference width
+      const availableHeight = window.innerHeight - 160;
+      const availableWidth = window.innerWidth - 32;
+      const containerHeight = 1000;
+      const containerWidth = 1400;
       
       const scaleHeight = availableHeight / containerHeight;
       const scaleWidth = availableWidth / containerWidth;
       
-      // Use the smaller scale to ensure it fits, and don't scale up beyond 1
-      setScale(Math.min(scaleHeight, scaleWidth, 1));
+      setAutoScale(Math.min(scaleHeight, scaleWidth, 1));
     };
     
     calculateScale();
     window.addEventListener('resize', calculateScale);
     return () => window.removeEventListener('resize', calculateScale);
   }, []);
+
+  // Combined scale factor (auto-fit * manual zoom)
+  const scale = autoScale * zoomLevel;
   const handleSave = () => {
     toast.success("Data saved successfully!");
   };
@@ -167,6 +170,8 @@ export const TemplateEditor: React.FC<TemplateEditorProps> = ({
         onClear={onClearAll}
         onPreview={handlePreview}
         onDownload={handleDownload}
+        zoom={zoomLevel}
+        onZoomChange={setZoomLevel}
       />
       
       {/* Preview Dialog */}
