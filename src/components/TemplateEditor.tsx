@@ -33,8 +33,8 @@ export const TemplateEditor: React.FC<TemplateEditorProps> = ({
   // Calculate automatic scale factor to fit template in viewport
   useEffect(() => {
     const calculateScale = () => {
-      const availableHeight = window.innerHeight - 160; // header + footer
-      const availableWidth = (window.innerWidth * 0.8) - 32; // 80% of screen - padding
+      const availableHeight = window.innerHeight; // header + footer
+      const availableWidth = (window.innerWidth * 1); // 80% of screen - padding
       const containerHeight = 595; // A4 landscape height at 72 DPI
       const containerWidth = 842;  // A4 landscape width at 72 DPI
       
