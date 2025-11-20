@@ -1,17 +1,11 @@
 import React, { useState } from "react";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { Switch } from "@/components/ui/switch";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { generatePDF } from "@/lib/pdfGenerator";
 import { toast } from "sonner";
 import { usePrintMode } from "@/contexts/PrintModeContext";
 import { PrintPreviewDialog } from "./PrintPreviewDialog";
+import { TemplateHeader } from "./TemplateHeader";
+import { FloatingActionPanel } from "./FloatingActionPanel";
 import html2canvas from "html2canvas";
-import { Eye, ArrowLeft } from "lucide-react";
-import { useNavigate } from "react-router-dom";
-import williamsLogo from "@/assets/williams-logo.png";
 interface TemplateEditorProps {
   templateImage: string;
   templateName: string;
@@ -24,12 +18,8 @@ export const TemplateEditor: React.FC<TemplateEditorProps> = ({
   children,
   onClearAll
 }) => {
-  const navigate = useNavigate();
-  const {
-    setPrintMode
-  } = usePrintMode();
-  const [showGrid, setShowGrid] = useState(false);
-  const [gridSpacing, setGridSpacing] = useState(50);
+  const { setPrintMode } = usePrintMode();
+  const [showGrid] = useState(false);
   const [previewOpen, setPreviewOpen] = useState(false);
   const [previewImage, setPreviewImage] = useState<string | null>(null);
   const handleSave = () => {
@@ -99,135 +89,76 @@ export const TemplateEditor: React.FC<TemplateEditorProps> = ({
       toast.error("Failed to generate PDF");
     }
   };
-  return <div className="flex h-screen overflow-x-auto min-w-[1440px]">
-      {/* LEFT SIDEBAR */}
-      <div className="w-[260px] bg-[#7286FF] p-5 fixed top-0 left-0 h-full overflow-y-auto">
-        <Button
-          variant="ghost"
-          size="sm"
-          onClick={() => navigate("/")}
-          className="mb-4 -ml-2 hover:bg-primary/10 text-foreground"
-        >
-          <ArrowLeft className="h-4 w-4 mr-2" />
-          Back to Products
-        </Button>
-        <img src={williamsLogo} alt="Williams Refrigeration" className="h-16 mb-4" />
-
-        <div className="mb-3">
-          <Label htmlFor="salesPerson" className="text-black">Sales Person Name</Label>
-          <Input type="text" id="salesPerson" className="w-full mt-1" />
-        </div>
-
-        <div className="mb-3">
-          <Label htmlFor="date" className="text-black">Date</Label>
-          <Input type="date" id="date" className="w-full mt-1" />
-        </div>
-
-        <div className="mb-3">
-          <Label htmlFor="model" className="text-black">Model</Label>
-          <Input type="text" id="model" className="w-full mt-1" />
-        </div>
-
-        
-
-        <Button onClick={handleSave} className="w-full mt-3">
-          Save
-        </Button>
-        {onClearAll && <Button onClick={onClearAll} variant="destructive" className="w-full mt-3">
-            Clear All
-          </Button>}
-        <Button onClick={handlePreview} variant="outline" className="w-full mt-3 gap-2">
-          <Eye className="h-4 w-4" />
-          Preview PDF
-        </Button>
-        <Button onClick={handleDownload} className="w-full mt-3 bg-[#00DD00] hover:bg-[#00BB00] text-black">
-          Download PDF
-        </Button>
-      </div>
-
-      {/* MAIN DRAWING AREA */}
-      <div className="ml-[260px] flex-1 bg-[#E0E0E0] min-h-screen overflow-y-auto py-8">
+  return (
+    <div className="min-h-screen bg-[#E0E0E0]">
+      {/* Top Header */}
+      <TemplateHeader templateName={templateName} />
+      
+      {/* Main Content */}
+      <div className="pt-[60px] pb-8">
         <div className="flex justify-center">
+          {/* MAIN DRAWING AREA */}
           <div className="relative">
-            {/* HORIZONTAL RULER (TOP) */}
-            <div className="flex">
-              <div className="w-[30px] h-[30px] bg-[#C0C0C0]"></div>
-              <div className="w-[1200px] h-[30px] bg-[#F0F0F0] border-b border-r border-gray-400 relative">
-                {Array.from({
-                length: 13
-              }).map((_, i) => {
-                const position = i * 100;
-                return <div key={`h-${i}`} className="absolute top-0 h-full" style={{
-                  left: `${position}px`
-                }}>
-                      <div className="w-px h-3 bg-gray-600"></div>
-                      <span className="absolute top-3 -translate-x-1/2 text-[10px] text-gray-700">
-                        {position}
-                      </span>
-                      {/* Minor ticks every 50px */}
-                      {i < 12 && <div className="absolute w-px h-2 bg-gray-400" style={{
-                    left: '50px',
-                    top: 0
-                  }}></div>}
-                    </div>;
-              })}
-              </div>
+            {/* Top Ruler */}
+            <div className="h-8 bg-gray-100 border-b border-gray-300 flex items-center justify-center text-xs text-gray-500 mb-2">
+              Ruler (inches)
             </div>
 
-            {/* MAIN CONTENT WITH VERTICAL RULER */}
+            {/* Left Ruler and Drawing Area */}
             <div className="flex">
-              {/* VERTICAL RULER (LEFT) */}
-              <div className="w-[30px] h-[800px] bg-[#F0F0F0] border-r border-b border-gray-400 relative">
-                {Array.from({
-                length: 9
-              }).map((_, i) => {
-                const position = i * 100;
-                return <div key={`v-${i}`} className="absolute left-0 w-full" style={{
-                  top: `${position}px`
-                }}>
-                      <div className="h-px w-3 bg-gray-600"></div>
-                      <span className="absolute left-3 top-0 -translate-y-1/2 text-[10px] text-gray-700">
-                        {position}
-                      </span>
-                      {/* Minor ticks every 50px */}
-                      {i < 8 && <div className="absolute h-px w-2 bg-gray-400" style={{
-                    top: '50px',
-                    left: 0
-                  }}></div>}
-                    </div>;
-              })}
+              {/* Left Ruler */}
+              <div className="w-8 bg-gray-100 border-r border-gray-300 flex items-center justify-center text-xs text-gray-500 mr-2 writing-mode-vertical">
+                Ruler
               </div>
 
-              {/* DRAWING AREA */}
-              <div id="captureArea" className="relative bg-white border-2 border-purple-600 inline-block">
-          {/* IMAGE */}
-          <div className="relative">
-            <img src={templateImage} alt={templateName} className="block w-[1200px] h-[800px]" />
+              {/* Drawing Area */}
+              <div id="captureArea" className="relative bg-white shadow-xl">
+                <img
+                  src={templateImage}
+                  alt="Technical Drawing Template"
+                  className="w-full h-auto block"
+                  draggable={false}
+                />
 
-            {/* GRID OVERLAY */}
-            {showGrid && <svg className="absolute top-0 left-0 pointer-events-none" width="1200" height="800" style={{
-                  zIndex: 10
-                }} data-html2canvas-ignore="true">
-                {/* Vertical lines */}
-                {Array.from({
-                    length: Math.floor(1200 / gridSpacing) + 1
-                  }).map((_, i) => <line key={`v-${i}`} x1={i * gridSpacing} y1={0} x2={i * gridSpacing} y2={800} stroke="rgba(0,0,0,0.15)" strokeWidth="1" />)}
-                
-                {/* Horizontal lines */}
-                {Array.from({
-                    length: Math.floor(800 / gridSpacing) + 1
-                  }).map((_, i) => <line key={`h-${i}`} x1={0} y1={i * gridSpacing} x2={1200} y2={i * gridSpacing} stroke="rgba(0,0,0,0.15)" strokeWidth="1" />)}
-              </svg>}
+                {/* Grid Overlay (hidden during PDF generation) */}
+                {showGrid && (
+                  <div
+                    data-html2canvas-ignore="true"
+                    className="absolute inset-0 pointer-events-none"
+                    style={{
+                      backgroundImage: `
+                        linear-gradient(to right, rgba(0,0,0,0.1) 1px, transparent 1px),
+                        linear-gradient(to bottom, rgba(0,0,0,0.1) 1px, transparent 1px)
+                      `,
+                      backgroundSize: `50px 50px`
+                    }}
+                  />
+                )}
 
-                  {/* FORM ELEMENTS */}
-                  {children}
-          </div>
-        </div>
+                {/* Form Elements Overlay */}
+                {children}
+              </div>
             </div>
           </div>
         </div>
       </div>
-
-      <PrintPreviewDialog open={previewOpen} onOpenChange={setPreviewOpen} previewImage={previewImage} onDownload={handleDownload} templateName={templateName} />
-    </div>;
+      
+      {/* Floating Action Panel */}
+      <FloatingActionPanel
+        onSave={handleSave}
+        onClear={onClearAll}
+        onPreview={handlePreview}
+        onDownload={handleDownload}
+      />
+      
+      {/* Preview Dialog */}
+      <PrintPreviewDialog
+        open={previewOpen}
+        onOpenChange={setPreviewOpen}
+        previewImage={previewImage}
+        onDownload={handleDownload}
+        templateName={templateName}
+      />
+    </div>
+  );
 };
