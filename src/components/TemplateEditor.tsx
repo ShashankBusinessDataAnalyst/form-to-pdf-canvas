@@ -96,16 +96,16 @@ export const TemplateEditor: React.FC<TemplateEditorProps> = ({
       <TemplateHeader templateName={templateName} />
       
       {/* Main Content */}
-      <div className="pt-[80px] pb-[72px] px-4 h-screen flex items-center justify-center">
-        <div className="flex justify-center max-h-[calc(100vh-200px)]">
+      <div className="pt-[80px] pb-[72px] px-4 h-screen flex items-center justify-center overflow-hidden">
+        <div className="flex justify-center max-h-[calc(100vh-160px)] overflow-hidden">
           {/* MAIN DRAWING AREA */}
-          <div className="relative h-full flex items-center">
+          <div className="relative h-full flex items-center overflow-hidden">
             {/* Drawing Area */}
-            <div id="captureArea" className="relative bg-white shadow-xl max-h-full">
+            <div id="captureArea" className="relative bg-white shadow-xl max-h-full overflow-hidden">
               <img
                 src={templateImage}
                 alt="Technical Drawing Template"
-                className="max-h-[calc(100vh-200px)] w-auto object-contain"
+                className="max-h-[calc(100vh-160px)] w-auto object-contain"
                 draggable={false}
               />
 
