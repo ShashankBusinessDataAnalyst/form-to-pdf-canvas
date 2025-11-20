@@ -202,7 +202,7 @@ export const TemplateEditor: React.FC<TemplateEditorProps> = ({
               {/* Drawing Area - Fixed size container that scales as a unit */}
               <div 
                 id="captureArea" 
-                className="relative bg-white shadow-xl"
+                className="relative bg-white shadow-xl border-2 border-border"
                 style={{
                   width: '1123px',   // A4 landscape width at 72 DPI
                   height: '794px',  // A4 landscape height at 72 DPI
