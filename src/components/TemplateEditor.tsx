@@ -49,49 +49,9 @@ export const TemplateEditor: React.FC<TemplateEditorProps> = ({
     return () => window.removeEventListener('resize', calculateScale);
   }, []);
 
-  // Reset pan when zoom changes
-  useEffect(() => {
-    setPanOffset({ x: 0, y: 0 });
-  }, [zoomLevel]);
 
   // Combined scale factor (auto-fit * manual zoom)
   const scale = autoScale * zoomLevel;
-
-  // Pan handlers - support both left-click when zoomed and middle-click always
-  const handleMouseDown = (e: React.MouseEvent) => {
-    // Middle mouse button (button 1) always allows panning
-    if (e.button === 1) {
-      e.preventDefault();
-      setIsDragging(true);
-      setDragButton(1);
-      setDragStart({ x: e.clientX - panOffset.x, y: e.clientY - panOffset.y });
-    }
-    // Left mouse button (button 0) only when zoomed > 1
-    else if (e.button === 0 && zoomLevel > 1) {
-      setIsDragging(true);
-      setDragButton(0);
-      setDragStart({ x: e.clientX - panOffset.x, y: e.clientY - panOffset.y });
-    }
-  };
-
-  const handleMouseMove = (e: React.MouseEvent) => {
-    if (isDragging) {
-      setPanOffset({
-        x: e.clientX - dragStart.x,
-        y: e.clientY - dragStart.y,
-      });
-    }
-  };
-
-  const handleMouseUp = () => {
-    setIsDragging(false);
-    setDragButton(null);
-  };
-
-  const handleMouseLeave = () => {
-    setIsDragging(false);
-    setDragButton(null);
-  };
 
 
   // Prevent default middle-click behavior (auto-scroll)
@@ -189,17 +149,6 @@ export const TemplateEditor: React.FC<TemplateEditorProps> = ({
         {/* Right Template Area - 80% */}
         <div 
           className="flex-1 flex items-start justify-center overflow-hidden px-4 py-4"
-          onMouseDown={handleMouseDown}
-          onMouseMove={handleMouseMove}
-          onMouseUp={handleMouseUp}
-          onMouseLeave={handleMouseLeave}
-          style={{
-            cursor: isDragging 
-              ? 'grabbing' 
-              : (dragButton === 1 || zoomLevel > 1) 
-              ? 'grab' 
-              : 'default',
-          }}
         >
           <div className="flex justify-center overflow-hidden">
             {/* MAIN DRAWING AREA */}
@@ -211,9 +160,8 @@ export const TemplateEditor: React.FC<TemplateEditorProps> = ({
                 style={{
                   width: '842px',   // A4 landscape width at 72 DPI
                   height: '595px',  // A4 landscape height at 72 DPI
-                  transform: `scale(${scale}) translate(${panOffset.x / scale}px, ${panOffset.y / scale}px)`,
+                  transform: `scale(${scale})`,
                   transformOrigin: 'center center',
-                  transition: isDragging ? 'none' : 'transform 0.1s ease-out',
                 }}
               >
                 <img
