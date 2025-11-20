@@ -9,7 +9,8 @@ import { toast } from "sonner";
 import { usePrintMode } from "@/contexts/PrintModeContext";
 import { PrintPreviewDialog } from "./PrintPreviewDialog";
 import html2canvas from "html2canvas";
-import { Eye } from "lucide-react";
+import { Eye, ArrowLeft } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 interface TemplateEditorProps {
   templateImage: string;
   templateName: string;
@@ -22,6 +23,7 @@ export const TemplateEditor: React.FC<TemplateEditorProps> = ({
   children,
   onClearAll
 }) => {
+  const navigate = useNavigate();
   const {
     setPrintMode
   } = usePrintMode();
@@ -99,6 +101,15 @@ export const TemplateEditor: React.FC<TemplateEditorProps> = ({
   return <div className="flex h-screen overflow-x-auto min-w-[1440px]">
       {/* LEFT SIDEBAR */}
       <div className="w-[260px] bg-[#7286FF] p-5 fixed top-0 left-0 h-full overflow-y-auto">
+        <Button
+          variant="ghost"
+          size="sm"
+          onClick={() => navigate("/")}
+          className="mb-4 -ml-2 hover:bg-primary/10 text-foreground"
+        >
+          <ArrowLeft className="h-4 w-4 mr-2" />
+          Back to Products
+        </Button>
         <h2 className="text-black text-xl font-bold mb-4 mt-0">Company Logo</h2>
 
         <div className="mb-3">
