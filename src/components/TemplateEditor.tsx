@@ -35,7 +35,7 @@ export const TemplateEditor: React.FC<TemplateEditorProps> = ({
     const calculateScale = () => {
       const availableHeight = window.innerHeight - 160; // header + footer
       const availableWidth = (window.innerWidth * 0.8) - 32; // 80% of screen - padding
-      const containerHeight = 1000;
+      const containerHeight = 990; // A4 landscape height
       const containerWidth = 1400;
       
       const scaleHeight = availableHeight / containerHeight;
@@ -236,7 +236,7 @@ export const TemplateEditor: React.FC<TemplateEditorProps> = ({
                 className="relative bg-white shadow-xl"
                 style={{
                   width: '1400px',
-                  height: '1000px',
+                  height: '990px',
                   transform: `scale(${scale}) translate(${panOffset.x / scale}px, ${panOffset.y / scale}px)`,
                   transformOrigin: 'center center',
                   transition: isDragging ? 'none' : 'transform 0.1s ease-out',
