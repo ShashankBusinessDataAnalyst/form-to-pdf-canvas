@@ -25,6 +25,9 @@ export const TemplateEditor: React.FC<TemplateEditorProps> = ({
   const [previewImage, setPreviewImage] = useState<string | null>(null);
   const [autoScale, setAutoScale] = useState(1);
   const [zoomLevel, setZoomLevel] = useState(1);
+  const [panOffset, setPanOffset] = useState({ x: 0, y: 0 });
+  const [isDragging, setIsDragging] = useState(false);
+  const [dragStart, setDragStart] = useState({ x: 0, y: 0 });
 
   // Calculate automatic scale factor to fit template in viewport
   useEffect(() => {
@@ -45,8 +48,38 @@ export const TemplateEditor: React.FC<TemplateEditorProps> = ({
     return () => window.removeEventListener('resize', calculateScale);
   }, []);
 
+  // Reset pan when zoom changes
+  useEffect(() => {
+    setPanOffset({ x: 0, y: 0 });
+  }, [zoomLevel]);
+
   // Combined scale factor (auto-fit * manual zoom)
   const scale = autoScale * zoomLevel;
+
+  // Pan handlers
+  const handleMouseDown = (e: React.MouseEvent) => {
+    if (zoomLevel > 1) {
+      setIsDragging(true);
+      setDragStart({ x: e.clientX - panOffset.x, y: e.clientY - panOffset.y });
+    }
+  };
+
+  const handleMouseMove = (e: React.MouseEvent) => {
+    if (isDragging && zoomLevel > 1) {
+      setPanOffset({
+        x: e.clientX - dragStart.x,
+        y: e.clientY - dragStart.y,
+      });
+    }
+  };
+
+  const handleMouseUp = () => {
+    setIsDragging(false);
+  };
+
+  const handleMouseLeave = () => {
+    setIsDragging(false);
+  };
   const handleSave = () => {
     toast.success("Data saved successfully!");
   };
@@ -120,7 +153,16 @@ export const TemplateEditor: React.FC<TemplateEditorProps> = ({
       <TemplateHeader templateName={templateName} />
       
       {/* Main Content */}
-      <div className="pt-[80px] pb-[72px] px-4 h-screen flex items-center justify-center overflow-hidden">
+      <div 
+        className="pt-[80px] pb-[72px] px-4 h-screen flex items-center justify-center overflow-hidden"
+        onMouseDown={handleMouseDown}
+        onMouseMove={handleMouseMove}
+        onMouseUp={handleMouseUp}
+        onMouseLeave={handleMouseLeave}
+        style={{
+          cursor: zoomLevel > 1 ? (isDragging ? 'grabbing' : 'grab') : 'default',
+        }}
+      >
         <div className="flex justify-center overflow-hidden">
           {/* MAIN DRAWING AREA */}
           <div className="relative flex items-center overflow-hidden">
@@ -131,8 +173,9 @@ export const TemplateEditor: React.FC<TemplateEditorProps> = ({
               style={{
                 width: '1400px',
                 height: '1000px',
-                transform: `scale(${scale})`,
+                transform: `scale(${scale}) translate(${panOffset.x / scale}px, ${panOffset.y / scale}px)`,
                 transformOrigin: 'center center',
+                transition: isDragging ? 'none' : 'transform 0.1s ease-out',
               }}
             >
               <img
