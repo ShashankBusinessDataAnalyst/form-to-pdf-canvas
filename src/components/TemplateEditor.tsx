@@ -111,43 +111,59 @@ export const TemplateEditor: React.FC<TemplateEditorProps> = ({
       throw new Error("Element not found");
     }
 
-    // Enable print mode
-    setPrintMode(true);
-    await new Promise(resolve => setTimeout(resolve, 200));
+    // Store original transform
+    const originalTransform = (element as HTMLElement).style.transform;
 
-    // Hide grid overlay during capture
-    const gridOverlay = element.querySelector('[data-html2canvas-ignore="true"]');
-    if (gridOverlay) {
-      (gridOverlay as HTMLElement).style.display = 'none';
+    try {
+      // Enable print mode
+      setPrintMode(true);
+
+      // Reset transform to scale(1) with no translation for accurate capture
+      (element as HTMLElement).style.transform = 'scale(1)';
+      (element as HTMLElement).style.transformOrigin = 'top left';
+      await new Promise(resolve => setTimeout(resolve, 200));
+
+      // Hide grid overlay during capture
+      const gridOverlay = element.querySelector('[data-html2canvas-ignore="true"]');
+      if (gridOverlay) {
+        (gridOverlay as HTMLElement).style.display = 'none';
+      }
+
+      // Capture at full size (1123px x 794px)
+      const canvas = await html2canvas(element, {
+        scale: 3,
+        useCORS: true,
+        logging: false,
+        backgroundColor: "#ffffff",
+        width: 1123,
+        height: 794,
+        windowWidth: 1123,
+        windowHeight: 794,
+        scrollX: 0,
+        scrollY: 0,
+        x: 0,
+        y: 0,
+        allowTaint: false,
+        foreignObjectRendering: false
+      });
+
+      // Restore grid overlay
+      if (gridOverlay) {
+        (gridOverlay as HTMLElement).style.display = '';
+      }
+
+      // Restore original transform
+      (element as HTMLElement).style.transform = originalTransform;
+
+      // Disable print mode
+      setPrintMode(false);
+      return canvas.toDataURL("image/png");
+    } catch (error) {
+      // Restore transform even on error
+      (element as HTMLElement).style.transform = originalTransform;
+      setPrintMode(false);
+      throw error;
     }
-
-    // Get exact dimensions
-    const rect = element.getBoundingClientRect();
-    const canvas = await html2canvas(element, {
-      scale: 3,
-      useCORS: true,
-      logging: false,
-      backgroundColor: "#ffffff",
-      width: rect.width,
-      height: rect.height,
-      windowWidth: rect.width,
-      windowHeight: rect.height,
-      scrollX: 0,
-      scrollY: 0,
-      x: 0,
-      y: 0,
-      allowTaint: false,
-      foreignObjectRendering: false
-    });
-
-    // Restore grid overlay
-    if (gridOverlay) {
-      (gridOverlay as HTMLElement).style.display = '';
-    }
-
-    // Disable print mode
-    setPrintMode(false);
-    return canvas.toDataURL("image/png");
   };
   const handlePreview = async () => {
     try {
