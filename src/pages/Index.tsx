@@ -36,7 +36,7 @@ const Index = () => {
       </header>
 
       {/* Product Grid */}
-      <main className="container mx-auto px-6 py-12">
+      <main className="container mx-auto px-6 py-12 pb-24">
         {filteredProducts.length === 0 ? (
           <div className="text-center py-20">
             <p className="text-muted-foreground text-lg">No products found</p>
@@ -58,8 +58,8 @@ const Index = () => {
       </main>
 
       {/* Footer */}
-      <footer className="border-t border-border mt-20">
-        <div className="container mx-auto px-6 py-8 text-center text-muted-foreground">
+      <footer className="fixed bottom-0 left-0 right-0 border-t border-border bg-card">
+        <div className="container mx-auto px-6 py-4 text-center text-muted-foreground">
           Created By Shashank H.P
         </div>
       </footer>
