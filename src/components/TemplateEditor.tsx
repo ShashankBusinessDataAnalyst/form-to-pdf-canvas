@@ -35,8 +35,8 @@ export const TemplateEditor: React.FC<TemplateEditorProps> = ({
     const calculateScale = () => {
       const availableHeight = window.innerHeight; // header + footer
       const availableWidth = (window.innerWidth * 1); // 80% of screen - padding
-      const containerHeight = 595; // A4 landscape height at 72 DPI
-      const containerWidth = 842;  // A4 landscape width at 72 DPI
+      const containerHeight = 794; // Match actual container dimensions
+      const containerWidth = 1123;  // Match actual container dimensions
       
       const scaleHeight = availableHeight / containerHeight;
       const scaleWidth = availableWidth / containerWidth;
@@ -149,18 +149,19 @@ export const TemplateEditor: React.FC<TemplateEditorProps> = ({
         (gridOverlay as HTMLElement).style.display = "none";
       }
 
-      // Measure element to capture exact visible size
-      const rect = htmlElement.getBoundingClientRect();
+      // Use fixed container dimensions for consistent capture
+      const CONTAINER_WIDTH = 1123;
+      const CONTAINER_HEIGHT = 794;
 
       const canvas = await html2canvas(element, {
         scale: 3,
         useCORS: true,
         logging: false,
         backgroundColor: "#ffffff",
-        width: rect.width,
-        height: rect.height,
-        windowWidth: rect.width,
-        windowHeight: rect.height,
+        width: CONTAINER_WIDTH,
+        height: CONTAINER_HEIGHT,
+        windowWidth: CONTAINER_WIDTH,
+        windowHeight: CONTAINER_HEIGHT,
         scrollX: 0,
         scrollY: 0,
         x: 0,
