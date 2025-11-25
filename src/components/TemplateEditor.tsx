@@ -131,7 +131,7 @@ export const TemplateEditor: React.FC<TemplateEditorProps> = ({
 
       // Capture at full size (1123px x 794px)
       const canvas = await html2canvas(element, {
-        scale: 2,
+        scale: 3,
         useCORS: true,
         logging: false,
         backgroundColor: "#ffffff",
@@ -229,7 +229,7 @@ export const TemplateEditor: React.FC<TemplateEditorProps> = ({
                 <img
                   src={templateImage}
                   alt="Technical Drawing Template"
-                  className="w-full h-full object-contain border-2 border-black"
+                  className="w-full h-full object-contain"
                   draggable={false}
                 />
 

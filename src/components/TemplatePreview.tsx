@@ -35,7 +35,7 @@ export const TemplatePreview = ({
           <img
             src={template.thumbnail}
             alt={template.name}
-            className="w-full h-auto border-2 border-black"
+            className="w-full h-auto"
           />
           {template.fields.map((field) => {
             const value = formData[field.id];
