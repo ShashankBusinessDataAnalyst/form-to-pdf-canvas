@@ -30,12 +30,21 @@ export const TemplateEditor: React.FC<TemplateEditorProps> = ({
   const [dragStart, setDragStart] = useState({ x: 0, y: 0 });
   const [dragButton, setDragButton] = useState<number | null>(null);
   const [templateDimensions, setTemplateDimensions] = useState({ width: 1123, height: 794 });
+  const [dimensionsLoaded, setDimensionsLoaded] = useState(false);
 
   // Load actual template image dimensions on mount
   useEffect(() => {
     const img = new Image();
     img.onload = () => {
-      setTemplateDimensions({ width: img.naturalWidth, height: img.naturalHeight });
+      const width = img.naturalWidth || 1123;
+      const height = img.naturalHeight || 794;
+      console.log('Template dimensions loaded:', width, height);
+      setTemplateDimensions({ width, height });
+      setDimensionsLoaded(true);
+    };
+    img.onerror = () => {
+      console.error('Failed to load template image');
+      setDimensionsLoaded(true); // Show anyway with default dimensions
     };
     img.src = templateImage;
   }, [templateImage]);
@@ -251,12 +260,18 @@ export const TemplateEditor: React.FC<TemplateEditorProps> = ({
                   transformOrigin: 'center center',
                 }}
               >
-                <img
-                  src={templateImage}
-                  alt="Technical Drawing Template"
-                  className="w-full h-full object-contain"
-                  draggable={false}
-                />
+                {dimensionsLoaded ? (
+                  <img
+                    src={templateImage}
+                    alt="Technical Drawing Template"
+                    className="w-full h-full object-fill"
+                    draggable={false}
+                  />
+                ) : (
+                  <div className="flex items-center justify-center w-full h-full text-muted-foreground">
+                    Loading template...
+                  </div>
+                )}
 
                 {/* Grid Overlay (hidden during PDF generation) */}
                 {showGrid && (
