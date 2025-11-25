@@ -75,6 +75,23 @@ export const TemplateEditor: React.FC<TemplateEditorProps> = ({
 
   // Handle mouse down - start dragging
   const handleMouseDown = (e: React.MouseEvent) => {
+    // Check if the target is an interactive form element
+    const target = e.target as HTMLElement;
+    const isInteractiveElement = 
+      target.tagName === 'INPUT' || 
+      target.tagName === 'TEXTAREA' || 
+      target.tagName === 'BUTTON' ||
+      target.tagName === 'SELECT' ||
+      target.closest('button') ||
+      target.closest('[role="checkbox"]') ||
+      target.closest('[data-radix-popper-content-wrapper]') ||
+      target.closest('.popover-content');
+
+    // Don't start dragging if clicking on interactive elements
+    if (isInteractiveElement) {
+      return; // Let the form element handle the click
+    }
+
     // Support both left-click (button 0) and middle-click (button 1)
     if (e.button === 0 || e.button === 1) {
       setIsDragging(true);
