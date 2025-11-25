@@ -136,7 +136,7 @@ export const TemplateEditor: React.FC<TemplateEditorProps> = ({
       setPrintMode(true);
 
       // Reset transform to scale(1) with no translation for accurate capture
-      (element as HTMLElement).style.transform = 'scale(1)';
+      (element as HTMLElement).style.transform = 'translate(0px, 0px) scale(1)';
       (element as HTMLElement).style.transformOrigin = 'top left';
       await new Promise(resolve => setTimeout(resolve, 200));
 
