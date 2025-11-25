@@ -229,7 +229,7 @@ export const TemplateEditor: React.FC<TemplateEditorProps> = ({
                 <img
                   src={templateImage}
                   alt="Technical Drawing Template"
-                  className="w-full h-full object-contain"
+                  className="w-full h-full object-contain border-2 border-black"
                   draggable={false}
                 />
 
