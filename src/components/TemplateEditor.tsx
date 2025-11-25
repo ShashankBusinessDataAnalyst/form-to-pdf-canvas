@@ -137,7 +137,6 @@ export const TemplateEditor: React.FC<TemplateEditorProps> = ({
 
       // Reset transform to scale(1) with no translation for accurate capture
       (element as HTMLElement).style.transform = 'translate(0px, 0px) scale(1)';
-      (element as HTMLElement).style.transformOrigin = 'top left';
       await new Promise(resolve => setTimeout(resolve, 200));
 
       // Hide grid overlay during capture
