@@ -56,5 +56,13 @@ export const products: ProductInfo[] = [
     category: "Display Units",
     description: "Technical drawing template"
   },
+  {
+    id: "Stellar_Hot",
+    name: "Stellar Hot",
+    thumbnail: "/src/assets/stellar_model.png",
+    route: "/Stellar_Hot",
+    category: "Display Units",
+    description: "Technical drawing template"
+  },
   // Add remaining 65 products here following the same pattern
 ];
