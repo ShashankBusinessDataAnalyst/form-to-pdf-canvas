@@ -22,11 +22,11 @@ export const ProductCard: React.FC<ProductCardProps> = ({
       className="overflow-hidden hover:shadow-lg transition-all duration-300 cursor-pointer group border-border bg-card"
       onClick={() => navigate(route)}
     >
-      <div className="aspect-[1/1] bg-muted relative overflow-hidden">
+      <div className="aspect-[1.5/1] bg-muted relative overflow-hidden">
         <img 
           src={thumbnail} 
           alt={name}
-          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+          className="w-full h-full object-contain group-hover:scale-125 transition-transform duration-300"
         />
       </div>
       <CardHeader className="p-4">

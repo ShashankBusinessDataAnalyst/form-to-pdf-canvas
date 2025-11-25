@@ -61,7 +61,7 @@ export const FormTextInput: React.FC<FormTextInputProps> = ({
       value={value}
       onChange={(e) => handleChange(e.target.value)}
       placeholder={placeholder}
-      className="absolute border-none outline-none bg-transparent text-center text-sm focus:border-b focus:border-gray-400 text-black"
+      className="absolute border border-gray-300 outline-none bg-transparent text-center text-sm focus:border-b focus:border-gray-400 text-black"
       style={{
         top: `${position.top}px`,
         left: `${position.left}px`,

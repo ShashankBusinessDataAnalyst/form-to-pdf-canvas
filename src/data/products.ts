@@ -48,5 +48,13 @@ export const products: ProductInfo[] = [
     category: "Cold Storage",
     description: "Technical drawing template"
   },
+  {
+    id: "Stellar_Cold",
+    name: "Stellar Cold",
+    thumbnail: "/src/assets/stellar_model.png",
+    route: "/Stellar_Cold",
+    category: "Display Units",
+    description: "Technical drawing template"
+  },
   // Add remaining 65 products here following the same pattern
 ];
