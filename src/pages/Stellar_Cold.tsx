@@ -15,37 +15,7 @@ const Stellar_Cold = () => {
     date: new Date(),
     qty3ft: "",
     qty4ft: "",
-    qty5ft: "",
-    qty6ft: "",
-    "3ft": false,
-    "4ft": false,
-    "5ft": false,
-    "6ft": false,
-    CNW: false,
-    SNW: false,
-    DNW: false,
-    CCW: false,
-    SWW: false,
-    DWW: false,
-    wheels: false,
-    Alegs: false,
-    Sheleves: false,
-    CF1: false,
-    CF2: false,
-    CF3: false,
-    CF4: false,
-    CF5: false,
-    CT1: false,
-    CT2: false,
-    CT3: false,
-    CT4: false,
-    CT5: false,
-    FCC: "",
-    TCC: "",
-    FCD: "",
-    TCD: "",
-    sampleTextarea: "",
-    splnote: "",
+    material: false,
   });
 
   const handleFieldChange = (id: string, value: any) => {
@@ -59,37 +29,7 @@ const Stellar_Cold = () => {
       date: new Date(),
       qty3ft: "",
       qty4ft: "",
-      qty5ft: "",
-      qty6ft: "",
-      "3ft": false,
-      "4ft": false,
-      "5ft": false,
-      "6ft": false,
-      CNW: false,
-      SNW: false,
-      DNW: false,
-      CCW: false,
-      SWW: false,
-      DWW: false,
-      wheels: false,
-      Alegs: false,
-      Sheleves: false,
-      CF1: false,
-      CF2: false,
-      CF3: false,
-      CF4: false,
-      CF5: false,
-      CT1: false,
-      CT2: false,
-      CT3: false,
-      CT4: false,
-      CT5: false,
-      FCC: "",
-      TCC: "",
-      FCD: "",
-      TCD: "",
-      sampleTextarea: "",
-      splnote: "",
+      material: false,
     });
   };
 
@@ -130,7 +70,7 @@ const Stellar_Cold = () => {
         />
         <FormCheckbox
           id="3ft"
-          checked={formData["3ft"]}
+          checked={formData.material}
           onChange={(val) => handleFieldChange("3ft", val)}
           position={{ top: 321, left: 225 }}
         />
@@ -144,13 +84,13 @@ const Stellar_Cold = () => {
         />
         <FormCheckbox
           id="4ft"
-          checked={formData["4ft"]}
+          checked={formData.material}
           onChange={(val) => handleFieldChange("4ft", val)}
           position={{ top: 339, left: 225 }}
         />
         <FormNumberInput
           id="qty4ft"
-          value={formData.qty4ft}
+          value={formData.qty3ft}
           onChange={(val) => handleFieldChange("qty4ft", val)}
           position={{ top: 340, left: 250 }}
           width={80}
@@ -158,13 +98,13 @@ const Stellar_Cold = () => {
         />
         <FormCheckbox
           id="5ft"
-          checked={formData["5ft"]}
+          checked={formData.material}
           onChange={(val) => handleFieldChange("5ft", val)}
           position={{ top: 359, left: 225 }}
         />
         <FormNumberInput
           id="qty5ft"
-          value={formData.qty5ft}
+          value={formData.qty3ft}
           onChange={(val) => handleFieldChange("qty5ft", val)}
           position={{ top: 359, left: 250 }}
           width={80}
@@ -172,13 +112,13 @@ const Stellar_Cold = () => {
         />
         <FormCheckbox
           id="6ft"
-          checked={formData["6ft"]}
+          checked={formData.material}
           onChange={(val) => handleFieldChange("6ft", val)}
           position={{ top: 377, left: 225 }}
         />
         <FormNumberInput
           id="qty6ft"
-          value={formData.qty6ft}
+          value={formData.qty3ft}
           onChange={(val) => handleFieldChange("qty6ft", val)}
           position={{ top: 377, left: 250 }}
           width={80}
@@ -187,117 +127,117 @@ const Stellar_Cold = () => {
 
         <FormCheckbox
           id="CNW"
-          checked={formData.CNW}
+          checked={formData.material}
           onChange={(val) => handleFieldChange("CNW", val)}
           position={{ top: 321, left: 815 }}
         />
         <FormCheckbox
           id="SNW"
-          checked={formData.SNW}
+          checked={formData.material}
           onChange={(val) => handleFieldChange("SNW", val)}
           position={{ top: 321, left: 935 }}
         />
         <FormCheckbox
           id="DNW"
-          checked={formData.DNW}
+          checked={formData.material}
           onChange={(val) => handleFieldChange("DNW", val)}
           position={{ top: 321, left: 1078 }}
         />
         <FormCheckbox
           id="CCW"
-          checked={formData.CCW}
-          onChange={(val) => handleFieldChange("CCW", val)}
+          checked={formData.material}
+          onChange={(val) => handleFieldChange("CNW", val)}
           position={{ top: 339, left: 815 }}
         />
         <FormCheckbox
           id="SWW"
-          checked={formData.SWW}
-          onChange={(val) => handleFieldChange("SWW", val)}
+          checked={formData.material}
+          onChange={(val) => handleFieldChange("SNW", val)}
           position={{ top: 339, left: 935 }}
         />
         <FormCheckbox
           id="DWW"
-          checked={formData.DWW}
-          onChange={(val) => handleFieldChange("DWW", val)}
+          checked={formData.material}
+          onChange={(val) => handleFieldChange("DNW", val)}
           position={{ top: 339, left: 1078 }}
         />
 
         <FormCheckbox
           id="wheels"
-          checked={formData.wheels}
+          checked={formData.material}
           onChange={(val) => handleFieldChange("wheels", val)}
           position={{ top: 394, left: 888 }}
         />
          <FormCheckbox
           id="Alegs"
-          checked={formData.Alegs}
+          checked={formData.material}
           onChange={(val) => handleFieldChange("Alegs", val)}
           position={{ top: 414, left: 888 }}
         />
         <FormCheckbox
           id="Sheleves"
-          checked={formData.Sheleves}
+          checked={formData.material}
           onChange={(val) => handleFieldChange("Sheleves", val)}
           position={{ top: 394, left: 1078 }}
         />
 
         <FormCheckbox
           id="CF1"
-          checked={formData.CF1}
+          checked={formData.material}
           onChange={(val) => handleFieldChange("CF1", val)}
           position={{ top: 486, left: 848 }}
         />
         <FormCheckbox
           id="CF2"
-          checked={formData.CF2}
+          checked={formData.material}
           onChange={(val) => handleFieldChange("CF2", val)}
           position={{ top: 505, left: 848 }}
         />
         <FormCheckbox
           id="CF3"
-          checked={formData.CF3}
+          checked={formData.material}
           onChange={(val) => handleFieldChange("CF3", val)}
           position={{ top: 523, left: 848 }}
         />
         <FormCheckbox
           id="CF4"
-          checked={formData.CF4}
+          checked={formData.material}
           onChange={(val) => handleFieldChange("CF4", val)}
           position={{ top: 542, left: 848 }}
         />
         <FormCheckbox
           id="CF5"
-          checked={formData.CF5}
+          checked={formData.material}
           onChange={(val) => handleFieldChange("CF5", val)}
           position={{ top: 560, left: 848 }}
         />
         <FormCheckbox
           id="CT1"
-          checked={formData.CT1}
+          checked={formData.material}
           onChange={(val) => handleFieldChange("CT1", val)}
           position={{ top: 486, left: 890 }}
         />
         <FormCheckbox
           id="CT2"
-          checked={formData.CT2}
+          checked={formData.material}
           onChange={(val) => handleFieldChange("CT2", val)}
           position={{ top: 505, left: 890 }}
         />
         <FormCheckbox
           id="CT3"
-          checked={formData.CT3}
+          checked={formData.material}
           onChange={(val) => handleFieldChange("CT3", val)}
           position={{ top: 523, left: 890 }}
         />
         <FormCheckbox
           id="CT4"
-          checked={formData.CT4}
+          checked={formData.material}
           onChange={(val) => handleFieldChange("CT4", val)}
           position={{ top: 542, left: 890 }}
         />
         <FormCheckbox
           id="CT5"
-          checked={formData.CT5}
+          checked={formData.material}
           onChange={(val) => handleFieldChange("CT5", val)}
           position={{ top: 560, left: 890 }}
         />
@@ -312,35 +252,35 @@ const Stellar_Cold = () => {
         />
         <FormTextInput
           id="FCC"
-          value={formData.FCC}
+          value={formData.sampleText}
           onChange={(val) => handleFieldChange("FCC", val)}
           position={{ top: 585, left: 800 }}
           width={80}
         />
         <FormTextInput
           id="TCC"
-          value={formData.TCC}
+          value={formData.sampleText}
           onChange={(val) => handleFieldChange("TCC", val)}
           position={{ top: 600, left: 800 }}
           width={80}
         />
         <FormTextInput
           id="FCD"
-          value={formData.FCD}
+          value={formData.sampleText}
           onChange={(val) => handleFieldChange("FCD", val)}
           position={{ top: 585, left: 1000 }}
           width={80}
         />
         <FormTextInput
           id="TCD"
-          value={formData.TCD}
+          value={formData.sampleText}
           onChange={(val) => handleFieldChange("TCD", val)}
           position={{ top: 600, left: 1000 }}
           width={80}
         />
         <FormTextarea
           id="splnote"
-          value={formData.splnote}
+          value={formData.sampleTextarea}
           onChange={(val) => handleFieldChange("splnote", val)}
           position={{ top: 640, left: 480 }}
           width={590}

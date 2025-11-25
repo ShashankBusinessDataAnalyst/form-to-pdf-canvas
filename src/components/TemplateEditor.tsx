@@ -35,8 +35,8 @@ export const TemplateEditor: React.FC<TemplateEditorProps> = ({
     const calculateScale = () => {
       const availableHeight = window.innerHeight; // header + footer
       const availableWidth = (window.innerWidth * 1); // 80% of screen - padding
-      const containerHeight = 800; // Template height
-      const containerWidth = 1200;  // Template width
+      const containerHeight = 595; // A4 landscape height at 72 DPI
+      const containerWidth = 842;  // A4 landscape width at 72 DPI
       
       const scaleHeight = availableHeight / containerHeight;
       const scaleWidth = availableWidth / containerWidth;
@@ -146,16 +146,16 @@ export const TemplateEditor: React.FC<TemplateEditorProps> = ({
         (gridOverlay as HTMLElement).style.display = 'none';
       }
 
-      // Capture at full size (1200px x 800px)
+      // Capture at full size (1123px x 794px)
       const canvas = await html2canvas(element, {
         scale: 3,
         useCORS: true,
         logging: false,
         backgroundColor: "#ffffff",
-        width: 1200,
-        height: 800,
-        windowWidth: 1200,
-        windowHeight: 800,
+        width: 1123,
+        height: 794,
+        windowWidth: 1123,
+        windowHeight: 794,
         scrollX: 0,
         scrollY: 0,
         x: 0,
@@ -237,8 +237,8 @@ export const TemplateEditor: React.FC<TemplateEditorProps> = ({
                 id="captureArea" 
                 className="relative bg-white shadow-xl border-2 border-border"
                 style={{
-                  width: '1200px',   // Template width
-                  height: '800px',  // Template height
+                  width: '1123px',   // A4 landscape width at 72 DPI
+                  height: '794px',  // A4 landscape height at 72 DPI
                   transform: `translate(${panOffset.x}px, ${panOffset.y}px) scale(${scale})`,
                   transformOrigin: 'center center',
                 }}
