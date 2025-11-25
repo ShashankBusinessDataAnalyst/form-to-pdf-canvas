@@ -5,8 +5,7 @@ export const generatePDF = async (
   elementId: string,
   fileName: string,
   setPrintMode?: (value: boolean) => void,
-  currentScale?: number,
-  dimensions?: { width: number; height: number }
+  currentScale?: number
 ): Promise<void> => {
   const element = document.getElementById(elementId);
   if (!element) {
@@ -21,16 +20,12 @@ export const generatePDF = async (
       await new Promise(resolve => setTimeout(resolve, 200));
     }
 
-    // Use provided dimensions or fallback to default (A4 landscape at 96 DPI)
-    const CANVAS_WIDTH = dimensions?.width || 1123;
-    const CANVAS_HEIGHT = dimensions?.height || 794;
-
     // Temporarily remove scale transform for full-resolution PDF
     const originalTransform = (element as HTMLElement).style.transform;
     if (currentScale) {
       (element as HTMLElement).style.transform = 'scale(1)';
       (element as HTMLElement).style.transformOrigin = 'top left';
-      await new Promise(resolve => setTimeout(resolve, 200));
+      await new Promise(resolve => setTimeout(resolve, 50));
     }
 
     // Hide grid overlay during capture
@@ -39,15 +34,18 @@ export const generatePDF = async (
       (gridOverlay as HTMLElement).style.display = 'none';
     }
 
+    // Get exact dimensions
+    const rect = element.getBoundingClientRect();
+
     const canvas = await html2canvas(element, {
       scale: 3,
       useCORS: true,
       logging: false,
       backgroundColor: "#ffffff",
-      width: CANVAS_WIDTH,
-      height: CANVAS_HEIGHT,
-      windowWidth: CANVAS_WIDTH,
-      windowHeight: CANVAS_HEIGHT,
+      width: rect.width,
+      height: rect.height,
+      windowWidth: rect.width,
+      windowHeight: rect.height,
       scrollX: 0,
       scrollY: 0,
       x: 0,
@@ -73,7 +71,7 @@ export const generatePDF = async (
 
     const imgData = canvas.toDataURL("image/png");
     const pdf = new jsPDF({
-      orientation: "landscape",
+      orientation: canvas.width > canvas.height ? "landscape" : "portrait",
       unit: "px",
       format: [canvas.width, canvas.height],
     });
