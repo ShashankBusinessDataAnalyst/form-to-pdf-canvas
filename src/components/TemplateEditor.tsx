@@ -35,8 +35,8 @@ export const TemplateEditor: React.FC<TemplateEditorProps> = ({
     const calculateScale = () => {
       const availableHeight = window.innerHeight; // header + footer
       const availableWidth = (window.innerWidth * 1); // 80% of screen - padding
-      const containerHeight = 794; // Match actual container dimensions
-      const containerWidth = 1123;  // Match actual container dimensions
+      const containerHeight = 595; // A4 landscape height at 72 DPI
+      const containerWidth = 842;  // A4 landscape width at 72 DPI
       
       const scaleHeight = availableHeight / containerHeight;
       const scaleWidth = availableWidth / containerWidth;
@@ -128,64 +128,56 @@ export const TemplateEditor: React.FC<TemplateEditorProps> = ({
       throw new Error("Element not found");
     }
 
-    const htmlElement = element as HTMLElement;
-
-    // Store original transform and origin
-    const originalTransform = htmlElement.style.transform;
-    const originalTransformOrigin = htmlElement.style.transformOrigin;
+    // Store original transform
+    const originalTransform = (element as HTMLElement).style.transform;
 
     try {
       // Enable print mode
       setPrintMode(true);
 
       // Reset transform to scale(1) with no translation for accurate capture
-      htmlElement.style.transform = "translate(0px, 0px) scale(1)";
-      htmlElement.style.transformOrigin = "top left";
-      await new Promise((resolve) => setTimeout(resolve, 200));
+      (element as HTMLElement).style.transform = 'scale(1)';
+      (element as HTMLElement).style.transformOrigin = 'top left';
+      await new Promise(resolve => setTimeout(resolve, 200));
 
       // Hide grid overlay during capture
       const gridOverlay = element.querySelector('[data-html2canvas-ignore="true"]');
       if (gridOverlay) {
-        (gridOverlay as HTMLElement).style.display = "none";
+        (gridOverlay as HTMLElement).style.display = 'none';
       }
 
-      // Use fixed container dimensions for consistent capture
-      const CONTAINER_WIDTH = 1123;
-      const CONTAINER_HEIGHT = 794;
-
+      // Capture at full size (1123px x 794px)
       const canvas = await html2canvas(element, {
         scale: 3,
         useCORS: true,
         logging: false,
         backgroundColor: "#ffffff",
-        width: CONTAINER_WIDTH,
-        height: CONTAINER_HEIGHT,
-        windowWidth: CONTAINER_WIDTH,
-        windowHeight: CONTAINER_HEIGHT,
+        width: 1123,
+        height: 794,
+        windowWidth: 1123,
+        windowHeight: 794,
         scrollX: 0,
         scrollY: 0,
         x: 0,
         y: 0,
         allowTaint: false,
-        foreignObjectRendering: false,
+        foreignObjectRendering: false
       });
 
       // Restore grid overlay
       if (gridOverlay) {
-        (gridOverlay as HTMLElement).style.display = "";
+        (gridOverlay as HTMLElement).style.display = '';
       }
 
-      // Restore original transform and origin
-      htmlElement.style.transform = originalTransform;
-      htmlElement.style.transformOrigin = originalTransformOrigin;
+      // Restore original transform
+      (element as HTMLElement).style.transform = originalTransform;
 
       // Disable print mode
       setPrintMode(false);
       return canvas.toDataURL("image/png");
     } catch (error) {
-      // Restore transform and origin even on error
-      htmlElement.style.transform = originalTransform;
-      htmlElement.style.transformOrigin = originalTransformOrigin;
+      // Restore transform even on error
+      (element as HTMLElement).style.transform = originalTransform;
       setPrintMode(false);
       throw error;
     }
