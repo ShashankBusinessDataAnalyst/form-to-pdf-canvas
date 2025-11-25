@@ -41,7 +41,10 @@ export const PrintPreviewDialog: React.FC<PrintPreviewDialogProps> = ({
               src={previewImage}
               alt="PDF Preview"
               className="max-w-full h-auto mx-auto shadow-lg border-2 border-black"
-              style={{ maxHeight: '60vh' }}
+              style={{ 
+                maxHeight: '60vh',
+                aspectRatio: '1123 / 794'
+              }}
             />
           ) : (
             <div className="flex items-center justify-center h-64 text-muted-foreground">
