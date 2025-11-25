@@ -131,7 +131,7 @@ export const TemplateEditor: React.FC<TemplateEditorProps> = ({
 
       // Capture at full size (1123px x 794px)
       const canvas = await html2canvas(element, {
-        scale: 3,
+        scale: 2,
         useCORS: true,
         logging: false,
         backgroundColor: "#ffffff",
