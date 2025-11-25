@@ -8,7 +8,7 @@ import { PrintModeProvider } from "@/contexts/PrintModeContext";
 import { FormTextarea } from "@/components/FormTextarea";
 import Stellar_HOT_tmpt from "@/assets/STELLAR_HOT_tmpt.png"; //Make sure the file name matches the actual template background file in assets folder.
 
-const Stellar_Cold = () => {
+const Stellar_Hot = () => {
   const [formData, setFormData] = useState<Record<string, any>>({
     clientName: "",
     soNumber: "",
@@ -97,7 +97,7 @@ const Stellar_Cold = () => {
     <PrintModeProvider>
       <TemplateEditor
         templateImage={Stellar_HOT_tmpt} //Background image of the template.The png file should be of high quality.
-        templateName="Stellar Cold Template"
+        templateName="Stellar Hot Template"
         onClearAll={handleClearAll}
       >
         <FormTextInput
@@ -352,4 +352,4 @@ const Stellar_Cold = () => {
   );
 };
 
-export default Stellar_Cold;
+export default Stellar_Hot;
