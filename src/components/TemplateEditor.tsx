@@ -29,17 +29,25 @@ export const TemplateEditor: React.FC<TemplateEditorProps> = ({
   const [isDragging, setIsDragging] = useState(false);
   const [dragStart, setDragStart] = useState({ x: 0, y: 0 });
   const [dragButton, setDragButton] = useState<number | null>(null);
+  const [templateDimensions, setTemplateDimensions] = useState({ width: 1123, height: 794 });
+
+  // Load actual template image dimensions on mount
+  useEffect(() => {
+    const img = new Image();
+    img.onload = () => {
+      setTemplateDimensions({ width: img.naturalWidth, height: img.naturalHeight });
+    };
+    img.src = templateImage;
+  }, [templateImage]);
 
   // Calculate automatic scale factor to fit template in viewport
   useEffect(() => {
     const calculateScale = () => {
-      const availableHeight = window.innerHeight; // header + footer
-      const availableWidth = (window.innerWidth * 1); // 80% of screen - padding
-      const containerHeight = 595; // A4 landscape height at 72 DPI
-      const containerWidth = 842;  // A4 landscape width at 72 DPI
+      const availableHeight = window.innerHeight;
+      const availableWidth = window.innerWidth;
       
-      const scaleHeight = availableHeight / containerHeight;
-      const scaleWidth = availableWidth / containerWidth;
+      const scaleHeight = availableHeight / templateDimensions.height;
+      const scaleWidth = availableWidth / templateDimensions.width;
       
       setAutoScale(Math.min(scaleHeight, scaleWidth, 1));
     };
@@ -47,7 +55,7 @@ export const TemplateEditor: React.FC<TemplateEditorProps> = ({
     calculateScale();
     window.addEventListener('resize', calculateScale);
     return () => window.removeEventListener('resize', calculateScale);
-  }, []);
+  }, [templateDimensions]);
 
 
   // Combined scale factor (auto-fit * manual zoom)
@@ -146,16 +154,16 @@ export const TemplateEditor: React.FC<TemplateEditorProps> = ({
         (gridOverlay as HTMLElement).style.display = 'none';
       }
 
-      // Capture at full size (1123px x 794px)
+      // Capture at actual template dimensions
       const canvas = await html2canvas(element, {
         scale: 3,
         useCORS: true,
         logging: false,
         backgroundColor: "#ffffff",
-        width: 1123,
-        height: 794,
-        windowWidth: 1123,
-        windowHeight: 794,
+        width: templateDimensions.width,
+        height: templateDimensions.height,
+        windowWidth: templateDimensions.width,
+        windowHeight: templateDimensions.height,
         scrollX: 0,
         scrollY: 0,
         x: 0,
@@ -195,7 +203,7 @@ export const TemplateEditor: React.FC<TemplateEditorProps> = ({
   };
   const handleDownload = async () => {
     try {
-      await generatePDF("captureArea", `${templateName}-form`, setPrintMode, scale);
+      await generatePDF("captureArea", `${templateName}-form`, setPrintMode, scale, templateDimensions);
       toast.success("PDF downloaded successfully!");
       setPreviewOpen(false);
     } catch (error) {
@@ -237,8 +245,8 @@ export const TemplateEditor: React.FC<TemplateEditorProps> = ({
                 id="captureArea" 
                 className="relative bg-white shadow-xl border-2 border-border"
                 style={{
-                  width: '1123px',   // A4 landscape width at 72 DPI
-                  height: '794px',  // A4 landscape height at 72 DPI
+                  width: `${templateDimensions.width}px`,
+                  height: `${templateDimensions.height}px`,
                   transform: `translate(${panOffset.x}px, ${panOffset.y}px) scale(${scale})`,
                   transformOrigin: 'center center',
                 }}

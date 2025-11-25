@@ -5,7 +5,8 @@ export const generatePDF = async (
   elementId: string,
   fileName: string,
   setPrintMode?: (value: boolean) => void,
-  currentScale?: number
+  currentScale?: number,
+  dimensions?: { width: number; height: number }
 ): Promise<void> => {
   const element = document.getElementById(elementId);
   if (!element) {
@@ -20,9 +21,9 @@ export const generatePDF = async (
       await new Promise(resolve => setTimeout(resolve, 200));
     }
 
-    // Fixed canvas dimensions (A4 landscape at 96 DPI)
-    const CANVAS_WIDTH = 1123;
-    const CANVAS_HEIGHT = 794;
+    // Use provided dimensions or fallback to default (A4 landscape at 96 DPI)
+    const CANVAS_WIDTH = dimensions?.width || 1123;
+    const CANVAS_HEIGHT = dimensions?.height || 794;
 
     // Temporarily remove scale transform for full-resolution PDF
     const originalTransform = (element as HTMLElement).style.transform;
