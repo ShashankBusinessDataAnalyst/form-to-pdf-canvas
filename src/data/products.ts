@@ -9,6 +9,38 @@ export interface ProductInfo {
 
 export const products: ProductInfo[] = [
   {
+    id: "Stellar_Cold",
+    name: "Stellar Cold",
+    thumbnail: "/src/assets/stellar_model.png",
+    route: "/Stellar_Cold",
+    category: "Display Units",
+    description: "Technical drawing template"
+  },
+  {
+    id: "Stellar_Hot",
+    name: "Stellar Hot",
+    thumbnail: "/src/assets/stellar_model.png",
+    route: "/Stellar_Hot",
+    category: "Display Units",
+    description: "Technical drawing template"
+  },
+  {
+    id: "Stellar_NORMAL",
+    name: "Stellar Normal",
+    thumbnail: "/src/assets/stellar_model.png",
+    route: "/Stellar_NORMAL",
+    category: "Display Units",
+    description: "Technical drawing template"
+  },
+  {
+    id: "Stellar_CAVITY",
+    name: "Stellar Cavity",
+    thumbnail: "/src/assets/stellar_model.png",
+    route: "/Stellar_CAVITY",
+    category: "Display Units",
+    description: "Technical drawing template"
+  },
+  {
     id: "shannon-cold",
     name: "Shannon Cold",
     thumbnail: "/src/assets/Shannon-thumbnail.png",
@@ -48,21 +80,6 @@ export const products: ProductInfo[] = [
     category: "Cold Storage",
     description: "Technical drawing template"
   },
-  {
-    id: "Stellar_Cold",
-    name: "Stellar Cold",
-    thumbnail: "/src/assets/stellar_model.png",
-    route: "/Stellar_Cold",
-    category: "Display Units",
-    description: "Technical drawing template"
-  },
-  {
-    id: "Stellar_Hot",
-    name: "Stellar Hot",
-    thumbnail: "/src/assets/stellar_model.png",
-    route: "/Stellar_Hot",
-    category: "Display Units",
-    description: "Technical drawing template"
-  },
+  
   // Add remaining 65 products here following the same pattern
 ];

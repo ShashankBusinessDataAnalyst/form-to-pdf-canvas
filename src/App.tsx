@@ -12,6 +12,8 @@ import Product5 from "./pages/Product5";
 import NotFound from "./pages/NotFound";
 import Stellar_Cold from "./pages/Stellar_Cold";
 import Stellar_Hot from "./pages/Stellar_Hot";
+import Stellar_NORMAL from "./pages/Stellar_NORMAL";
+import Stellar_CAVITY from "./pages/Stellar_CAVITY";
 
 const queryClient = new QueryClient();
 
@@ -23,13 +25,15 @@ const App = () => (
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
+          <Route path="/Stellar_Cold" element={<Stellar_Cold />} />
+          <Route path="/Stellar_Hot" element={<Stellar_Hot />} />
+          <Route path="/Stellar_NORMAL" element={<Stellar_NORMAL />} />
+          <Route path="/Stellar_CAVITY" element={<Stellar_CAVITY />} />
           <Route path="/shannon-cold" element={<ShannonCold />} />
           <Route path="/shannon-hot" element={<ShannonHot />} />
           <Route path="/product-3" element={<Product3 />} />
           <Route path="/product-4" element={<Product4 />} />
           <Route path="/product-5" element={<Product5 />} />
-          <Route path="/Stellar_Cold" element={<Stellar_Cold />} />
-          <Route path="/Stellar_Hot" element={<Stellar_Hot />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
