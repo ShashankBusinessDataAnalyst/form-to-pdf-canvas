@@ -1,3 +1,8 @@
+import stellarModel from "@/assets/stellar_model.png";
+import shannonThumbnail from "@/assets/Shannon-thumbnail.png";
+import coldTemplate from "@/assets/cold-template.png";
+import hotTemplate from "@/assets/hot-template.png";
+
 export interface ProductInfo {
   id: string;
   name: string;
@@ -11,7 +16,7 @@ export const products: ProductInfo[] = [
   {
     id: "Stellar_Cold",
     name: "Stellar Cold",
-    thumbnail: "/src/assets/stellar_model.png",
+    thumbnail: stellarModel,
     route: "/Stellar_Cold",
     category: "Display Units",
     description: "Technical drawing template"
@@ -19,7 +24,7 @@ export const products: ProductInfo[] = [
   {
     id: "Stellar_Hot",
     name: "Stellar Hot",
-    thumbnail: "/src/assets/stellar_model.png",
+    thumbnail: stellarModel,
     route: "/Stellar_Hot",
     category: "Display Units",
     description: "Technical drawing template"
@@ -27,7 +32,7 @@ export const products: ProductInfo[] = [
   {
     id: "Stellar_NORMAL",
     name: "Stellar Normal",
-    thumbnail: "/src/assets/stellar_model.png",
+    thumbnail: stellarModel,
     route: "/Stellar_NORMAL",
     category: "Display Units",
     description: "Technical drawing template"
@@ -35,7 +40,7 @@ export const products: ProductInfo[] = [
   {
     id: "Stellar_CAVITY",
     name: "Stellar Cavity",
-    thumbnail: "/src/assets/stellar_model.png",
+    thumbnail: stellarModel,
     route: "/Stellar_CAVITY",
     category: "Display Units",
     description: "Technical drawing template"
@@ -43,7 +48,7 @@ export const products: ProductInfo[] = [
   {
     id: "shannon-cold",
     name: "Shannon Cold",
-    thumbnail: "/src/assets/Shannon-thumbnail.png",
+    thumbnail: shannonThumbnail,
     route: "/shannon-cold",
     category: "Cold Storage",
     description: "Technical drawing template for cold storage units"
@@ -51,7 +56,7 @@ export const products: ProductInfo[] = [
   {
     id: "shannon-hot",
     name: "Shannon Hot",
-    thumbnail: "/src/assets/hot-template.png",
+    thumbnail: hotTemplate,
     route: "/shannon-hot",
     category: "Hot Storage",
     description: "Technical drawing template for hot storage units"
@@ -59,7 +64,7 @@ export const products: ProductInfo[] = [
   {
     id: "product-3",
     name: "Product Name 3",
-    thumbnail: "/src/assets/cold-template.png",
+    thumbnail: coldTemplate,
     route: "/product-3",
     category: "Cold Storage",
     description: "Technical drawing template"
@@ -67,7 +72,7 @@ export const products: ProductInfo[] = [
   {
     id: "product-4",
     name: "Product Name 4",
-    thumbnail: "/src/assets/hot-template.png",
+    thumbnail: hotTemplate,
     route: "/product-4",
     category: "Hot Storage",
     description: "Technical drawing template"
@@ -75,7 +80,7 @@ export const products: ProductInfo[] = [
   {
     id: "product-5",
     name: "Product Name 5",
-    thumbnail: "/src/assets/cold-template.png",
+    thumbnail: coldTemplate,
     route: "/product-5",
     category: "Cold Storage",
     description: "Technical drawing template"
