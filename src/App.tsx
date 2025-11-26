@@ -7,7 +7,7 @@ import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import Stellar_Cold from "./pages/Stellar_Cold";
 import Stellar_Hot from "./pages/Stellar_Hot";
-import Stellar_Normal from "./pages/Stellar_NORMAL";
+import StellarNormal from "./pages/StellarNormal";
 import Stellar_Hot_CAVITY from "./pages/Stellar_Hot_CAVITY";
 import Stellar_Spire_Hot from "./pages/Stellar_Spire_Hot";
 import Stellar_Spire_Normal from "./pages/Stellar_Spire_Normal";
@@ -26,7 +26,7 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/Stellar_Cold" element={<Stellar_Cold />} />
           <Route path="/Stellar_Hot" element={<Stellar_Hot />} />
-          <Route path="/Stellar_NORMAL" element={<Stellar_Normal />} />
+          <Route path="/StellarNormal" element={<StellarNormal />} />
           <Route path="/Stellar_Hot_CAVITY" element={<Stellar_Hot_CAVITY />} />
           <Route path="/Stellar_Spire_Hot" element={<Stellar_Spire_Hot />} />
           <Route path="/Stellar_Spire_Normal" element={<Stellar_Spire_Normal />} />
