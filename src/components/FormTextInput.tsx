@@ -33,7 +33,7 @@ export const FormTextInput: React.FC<FormTextInputProps> = ({
       <div
         className="absolute text-center text-sm text-black"
         style={{
-          top: `${position.top}px`,
+          top: `${position.top-4}px`,
           left: `${position.left}px`,
           width: `${width}px`,
           lineHeight: "1",
