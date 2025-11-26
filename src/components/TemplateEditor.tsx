@@ -128,20 +128,9 @@ export const TemplateEditor: React.FC<TemplateEditorProps> = ({
       throw new Error("Element not found");
     }
 
-    const htmlElement = element as HTMLElement;
-
-    // Store original transform and origin
-    const originalTransform = htmlElement.style.transform;
-    const originalTransformOrigin = htmlElement.style.transformOrigin;
-
-    try {
       // Enable print mode
       setPrintMode(true);
-
-      // Reset transform to scale(1) with no translation for accurate capture
-      htmlElement.style.transform = "translate(0px, 0px) scale(1)";
-      htmlElement.style.transformOrigin = "top left";
-      await new Promise((resolve) => setTimeout(resolve, 200));
+      await new Promise((resolve) => setTimeout(resolve, 30));
 
       // Hide grid overlay during capture
       const gridOverlay = element.querySelector('[data-html2canvas-ignore="true"]');
@@ -149,25 +138,23 @@ export const TemplateEditor: React.FC<TemplateEditorProps> = ({
         (gridOverlay as HTMLElement).style.display = "none";
       }
 
-      // Use fixed container dimensions for consistent capture
-      const CONTAINER_WIDTH = 1123;
-      const CONTAINER_HEIGHT = 794;
-
+      // Get exact dimensions
+      const rect = element.getBoundingClientRect();;
       const canvas = await html2canvas(element, {
         scale: 3,
         useCORS: true,
         logging: false,
         backgroundColor: "#ffffff",
-        width: CONTAINER_WIDTH,
-        height: CONTAINER_HEIGHT,
-        windowWidth: CONTAINER_WIDTH,
-        windowHeight: CONTAINER_HEIGHT,
+        width: rect.width,
+        height: rect.height,
+        windowWidth: rect.width,
+        windowHeight: rect.height,
         scrollX: 0,
         scrollY: 0,
         x: 0,
         y: 0,
         allowTaint: false,
-        foreignObjectRendering: false,
+        foreignObjectRendering: false
       });
 
       // Restore grid overlay
@@ -175,21 +162,10 @@ export const TemplateEditor: React.FC<TemplateEditorProps> = ({
         (gridOverlay as HTMLElement).style.display = "";
       }
 
-      // Restore original transform and origin
-      htmlElement.style.transform = originalTransform;
-      htmlElement.style.transformOrigin = originalTransformOrigin;
-
       // Disable print mode
       setPrintMode(false);
       return canvas.toDataURL("image/png");
-    } catch (error) {
-      // Restore transform and origin even on error
-      htmlElement.style.transform = originalTransform;
-      htmlElement.style.transformOrigin = originalTransformOrigin;
-      setPrintMode(false);
-      throw error;
-    }
-  };
+    };
   const handlePreview = async () => {
     try {
       setPreviewOpen(true);
@@ -203,7 +179,7 @@ export const TemplateEditor: React.FC<TemplateEditorProps> = ({
   };
   const handleDownload = async () => {
     try {
-      await generatePDF("captureArea", `${templateName}-form`, setPrintMode, scale);
+      await generatePDF("captureArea", `${templateName}-form`, setPrintMode);
       toast.success("PDF downloaded successfully!");
       setPreviewOpen(false);
     } catch (error) {
@@ -239,7 +215,8 @@ export const TemplateEditor: React.FC<TemplateEditorProps> = ({
         >
           <div className="flex justify-center overflow-hidden">
             {/* MAIN DRAWING AREA */}
-            <div className="relative flex items-center overflow-hidden">
+            <div className="ml-[260px] flex-1 bg-[#E0E0E0] min-h-screen overflow-y-auto py-8">
+              
               {/* Drawing Area - Fixed size container that scales as a unit */}
               <div 
                 id="captureArea" 
