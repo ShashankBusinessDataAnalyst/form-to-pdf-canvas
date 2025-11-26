@@ -6,9 +6,9 @@ import { FormDatePicker } from "@/components/FormDatePicker";
 import { FormCheckbox } from "@/components/FormCheckbox";
 import { PrintModeProvider } from "@/contexts/PrintModeContext";
 import { FormTextarea } from "@/components/FormTextarea";
-import Stellar_Spire_Hot_tmpt from "@/assets/Stellar_Spire_Hot_tmpt.png"; //Make sure the file name matches the actual template background file in assets folder.
+import Stellar_cold_tmpt from "@/assets/Stellar_Cold_tmpt.png"; //Make sure the file name matches the actual template background file in assets folder.
 
-const Stellar_Spire_Hot = () => {
+const StellarCold = () => {
   const [formData, setFormData] = useState<Record<string, any>>({
     clientName: "",
     soNumber: "",
@@ -63,6 +63,8 @@ const Stellar_Spire_Hot = () => {
       qty6ft: "",
       "3ft": false,
       "4ft": false,
+      "5ft": false,
+      "6ft": false,
       CNW: false,
       SNW: false,
       DNW: false,
@@ -86,7 +88,6 @@ const Stellar_Spire_Hot = () => {
       TCC: "",
       FCD: "",
       TCD: "",
-      Sheleves1: false,
       sampleTextarea: "",
       splnote: "",
     });
@@ -95,8 +96,8 @@ const Stellar_Spire_Hot = () => {
   return (
     <PrintModeProvider>
       <TemplateEditor
-        templateImage={Stellar_Spire_Hot_tmpt} //Background image of the template.The png file should be of high quality.
-        templateName="Stellar Sprire Hot Template"
+        templateImage={Stellar_cold_tmpt} //Background image of the template.The png file should be of high quality.
+        templateName="Stellar Cold Template"
         onClearAll={handleClearAll}
       >
         <FormTextInput
@@ -131,13 +132,13 @@ const Stellar_Spire_Hot = () => {
           id="3ft"
           checked={formData["3ft"]}
           onChange={(val) => handleFieldChange("3ft", val)}
-          position={{ top: 363, left: 225 }}
+          position={{ top: 321, left: 225 }}
         />
         <FormNumberInput
           id="qty3ft"
           value={formData.qty3ft}
           onChange={(val) => handleFieldChange("qty3ft", val)}
-          position={{ top: 363, left: 260 }}
+          position={{ top: 322, left: 250 }}
           width={80}
           placeholder="Qty"
         />
@@ -145,145 +146,166 @@ const Stellar_Spire_Hot = () => {
           id="4ft"
           checked={formData["4ft"]}
           onChange={(val) => handleFieldChange("4ft", val)}
-          position={{ top: 382, left: 225 }}
+          position={{ top: 339, left: 225 }}
         />
         <FormNumberInput
           id="qty4ft"
           value={formData.qty4ft}
           onChange={(val) => handleFieldChange("qty4ft", val)}
-          position={{ top: 382, left: 260 }}
+          position={{ top: 340, left: 250 }}
           width={80}
           placeholder="Qty"
         />
-        
+        <FormCheckbox
+          id="5ft"
+          checked={formData["5ft"]}
+          onChange={(val) => handleFieldChange("5ft", val)}
+          position={{ top: 359, left: 225 }}
+        />
+        <FormNumberInput
+          id="qty5ft"
+          value={formData.qty5ft}
+          onChange={(val) => handleFieldChange("qty5ft", val)}
+          position={{ top: 359, left: 250 }}
+          width={80}
+          placeholder="Qty"
+        />
+        <FormCheckbox
+          id="6ft"
+          checked={formData["6ft"]}
+          onChange={(val) => handleFieldChange("6ft", val)}
+          position={{ top: 377, left: 225 }}
+        />
+        <FormNumberInput
+          id="qty6ft"
+          value={formData.qty6ft}
+          onChange={(val) => handleFieldChange("qty6ft", val)}
+          position={{ top: 377, left: 250 }}
+          width={80}
+          placeholder="Qty"
+        />
 
         <FormCheckbox
           id="CNW"
           checked={formData.CNW}
           onChange={(val) => handleFieldChange("CNW", val)}
-          position={{ top: 363, left: 815 }}
+          position={{ top: 321, left: 815 }}
         />
         <FormCheckbox
           id="SNW"
           checked={formData.SNW}
           onChange={(val) => handleFieldChange("SNW", val)}
-          position={{ top: 363, left: 935 }}
+          position={{ top: 321, left: 935 }}
         />
         <FormCheckbox
           id="DNW"
           checked={formData.DNW}
           onChange={(val) => handleFieldChange("DNW", val)}
-          position={{ top: 363, left: 1078 }}
+          position={{ top: 321, left: 1078 }}
         />
         <FormCheckbox
           id="CCW"
           checked={formData.CCW}
           onChange={(val) => handleFieldChange("CCW", val)}
-          position={{ top: 382, left: 815 }}
+          position={{ top: 339, left: 815 }}
         />
         <FormCheckbox
           id="SWW"
           checked={formData.SWW}
           onChange={(val) => handleFieldChange("SWW", val)}
-          position={{ top: 382, left: 935 }}
+          position={{ top: 339, left: 935 }}
         />
         <FormCheckbox
           id="DWW"
           checked={formData.DWW}
           onChange={(val) => handleFieldChange("DWW", val)}
-          position={{ top: 382, left: 1078 }}
+          position={{ top: 339, left: 1078 }}
         />
 
         <FormCheckbox
           id="wheels"
           checked={formData.wheels}
           onChange={(val) => handleFieldChange("wheels", val)}
-          position={{ top: 438, left: 888 }}
+          position={{ top: 394, left: 888 }}
         />
          <FormCheckbox
           id="Alegs"
           checked={formData.Alegs}
           onChange={(val) => handleFieldChange("Alegs", val)}
-          position={{ top: 455, left: 888 }}
+          position={{ top: 414, left: 888 }}
         />
         <FormCheckbox
           id="Sheleves"
           checked={formData.Sheleves}
           onChange={(val) => handleFieldChange("Sheleves", val)}
-          position={{ top: 438, left: 1078 }}
-        />
-        <FormCheckbox
-          id="Sheleves1"
-          checked={formData.Sheleves}
-          onChange={(val) => handleFieldChange("Sheleves1", val)}
-          position={{ top: 455, left: 1078 }}
+          position={{ top: 394, left: 1078 }}
         />
 
         <FormCheckbox
           id="CF1"
           checked={formData.CF1}
           onChange={(val) => handleFieldChange("CF1", val)}
-          position={{ top: 529, left: 848 }}
+          position={{ top: 486, left: 848 }}
         />
         <FormCheckbox
           id="CF2"
           checked={formData.CF2}
           onChange={(val) => handleFieldChange("CF2", val)}
-          position={{ top: 548, left: 848 }}
+          position={{ top: 505, left: 848 }}
         />
         <FormCheckbox
           id="CF3"
           checked={formData.CF3}
           onChange={(val) => handleFieldChange("CF3", val)}
-          position={{ top: 567, left: 848 }}
+          position={{ top: 523, left: 848 }}
         />
         <FormCheckbox
           id="CF4"
           checked={formData.CF4}
           onChange={(val) => handleFieldChange("CF4", val)}
-          position={{ top: 585, left: 848 }}
+          position={{ top: 542, left: 848 }}
         />
         <FormCheckbox
           id="CF5"
           checked={formData.CF5}
           onChange={(val) => handleFieldChange("CF5", val)}
-          position={{ top: 603, left: 848 }}
+          position={{ top: 560, left: 848 }}
         />
         <FormCheckbox
           id="CT1"
           checked={formData.CT1}
           onChange={(val) => handleFieldChange("CT1", val)}
-          position={{ top: 529, left: 890 }}
+          position={{ top: 486, left: 890 }}
         />
         <FormCheckbox
           id="CT2"
           checked={formData.CT2}
           onChange={(val) => handleFieldChange("CT2", val)}
-          position={{ top: 548, left: 890 }}
+          position={{ top: 505, left: 890 }}
         />
         <FormCheckbox
           id="CT3"
           checked={formData.CT3}
           onChange={(val) => handleFieldChange("CT3", val)}
-          position={{ top: 567, left: 890 }}
+          position={{ top: 523, left: 890 }}
         />
         <FormCheckbox
           id="CT4"
           checked={formData.CT4}
           onChange={(val) => handleFieldChange("CT4", val)}
-          position={{ top: 585, left: 890 }}
+          position={{ top: 542, left: 890 }}
         />
         <FormCheckbox
           id="CT5"
           checked={formData.CT5}
           onChange={(val) => handleFieldChange("CT5", val)}
-          position={{ top: 603, left: 890 }}
+          position={{ top: 560, left: 890 }}
         />
         <FormTextarea
           id="sampleTextarea"
           value={formData.sampleTextarea}
           onChange={(val) => handleFieldChange("sampleTextarea", val)}
-          position={{ top: 535, left: 920 }}
+          position={{ top: 500, left: 920 }}
           width={170}
           height={80}
           placeholder="Add Text"
@@ -292,25 +314,37 @@ const Stellar_Spire_Hot = () => {
           id="FCC"
           value={formData.FCC}
           onChange={(val) => handleFieldChange("FCC", val)}
-          position={{ top: 624, left: 800 }}
-          width={100}
+          position={{ top: 585, left: 800 }}
+          width={80}
         />
-        
+        <FormTextInput
+          id="TCC"
+          value={formData.TCC}
+          onChange={(val) => handleFieldChange("TCC", val)}
+          position={{ top: 600, left: 800 }}
+          width={80}
+        />
         <FormTextInput
           id="FCD"
           value={formData.FCD}
           onChange={(val) => handleFieldChange("FCD", val)}
-          position={{ top: 624, left: 1000 }}
-          width={100}
+          position={{ top: 585, left: 1000 }}
+          width={80}
         />
-        
+        <FormTextInput
+          id="TCD"
+          value={formData.TCD}
+          onChange={(val) => handleFieldChange("TCD", val)}
+          position={{ top: 600, left: 1000 }}
+          width={80}
+        />
         <FormTextarea
           id="splnote"
           value={formData.splnote}
           onChange={(val) => handleFieldChange("splnote", val)}
-          position={{ top: 664, left: 360 }}
-          width={690}
-          height={50}
+          position={{ top: 640, left: 480 }}
+          width={590}
+          height={70}
           placeholder="Add Text"
         />
       </TemplateEditor>
@@ -318,4 +352,4 @@ const Stellar_Spire_Hot = () => {
   );
 };
 
-export default Stellar_Spire_Hot;
+export default StellarCold;

@@ -6,9 +6,9 @@ import { FormDatePicker } from "@/components/FormDatePicker";
 import { FormCheckbox } from "@/components/FormCheckbox";
 import { PrintModeProvider } from "@/contexts/PrintModeContext";
 import { FormTextarea } from "@/components/FormTextarea";
-import Stellar_Spire_Normal_tmpt from "@/assets/Stellar_Spire_Normal_tmpt.png"; //Make sure the file name matches the actual template background file in assets folder.
+import Stellar_Cash_Counter_tmpt from "@/assets/Stellar_Cash_Counter_tmpt.png"; //Make sure the file name matches the actual template background file in assets folder.
 
-const Stellar_Spire_Normal = () => {
+const StellarCashCounter = () => {
   const [formData, setFormData] = useState<Record<string, any>>({
     clientName: "",
     soNumber: "",
@@ -57,11 +57,15 @@ const Stellar_Spire_Normal = () => {
       clientName: "",
       soNumber: "",
       date: new Date(),
+      qty2ft: "",
+      qty2_6ft: "",
       qty3ft: "",
-      qty4ft: "",
-      qty5ft: "",
+      qty3_6ft: "",
       qty6ft: "",
+      "2ft": false,
+      "2_6ft": false,
       "3ft": false,
+      "3_6ft": false,
       "4ft": false,
       CNW: false,
       SNW: false,
@@ -87,6 +91,14 @@ const Stellar_Spire_Normal = () => {
       FCD: "",
       TCD: "",
       Sheleves1: false,
+      RDRW: false,
+      SSDRW: false,
+      WireManager: false,
+      SSDoor: false,
+      WSSDoor: false,
+      FTLogo: false,
+      BackLight: false,
+      NoBackLight: false,
       sampleTextarea: "",
       splnote: "",
     });
@@ -95,8 +107,8 @@ const Stellar_Spire_Normal = () => {
   return (
     <PrintModeProvider>
       <TemplateEditor
-        templateImage={Stellar_Spire_Normal_tmpt} //Background image of the template.The png file should be of high quality.
-        templateName="Stellar Sprire Normal Template"
+        templateImage={Stellar_Cash_Counter_tmpt} //Background image of the template.The png file should be of high quality.
+        templateName="Stellar Cash Counter Template"
         onClearAll={handleClearAll}
       >
         <FormTextInput
@@ -128,16 +140,58 @@ const Stellar_Spire_Normal = () => {
           position={{ top: 750, left: 450 }}
         />
         <FormCheckbox
+          id="2ft"
+          checked={formData["2ft"]}
+          onChange={(val) => handleFieldChange("2ft", val)}
+          position={{ top: 345, left: 225 }}
+        />
+        <FormNumberInput
+          id="qty2ft"
+          value={formData.qty2ft}
+          onChange={(val) => handleFieldChange("qty2ft", val)}
+          position={{ top: 345, left: 245 }}
+          width={80}
+          placeholder="Qty"
+        />
+        <FormCheckbox
+          id="2_6ft"
+          checked={formData["2_6ft"]}
+          onChange={(val) => handleFieldChange("2_6ft", val)}
+          position={{ top: 362, left: 225 }}
+        />
+        <FormNumberInput
+          id="qty2_6ft"
+          value={formData.qty4ft}
+          onChange={(val) => handleFieldChange("qty2_6ft", val)}
+          position={{ top: 362, left: 245 }}
+          width={80}
+          placeholder="Qty"
+        />
+        <FormCheckbox
           id="3ft"
           checked={formData["3ft"]}
           onChange={(val) => handleFieldChange("3ft", val)}
-          position={{ top: 363, left: 225 }}
+          position={{ top: 382, left: 225 }}
         />
         <FormNumberInput
           id="qty3ft"
           value={formData.qty3ft}
           onChange={(val) => handleFieldChange("qty3ft", val)}
-          position={{ top: 363, left: 260 }}
+          position={{ top: 382, left: 245 }}
+          width={80}
+          placeholder="Qty"
+        />
+        <FormCheckbox
+          id="3_6ft"
+          checked={formData["3_6ft"]}
+          onChange={(val) => handleFieldChange("3_6ft", val)}
+          position={{ top: 400, left: 225 }}
+        />
+        <FormNumberInput
+          id="qty3_6ft"
+          value={formData.qty4ft}
+          onChange={(val) => handleFieldChange("qty3_6ft", val)}
+          position={{ top: 400, left: 245 }}
           width={80}
           placeholder="Qty"
         />
@@ -145,13 +199,13 @@ const Stellar_Spire_Normal = () => {
           id="4ft"
           checked={formData["4ft"]}
           onChange={(val) => handleFieldChange("4ft", val)}
-          position={{ top: 382, left: 225 }}
+          position={{ top: 418, left: 225 }}
         />
         <FormNumberInput
           id="qty4ft"
           value={formData.qty4ft}
           onChange={(val) => handleFieldChange("qty4ft", val)}
-          position={{ top: 382, left: 260 }}
+          position={{ top: 418, left: 245 }}
           width={80}
           placeholder="Qty"
         />
@@ -161,62 +215,112 @@ const Stellar_Spire_Normal = () => {
           id="CNW"
           checked={formData.CNW}
           onChange={(val) => handleFieldChange("CNW", val)}
-          position={{ top: 363, left: 815 }}
+          position={{ top: 327, left: 815 }}
         />
         <FormCheckbox
           id="SNW"
           checked={formData.SNW}
           onChange={(val) => handleFieldChange("SNW", val)}
-          position={{ top: 363, left: 935 }}
+          position={{ top: 327, left: 958 }}
         />
         <FormCheckbox
           id="DNW"
           checked={formData.DNW}
           onChange={(val) => handleFieldChange("DNW", val)}
-          position={{ top: 363, left: 1078 }}
+          position={{ top: 327, left: 1078 }}
         />
         <FormCheckbox
           id="CCW"
           checked={formData.CCW}
           onChange={(val) => handleFieldChange("CCW", val)}
-          position={{ top: 382, left: 815 }}
+          position={{ top: 345, left: 815 }}
         />
         <FormCheckbox
           id="SWW"
           checked={formData.SWW}
           onChange={(val) => handleFieldChange("SWW", val)}
-          position={{ top: 382, left: 935 }}
+          position={{ top: 345, left: 958 }}
         />
         <FormCheckbox
           id="DWW"
           checked={formData.DWW}
           onChange={(val) => handleFieldChange("DWW", val)}
-          position={{ top: 382, left: 1078 }}
+          position={{ top: 345, left: 1078 }}
         />
 
         <FormCheckbox
           id="wheels"
           checked={formData.wheels}
           onChange={(val) => handleFieldChange("wheels", val)}
-          position={{ top: 438, left: 888 }}
+          position={{ top: 455, left: 815 }}
         />
          <FormCheckbox
           id="Alegs"
           checked={formData.Alegs}
           onChange={(val) => handleFieldChange("Alegs", val)}
-          position={{ top: 455, left: 888 }}
+          position={{ top: 475, left: 815 }}
         />
         <FormCheckbox
           id="Sheleves"
           checked={formData.Sheleves}
           onChange={(val) => handleFieldChange("Sheleves", val)}
-          position={{ top: 438, left: 1078 }}
+          position={{ top: 418, left: 815 }}
         />
         <FormCheckbox
           id="Sheleves1"
           checked={formData.Sheleves}
           onChange={(val) => handleFieldChange("Sheleves1", val)}
+          position={{ top: 399, left: 815 }}
+        />
+
+        <FormCheckbox
+          id="RDRW"
+          checked={formData.RDRW}
+          onChange={(val) => handleFieldChange("RDRW", val)}
+          position={{ top: 399, left: 958 }}
+        />
+        <FormCheckbox
+          id="SSDRW"
+          checked={formData.SSDRW}
+          onChange={(val) => handleFieldChange("SSDRW", val)}
+          position={{ top: 418, left: 958 }}
+        />
+
+        <FormCheckbox
+          id="WireManager"
+          checked={formData.WireManager}
+          onChange={(val) => handleFieldChange("WireManager", val)}
+          position={{ top: 382, left: 1078 }}
+        />
+        <FormCheckbox
+          id="SSDoor"
+          checked={formData.SSDoor}
+          onChange={(val) => handleFieldChange("SSDoor", val)}
+          position={{ top: 399, left: 1078 }}
+        />
+        <FormCheckbox
+          id="WSSDoor"
+          checked={formData.WSSDoor}
+          onChange={(val) => handleFieldChange("WSSDoor", val)}
+          position={{ top: 418, left: 1078 }}
+        />
+        <FormCheckbox
+          id="FTLogo"
+          checked={formData.FTLogo}
+          onChange={(val) => handleFieldChange("FTLogo", val)}
+          position={{ top: 438, left: 1078 }}
+        />
+        <FormCheckbox
+          id="BackLight"
+          checked={formData.BackLight}
+          onChange={(val) => handleFieldChange("BackLight", val)}
           position={{ top: 455, left: 1078 }}
+        />
+        <FormCheckbox
+          id="NoBackLight"
+          checked={formData.NoBackLight}
+          onChange={(val) => handleFieldChange("NoBackLight", val)}
+          position={{ top: 474, left: 1078 }}
         />
 
         <FormCheckbox
@@ -295,7 +399,13 @@ const Stellar_Spire_Normal = () => {
           position={{ top: 624, left: 800 }}
           width={100}
         />
-        
+        <FormTextInput
+          id="TCC"
+          value={formData.TCC}
+          onChange={(val) => handleFieldChange("TCC", val)}
+          position={{ top: 644, left: 800 }}
+          width={100}
+        />
         <FormTextInput
           id="FCD"
           value={formData.FCD}
@@ -303,14 +413,21 @@ const Stellar_Spire_Normal = () => {
           position={{ top: 624, left: 1000 }}
           width={100}
         />
+        <FormTextInput
+          id="TCD"
+          value={formData.TCD}
+          onChange={(val) => handleFieldChange("TCD", val)}
+          position={{ top: 644, left: 1000 }}
+          width={100}
+        />
         
         <FormTextarea
           id="splnote"
           value={formData.splnote}
           onChange={(val) => handleFieldChange("splnote", val)}
-          position={{ top: 650, left: 360 }}
-          width={690}
-          height={58}
+          position={{ top: 490, left: 40 }}
+          width={670}
+          height={208}
           placeholder="Add Text"
         />
       </TemplateEditor>
@@ -318,4 +435,4 @@ const Stellar_Spire_Normal = () => {
   );
 };
 
-export default Stellar_Spire_Normal;
+export default StellarCashCounter;

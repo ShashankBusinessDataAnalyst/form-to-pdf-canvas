@@ -13,17 +13,17 @@ export interface ProductInfo {
 
 export const products: ProductInfo[] = [
   {
-    id: "Stellar_NORMAL",
+    id: "Stellar_Normal",
     name: "Stellar Normal",
     thumbnail: stellarModel,
-    route: "/Stellar_NORMAL",
+    route: "/StellarNormal",
     category: "Display Units",
     description: "Technical drawing template"
   },{
     id: "Stellar_Cold",
     name: "Stellar Cold",
     thumbnail: stellarModel,
-    route: "/Stellar_Cold",
+    route: "/StellarCold",
     category: "Display Units",
     description: "Technical drawing template"
   },
@@ -31,7 +31,7 @@ export const products: ProductInfo[] = [
     id: "Stellar_Hot",
     name: "Stellar Hot",
     thumbnail: stellarModel,
-    route: "/Stellar_Hot",
+    route: "/StellarHot",
     category: "Display Units",
     description: "Technical drawing template"
   },
@@ -39,15 +39,15 @@ export const products: ProductInfo[] = [
     id: "Stellar_Hot_CAVITY",
     name: "Stellar Hot Cavity",
     thumbnail: stellarModel,
-    route: "/Stellar_Hot_CAVITY",
+    route: "/StellarHotCavity",
     category: "Display Units",
     description: "Technical drawing template"
   },
    {
-    id: "Stellar_Spire_Normal",
+    id: "StellarSpireNormal",
     name: "Stellar Spire Normal",
     thumbnail: stellarSpireModel,
-    route: "/Stellar_Spire_Normal",
+    route: "/StellarSpireNormal",
     category: "Display Units",
     description: "Technical drawing template"
   },
@@ -55,7 +55,7 @@ export const products: ProductInfo[] = [
     id: "Stellar_Spire_Cold",
     name: "Stellar Spire Cold",
     thumbnail: stellarSpireModel,
-    route: "/Stellar_Spire_Cold",
+    route: "/StellarSpireCold",
     category: "Display Units",
     description: "Technical drawing template"
   },
@@ -63,7 +63,7 @@ export const products: ProductInfo[] = [
     id: "Stellar_Spire_Hot",
     name: "Stellar Spire Hot",
     thumbnail: stellarSpireModel,
-    route: "/Stellar_Spire_Hot",
+    route: "/StellarSpireHot",
     category: "Display Units",
     description: "Technical drawing template"
   },
@@ -71,7 +71,7 @@ export const products: ProductInfo[] = [
     id: "Stellar_Cash_Counter",
     name: "Stellar Cash Counter",
     thumbnail: stellarModel,
-    route: "/Stellar_Cash_Counter",
+    route: "/StellarCashCounter",
     category: "Cash Counters",
     description: "Technical drawing template"
   }
