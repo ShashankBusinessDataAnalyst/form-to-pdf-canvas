@@ -6,7 +6,7 @@ import { FormDatePicker } from "@/components/FormDatePicker";
 import { FormCheckbox } from "@/components/FormCheckbox";
 import { PrintModeProvider } from "@/contexts/PrintModeContext";
 import { FormTextarea } from "@/components/FormTextarea";
-import Stellar_Hot_tmpt from "@/assets/Stellar_Hot_tmpt.png"; //Make sure the file name matches the actual template background file in assets folder.
+import Stellar_Hot_tmpt from "@/assets/STELLAR_HOT_tmpt.png"; //Make sure the file name matches the actual template background file in assets folder.
 
 const StellarHot = () => {
   const [formData, setFormData] = useState<Record<string, any>>({
