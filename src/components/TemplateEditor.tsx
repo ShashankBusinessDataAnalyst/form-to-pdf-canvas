@@ -249,14 +249,13 @@ export const TemplateEditor: React.FC<TemplateEditorProps> = ({
                   height: '794px',  // A4 landscape height at 72 DPI
                   transform: `translate(${panOffset.x}px, ${panOffset.y}px) scale(${scale})`,
                   transformOrigin: 'top left',
+                  backgroundImage: `url(${templateImage})`,
+                  backgroundSize: 'cover',
+                  backgroundPosition: 'center',
+                  backgroundRepeat: 'no-repeat',
+                  backgroundColor: '#ffffff',
                 }}
               >
-                <img
-                  src={templateImage}
-                  alt="Technical Drawing Template"
-                  className="w-full h-full object-cover"
-                  draggable={false}
-                />
 
                 {/* Grid Overlay (hidden during PDF generation) */}
                 {showGrid && (
