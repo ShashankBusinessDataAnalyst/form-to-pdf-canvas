@@ -7,7 +7,7 @@ import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import Stellar_Cold from "./pages/Stellar_Cold";
 import Stellar_Hot from "./pages/Stellar_Hot";
-import Stellar_NORMAL from "./pages/Stellar_NORMAL";
+import Stellar_NORMAL from "./pages/Stellar_Normal";
 import Stellar_Hot_CAVITY from "./pages/Stellar_Hot_CAVITY";
 import Stellar_Spire_Hot from "./pages/Stellar_Spire_Hot";
 import Stellar_Spire_Normal from "./pages/Stellar_Spire_Normal";

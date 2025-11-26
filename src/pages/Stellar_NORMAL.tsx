@@ -97,7 +97,7 @@ const Stellar_Normal = () => {
     <PrintModeProvider>
       <TemplateEditor
         templateImage={Stellar_Normal_tmpt} //Background image of the template.The png file should be of high quality.
-        templateName="Stellar NORMAL Template"
+        templateName="Stellar Normal Template"
         onClearAll={handleClearAll}
       >
         <FormTextInput
