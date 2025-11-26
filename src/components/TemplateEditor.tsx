@@ -248,13 +248,13 @@ export const TemplateEditor: React.FC<TemplateEditorProps> = ({
                   width: '1123px',   // A4 landscape width at 72 DPI
                   height: '794px',  // A4 landscape height at 72 DPI
                   transform: `translate(${panOffset.x}px, ${panOffset.y}px) scale(${scale})`,
-                  transformOrigin: 'top left',
+                  transformOrigin: 'center center',
                 }}
               >
                 <img
                   src={templateImage}
                   alt="Technical Drawing Template"
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-contain"
                   draggable={false}
                 />
 
