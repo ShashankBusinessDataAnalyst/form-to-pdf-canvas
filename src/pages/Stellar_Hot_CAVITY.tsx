@@ -6,7 +6,7 @@ import { FormDatePicker } from "@/components/FormDatePicker";
 import { FormCheckbox } from "@/components/FormCheckbox";
 import { PrintModeProvider } from "@/contexts/PrintModeContext";
 import { FormTextarea } from "@/components/FormTextarea";
-import Stellar_CAVITY_tmpt from "@/assets/STELLAR_CAVITY_tmpt.png"; //Make sure the file name matches the actual template background file in assets folder.
+import Stellar_hot_CAVITY_tmpt from "@/assets/Stellar_Hot_Cavity_tmpt.png"; //Make sure the file name matches the actual template background file in assets folder.
 
 const Stellar_Hot_CAVITY = () => {
   const [formData, setFormData] = useState<Record<string, any>>({
@@ -96,7 +96,7 @@ const Stellar_Hot_CAVITY = () => {
   return (
     <PrintModeProvider>
       <TemplateEditor
-        templateImage={Stellar_CAVITY_tmpt} //Background image of the template.The png file should be of high quality.
+        templateImage={Stellar_hot_CAVITY_tmpt} //Background image of the template.The png file should be of high quality.
         templateName="Stellar Hot CAVITY Template"
         onClearAll={handleClearAll}
       >

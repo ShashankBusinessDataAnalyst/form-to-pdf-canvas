@@ -1,7 +1,6 @@
 import stellarModel from "@/assets/stellar_model.png";
-import shannonThumbnail from "@/assets/Shannon-thumbnail.png";
-import coldTemplate from "@/assets/cold-template.png";
-import hotTemplate from "@/assets/hot-template.png";
+import stellarSpireModel from "@/assets/StellarSphire_Model.png";
+
 
 export interface ProductInfo {
   id: string;
@@ -14,6 +13,13 @@ export interface ProductInfo {
 
 export const products: ProductInfo[] = [
   {
+    id: "Stellar_NORMAL",
+    name: "Stellar Normal",
+    thumbnail: stellarModel,
+    route: "/Stellar_NORMAL",
+    category: "Display Units",
+    description: "Technical drawing template"
+  },{
     id: "Stellar_Cold",
     name: "Stellar Cold",
     thumbnail: stellarModel,
@@ -30,14 +36,6 @@ export const products: ProductInfo[] = [
     description: "Technical drawing template"
   },
   {
-    id: "Stellar_NORMAL",
-    name: "Stellar Normal",
-    thumbnail: stellarModel,
-    route: "/Stellar_NORMAL",
-    category: "Display Units",
-    description: "Technical drawing template"
-  },
-  {
     id: "Stellar_Hot_CAVITY",
     name: "Stellar Hot Cavity",
     thumbnail: stellarModel,
@@ -45,46 +43,37 @@ export const products: ProductInfo[] = [
     category: "Display Units",
     description: "Technical drawing template"
   },
-  {
-    id: "shannon-cold",
-    name: "Shannon Cold",
-    thumbnail: shannonThumbnail,
-    route: "/shannon-cold",
-    category: "Cold Storage",
-    description: "Technical drawing template for cold storage units"
-  },
-  {
-    id: "shannon-hot",
-    name: "Shannon Hot",
-    thumbnail: hotTemplate,
-    route: "/shannon-hot",
-    category: "Hot Storage",
-    description: "Technical drawing template for hot storage units"
-  },
-  {
-    id: "product-3",
-    name: "Product Name 3",
-    thumbnail: coldTemplate,
-    route: "/product-3",
-    category: "Cold Storage",
+   {
+    id: "Stellar_Spire_Normal",
+    name: "Stellar Spire Normal",
+    thumbnail: stellarSpireModel,
+    route: "/Stellar_Spire_Normal",
+    category: "Display Units",
     description: "Technical drawing template"
   },
   {
-    id: "product-4",
-    name: "Product Name 4",
-    thumbnail: hotTemplate,
-    route: "/product-4",
-    category: "Hot Storage",
+    id: "Stellar_Spire_Cold",
+    name: "Stellar Spire Cold",
+    thumbnail: stellarSpireModel,
+    route: "/Stellar_Spire_Cold",
+    category: "Display Units",
     description: "Technical drawing template"
   },
   {
-    id: "product-5",
-    name: "Product Name 5",
-    thumbnail: coldTemplate,
-    route: "/product-5",
-    category: "Cold Storage",
+    id: "Stellar_Spire_Hot",
+    name: "Stellar Spire Hot",
+    thumbnail: stellarSpireModel,
+    route: "/Stellar_Spire_Hot",
+    category: "Display Units",
     description: "Technical drawing template"
   },
-  
+  {
+    id: "Stellar_Cash_Counter",
+    name: "Stellar Cash Counter",
+    thumbnail: stellarModel,
+    route: "/Stellar_Cash_Counter",
+    category: "Cash Counters",
+    description: "Technical drawing template"
+  }
   // Add remaining 65 products here following the same pattern
 ];

@@ -4,16 +4,15 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
-import ShannonCold from "./pages/ShannonCold";
-import ShannonHot from "./pages/ShannonHot";
-import Product3 from "./pages/Product3";
-import Product4 from "./pages/Product4";
-import Product5 from "./pages/Product5";
 import NotFound from "./pages/NotFound";
 import Stellar_Cold from "./pages/Stellar_Cold";
 import Stellar_Hot from "./pages/Stellar_Hot";
 import Stellar_NORMAL from "./pages/Stellar_NORMAL";
 import Stellar_Hot_CAVITY from "./pages/Stellar_Hot_CAVITY";
+import Stellar_Spire_Hot from "./pages/Stellar_Spire_Hot";
+import Stellar_Spire_Normal from "./pages/Stellar_Spire_Normal";
+import Stellar_Spire_Cold from "./pages/Stellar_Spire_Cold";
+import Stellar_Cash_Counter from "./pages/Stellar_Cash_Counter";
 
 const queryClient = new QueryClient();
 
@@ -29,11 +28,10 @@ const App = () => (
           <Route path="/Stellar_Hot" element={<Stellar_Hot />} />
           <Route path="/Stellar_NORMAL" element={<Stellar_NORMAL />} />
           <Route path="/Stellar_Hot_CAVITY" element={<Stellar_Hot_CAVITY />} />
-          <Route path="/shannon-cold" element={<ShannonCold />} />
-          <Route path="/shannon-hot" element={<ShannonHot />} />
-          <Route path="/product-3" element={<Product3 />} />
-          <Route path="/product-4" element={<Product4 />} />
-          <Route path="/product-5" element={<Product5 />} />
+          <Route path="/Stellar_Spire_Hot" element={<Stellar_Spire_Hot />} />
+          <Route path="/Stellar_Spire_Normal" element={<Stellar_Spire_Normal />} />
+          <Route path="/Stellar_Spire_Cold" element={<Stellar_Spire_Cold />} />
+          <Route path="/Stellar_Cash_Counter" element={<Stellar_Cash_Counter />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

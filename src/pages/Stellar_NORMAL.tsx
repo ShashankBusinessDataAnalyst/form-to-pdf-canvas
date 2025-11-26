@@ -6,7 +6,7 @@ import { FormDatePicker } from "@/components/FormDatePicker";
 import { FormCheckbox } from "@/components/FormCheckbox";
 import { PrintModeProvider } from "@/contexts/PrintModeContext";
 import { FormTextarea } from "@/components/FormTextarea";
-import Stellar_NORMAL_tmpt from "@/assets/STELLAR_NORMAL_tmpt.png"; //Make sure the file name matches the actual template background file in assets folder.
+import Stellar_Normal_tmpt from "@/assets/Stellar_Normal_tmpt.png"; //Make sure the file name matches the actual template background file in assets folder.
 
 const Stellar_NORMAL = () => {
   const [formData, setFormData] = useState<Record<string, any>>({
@@ -96,7 +96,7 @@ const Stellar_NORMAL = () => {
   return (
     <PrintModeProvider>
       <TemplateEditor
-        templateImage={Stellar_NORMAL_tmpt} //Background image of the template.The png file should be of high quality.
+        templateImage={Stellar_Normal_tmpt} //Background image of the template.The png file should be of high quality.
         templateName="Stellar NORMAL Template"
         onClearAll={handleClearAll}
       >
