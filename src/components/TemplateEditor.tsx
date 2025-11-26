@@ -191,7 +191,7 @@ export const TemplateEditor: React.FC<TemplateEditorProps> = ({
   };
   const handleDownload = async () => {
     try {
-      await generatePDF("captureArea", `${templateName}-form`, setPrintMode, scale);
+      await generatePDF("captureArea", `${templateName}-form`, setPrintMode);
       toast.success("PDF downloaded successfully!");
       setPreviewOpen(false);
     } catch (error) {
