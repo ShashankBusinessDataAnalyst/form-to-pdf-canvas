@@ -13,7 +13,7 @@ import NotFound from "./pages/NotFound";
 import Stellar_Cold from "./pages/Stellar_Cold";
 import Stellar_Hot from "./pages/Stellar_Hot";
 import Stellar_NORMAL from "./pages/Stellar_NORMAL";
-import Stellar_CAVITY from "./pages/Stellar_CAVITY";
+import Stellar_Hot_CAVITY from "./pages/Stellar_Hot_CAVITY";
 
 const queryClient = new QueryClient();
 
@@ -28,7 +28,7 @@ const App = () => (
           <Route path="/Stellar_Cold" element={<Stellar_Cold />} />
           <Route path="/Stellar_Hot" element={<Stellar_Hot />} />
           <Route path="/Stellar_NORMAL" element={<Stellar_NORMAL />} />
-          <Route path="/Stellar_CAVITY" element={<Stellar_CAVITY />} />
+          <Route path="/Stellar_Hot_CAVITY" element={<Stellar_Hot_CAVITY />} />
           <Route path="/shannon-cold" element={<ShannonCold />} />
           <Route path="/shannon-hot" element={<ShannonHot />} />
           <Route path="/product-3" element={<Product3 />} />

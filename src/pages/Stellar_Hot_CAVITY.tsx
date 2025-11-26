@@ -8,7 +8,7 @@ import { PrintModeProvider } from "@/contexts/PrintModeContext";
 import { FormTextarea } from "@/components/FormTextarea";
 import Stellar_CAVITY_tmpt from "@/assets/STELLAR_CAVITY_tmpt.png"; //Make sure the file name matches the actual template background file in assets folder.
 
-const Stellar_CAVITY = () => {
+const Stellar_Hot_CAVITY = () => {
   const [formData, setFormData] = useState<Record<string, any>>({
     clientName: "",
     soNumber: "",
@@ -97,7 +97,7 @@ const Stellar_CAVITY = () => {
     <PrintModeProvider>
       <TemplateEditor
         templateImage={Stellar_CAVITY_tmpt} //Background image of the template.The png file should be of high quality.
-        templateName="Stellar CAVITY Template"
+        templateName="Stellar Hot CAVITY Template"
         onClearAll={handleClearAll}
       >
         <FormTextInput
@@ -352,4 +352,4 @@ const Stellar_CAVITY = () => {
   );
 };
 
-export default Stellar_CAVITY;
+export default Stellar_Hot_CAVITY;

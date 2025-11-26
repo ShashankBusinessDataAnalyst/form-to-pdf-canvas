@@ -38,10 +38,10 @@ export const products: ProductInfo[] = [
     description: "Technical drawing template"
   },
   {
-    id: "Stellar_CAVITY",
-    name: "Stellar Cavity",
+    id: "Stellar_Hot_CAVITY",
+    name: "Stellar Hot Cavity",
     thumbnail: stellarModel,
-    route: "/Stellar_CAVITY",
+    route: "/Stellar_Hot_CAVITY",
     category: "Display Units",
     description: "Technical drawing template"
   },
