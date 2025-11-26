@@ -35,12 +35,12 @@ export const FormTextarea: React.FC<FormTextareaProps> = ({
       <div
         className="absolute text-left text-sm text-black"
         style={{
-          top: `${position.top-10}px`,
+          top: `${position.top}px`,
           left: `${position.left}px`,
           width: `${width}px`,
           height: `${height}px`,
           lineHeight: "1.4",
-          fontSize: "8px",
+          fontSize: "12px",
           fontFamily: "system-ui, -apple-system, sans-serif",
           padding: "4px",
           margin: "0",
@@ -71,7 +71,7 @@ export const FormTextarea: React.FC<FormTextareaProps> = ({
         background: "transparent",
         padding: "4px",
         lineHeight: "1.4",
-        fontSize: "8px",
+        fontSize: "12px",
         fontFamily: "system-ui, -apple-system, sans-serif",
       }}
     />

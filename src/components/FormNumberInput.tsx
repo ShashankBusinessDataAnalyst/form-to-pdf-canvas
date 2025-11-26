@@ -37,8 +37,8 @@ export const FormNumberInput: React.FC<FormNumberInputProps> = ({
       <div
         className="absolute text-center text-sm text-black"
         style={{
-          top: `${position.top -5}px`,
-          left: `${position.left - 10}px`,
+          top: `${position.top}px`,
+          left: `${position.left}px`,
           width: `${width}px`,
           lineHeight: '1',
           fontSize: '14px',

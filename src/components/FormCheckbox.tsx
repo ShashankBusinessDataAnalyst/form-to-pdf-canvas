@@ -31,10 +31,10 @@ export const FormCheckbox: React.FC<FormCheckboxProps> = ({
       <div
         className="absolute border border-black flex items-center justify-center bg-white"
         style={{
-          top: `${position.top + 6}px`,
+          top: `${position.top}px`,
           left: `${position.left}px`,
           width: '16px',
-          height: '14px',
+          height: '12px',
           boxSizing: 'border-box',
           padding: '0',
           margin: '0',
@@ -69,10 +69,10 @@ export const FormCheckbox: React.FC<FormCheckboxProps> = ({
         checked={checked}
         onCheckedChange={handleChange}
         className={cn(
-        "h-[14px] w-[16px] border border-black",
-        "data-[state=checked]:bg-transparent",
-        "data-[state=checked]:text-black",
-        "[&>svg]:h-3 [&>svg]:w-3"
+          "h-3 w-4 border- border-black ",
+          "data-[state=checked]:bg-transparent",
+          "data-[state=checked]:text-black",
+          "[&>svg]:h-7 [&>svg]:w-6"
         )}
       />
     </div>

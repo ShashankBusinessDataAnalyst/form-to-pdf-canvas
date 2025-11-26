@@ -37,7 +37,7 @@ export const FormDatePicker: React.FC<FormDatePickerProps> = ({
       <div
         className="absolute text-center text-xs text-black"
         style={{
-          top: `${position.top - 2}px`,
+          top: `${position.top + 2}px`,
           left: `${position.left + 20}px`,
           width: '90px',
           lineHeight: '1',
