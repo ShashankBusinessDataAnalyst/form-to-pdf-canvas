@@ -31,19 +31,19 @@ export const FormTextInput: React.FC<FormTextInputProps> = ({
   if (isPrintMode) {
     return (
       <div
-        className="absolute text-center text-sm text-black"
+        className="absolute text-left text-sm text-black"
         style={{
           top: `${position.top-4}px`,
           left: `${position.left}px`,
           width: `${width}px`,
           lineHeight: "1",
-          fontSize: "14px",
+          fontSize: "12px",
           fontFamily: "system-ui, -apple-system, sans-serif",
           padding: "0",
           margin: "0",
           boxSizing: "border-box",
           display: "flex",
-          alignItems: "center",
+          alignItems: "left",
           justifyContent: "center",
           height: "20px",
           background: "transparent", // 🔥 transparent background
@@ -61,11 +61,12 @@ export const FormTextInput: React.FC<FormTextInputProps> = ({
       value={value}
       onChange={(e) => handleChange(e.target.value)}
       placeholder={placeholder}
-      className="absolute border border-gray-300 outline-none bg-transparent text-center text-sm focus:border-b focus:border-gray-400 text-black"
+      className="absolute border border-gray-300 outline-none bg-transparent text-left text-sm focus:border-b focus:border-gray-400 text-black"
       style={{
         top: `${position.top}px`,
         left: `${position.left}px`,
         width: `${width}px`,
+        fontSize: "10px",
         background: "transparent", // redundant but safe
       }}
     />

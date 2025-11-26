@@ -104,7 +104,7 @@ const Stellar_Cold = () => {
           id="clientName"
           value={formData.clientName}
           onChange={(val) => handleFieldChange("clientName", val)}
-          position={{ top: 730, left: 360 }}
+          position={{ top: 735, left: 360 }}
           width={300}
           placeholder="Client Name"
         />

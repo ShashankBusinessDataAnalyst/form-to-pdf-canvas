@@ -40,7 +40,7 @@ export const FormTextarea: React.FC<FormTextareaProps> = ({
           width: `${width}px`,
           height: `${height}px`,
           lineHeight: "1.4",
-          fontSize: "8px",
+          fontSize: "10px",
           fontFamily: "system-ui, -apple-system, sans-serif",
           padding: "4px",
           margin: "0",
@@ -71,7 +71,7 @@ export const FormTextarea: React.FC<FormTextareaProps> = ({
         background: "transparent",
         padding: "4px",
         lineHeight: "1.4",
-        fontSize: "8px",
+        fontSize: "10px",
         fontFamily: "system-ui, -apple-system, sans-serif",
       }}
     />
