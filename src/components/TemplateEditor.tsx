@@ -204,7 +204,7 @@ export const TemplateEditor: React.FC<TemplateEditorProps> = ({
         
         {/* Right Template Area - 80% */}
         <div 
-          className="flex-1 flex items-start justify-center overflow-hidden px-4 py-4"
+          className="flex-1 flex items-center justify-center overflow-auto p-4"
           onMouseDown={handleMouseDown}
           onMouseMove={handleMouseMove}
           onMouseUp={handleMouseUp}
@@ -213,47 +213,41 @@ export const TemplateEditor: React.FC<TemplateEditorProps> = ({
             cursor: isDragging ? 'grabbing' : 'grab'
           }}
         >
-          <div className="flex justify-center overflow-hidden">
-            {/* MAIN DRAWING AREA */}
-            <div className="ml-[260px] flex-1 bg-[#E0E0E0] min-h-screen overflow-y-auto py-8">
-              
-              {/* Drawing Area - Fixed size container that scales as a unit */}
-              <div 
-                id="captureArea" 
-                className="relative bg-white shadow-xl border-2 border-border"
+          {/* Drawing Area - Fixed size container that scales as a unit */}
+          <div 
+            id="captureArea" 
+            className="relative bg-white shadow-xl border-2 border-border"
+            style={{
+              width: '1123px',   // A4 landscape width at 72 DPI
+              height: '794px',  // A4 landscape height at 72 DPI
+              transform: `translate(${panOffset.x}px, ${panOffset.y}px) scale(${scale})`,
+              transformOrigin: 'center center',
+            }}
+          >
+            <img
+              src={templateImage}
+              alt="Technical Drawing Template"
+              className="w-full h-full object-contain"
+              draggable={false}
+            />
+
+            {/* Grid Overlay (hidden during PDF generation) */}
+            {showGrid && (
+              <div
+                data-html2canvas-ignore="true"
+                className="absolute inset-0 pointer-events-none"
                 style={{
-                  width: '1123px',   // A4 landscape width at 72 DPI
-                  height: '794px',  // A4 landscape height at 72 DPI
-                  transform: `translate(${panOffset.x}px, ${panOffset.y}px) scale(${scale})`,
-                  transformOrigin: 'center center',
+                  backgroundImage: `
+                    linear-gradient(to right, rgba(0,0,0,0.1) 1px, transparent 1px),
+                    linear-gradient(to bottom, rgba(0,0,0,0.1) 1px, transparent 1px)
+                  `,
+                  backgroundSize: `50px 50px`
                 }}
-              >
-                <img
-                  src={templateImage}
-                  alt="Technical Drawing Template"
-                  className="w-full h-full object-contain"
-                  draggable={false}
-                />
+              />
+            )}
 
-                {/* Grid Overlay (hidden during PDF generation) */}
-                {showGrid && (
-                  <div
-                    data-html2canvas-ignore="true"
-                    className="absolute inset-0 pointer-events-none"
-                    style={{
-                      backgroundImage: `
-                        linear-gradient(to right, rgba(0,0,0,0.1) 1px, transparent 1px),
-                        linear-gradient(to bottom, rgba(0,0,0,0.1) 1px, transparent 1px)
-                      `,
-                      backgroundSize: `50px 50px`
-                    }}
-                  />
-                )}
-
-                {/* Form Elements Overlay */}
-                {children}
-              </div>
-            </div>
+            {/* Form Elements Overlay */}
+            {children}
           </div>
         </div>
       </div>
