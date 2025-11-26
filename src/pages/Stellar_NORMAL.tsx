@@ -8,7 +8,7 @@ import { PrintModeProvider } from "@/contexts/PrintModeContext";
 import { FormTextarea } from "@/components/FormTextarea";
 import Stellar_Normal_tmpt from "@/assets/Stellar_Normal_tmpt.png"; //Make sure the file name matches the actual template background file in assets folder.
 
-const Stellar_NORMAL = () => {
+const Stellar_Normal = () => {
   const [formData, setFormData] = useState<Record<string, any>>({
     clientName: "",
     soNumber: "",
@@ -352,4 +352,4 @@ const Stellar_NORMAL = () => {
   );
 };
 
-export default Stellar_NORMAL;
+export default Stellar_Normal;
