@@ -4,7 +4,8 @@ import html2canvas from "html2canvas";
 export const generatePDF = async (
   elementId: string,
   fileName: string,
-  setPrintMode?: (value: boolean) => void
+  setPrintMode?: (value: boolean) => void,
+  currentScale?: number
 ): Promise<void> => {
   const element = document.getElementById(elementId);
   if (!element) {
@@ -19,28 +20,32 @@ export const generatePDF = async (
       await new Promise(resolve => setTimeout(resolve, 200));
     }
 
-    // Reset transform for consistent capture
-    const htmlElement = element as HTMLElement;
-    const originalTransform = htmlElement.style.transform;
-    const originalTransformOrigin = htmlElement.style.transformOrigin;
-    
-    htmlElement.style.transform = 'translate(0px, 0px) scale(1)';
-    htmlElement.style.transformOrigin = 'top left';
-    await new Promise(resolve => setTimeout(resolve, 100));
+    // Temporarily remove scale transform for full-resolution PDF
+    const originalTransform = (element as HTMLElement).style.transform;
+    if (currentScale) {
+      (element as HTMLElement).style.transform = 'scale(1)';
+      (element as HTMLElement).style.transformOrigin = 'top left';
+      await new Promise(resolve => setTimeout(resolve, 50));
+    }
 
-    // Use fixed container dimensions for consistent capture
-    const CONTAINER_WIDTH = 1123;
-    const CONTAINER_HEIGHT = 794;
+    // Hide grid overlay during capture
+    const gridOverlay = element.querySelector('[data-html2canvas-ignore="true"]');
+    if (gridOverlay) {
+      (gridOverlay as HTMLElement).style.display = 'none';
+    }
+
+    // Get exact dimensions
+    const rect = element.getBoundingClientRect();
 
     const canvas = await html2canvas(element, {
       scale: 3,
       useCORS: true,
       logging: false,
       backgroundColor: "#ffffff",
-      width: CONTAINER_WIDTH,
-      height: CONTAINER_HEIGHT,
-      windowWidth: CONTAINER_WIDTH,
-      windowHeight: CONTAINER_HEIGHT,
+      width: rect.width,
+      height: rect.height,
+      windowWidth: rect.width,
+      windowHeight: rect.height,
       scrollX: 0,
       scrollY: 0,
       x: 0,
@@ -49,9 +54,15 @@ export const generatePDF = async (
       foreignObjectRendering: false,
     });
 
-    // Restore original transform and origin
-    htmlElement.style.transform = originalTransform;
-    htmlElement.style.transformOrigin = originalTransformOrigin;
+    // Restore grid overlay
+    if (gridOverlay) {
+      (gridOverlay as HTMLElement).style.display = '';
+    }
+
+    // Restore original scale transform
+    if (currentScale) {
+      (element as HTMLElement).style.transform = originalTransform;
+    }
 
     // Disable print mode
     if (setPrintMode) {
@@ -69,7 +80,11 @@ export const generatePDF = async (
     pdf.save(`${fileName}.pdf`);
   } catch (error) {
     console.error("Error generating PDF:", error);
-    // Restore print mode on error
+    // Restore scale and print mode on error
+    const element = document.getElementById(elementId);
+    if (element && currentScale) {
+      (element as HTMLElement).style.transform = `scale(${currentScale})`;
+    }
     if (setPrintMode) {
       setPrintMode(false);
     }

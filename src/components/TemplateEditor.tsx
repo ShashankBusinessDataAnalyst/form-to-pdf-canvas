@@ -20,6 +20,7 @@ export const TemplateEditor: React.FC<TemplateEditorProps> = ({
   onClearAll
 }) => {
   const { setPrintMode } = usePrintMode();
+  const [showGrid] = useState(false);
   const [previewOpen, setPreviewOpen] = useState(false);
   const [previewImage, setPreviewImage] = useState<string | null>(null);
   const [autoScale, setAutoScale] = useState(1);
@@ -142,6 +143,12 @@ export const TemplateEditor: React.FC<TemplateEditorProps> = ({
       htmlElement.style.transformOrigin = "top left";
       await new Promise((resolve) => setTimeout(resolve, 200));
 
+      // Hide grid overlay during capture
+      const gridOverlay = element.querySelector('[data-html2canvas-ignore="true"]');
+      if (gridOverlay) {
+        (gridOverlay as HTMLElement).style.display = "none";
+      }
+
       // Use fixed container dimensions for consistent capture
       const CONTAINER_WIDTH = 1123;
       const CONTAINER_HEIGHT = 794;
@@ -162,6 +169,11 @@ export const TemplateEditor: React.FC<TemplateEditorProps> = ({
         allowTaint: false,
         foreignObjectRendering: false,
       });
+
+      // Restore grid overlay
+      if (gridOverlay) {
+        (gridOverlay as HTMLElement).style.display = "";
+      }
 
       // Restore original transform and origin
       htmlElement.style.transform = originalTransform;
@@ -191,7 +203,7 @@ export const TemplateEditor: React.FC<TemplateEditorProps> = ({
   };
   const handleDownload = async () => {
     try {
-      await generatePDF("captureArea", `${templateName}-form`, setPrintMode);
+      await generatePDF("captureArea", `${templateName}-form`, setPrintMode, scale);
       toast.success("PDF downloaded successfully!");
       setPreviewOpen(false);
     } catch (error) {
@@ -245,6 +257,21 @@ export const TemplateEditor: React.FC<TemplateEditorProps> = ({
                   className="w-full h-full object-contain"
                   draggable={false}
                 />
+
+                {/* Grid Overlay (hidden during PDF generation) */}
+                {showGrid && (
+                  <div
+                    data-html2canvas-ignore="true"
+                    className="absolute inset-0 pointer-events-none"
+                    style={{
+                      backgroundImage: `
+                        linear-gradient(to right, rgba(0,0,0,0.1) 1px, transparent 1px),
+                        linear-gradient(to bottom, rgba(0,0,0,0.1) 1px, transparent 1px)
+                      `,
+                      backgroundSize: `50px 50px`
+                    }}
+                  />
+                )}
 
                 {/* Form Elements Overlay */}
                 {children}
