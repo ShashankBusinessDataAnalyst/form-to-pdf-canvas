@@ -1,6 +1,6 @@
 import stellarModel from "@/assets/stellar_model.png";
 import stellarSpireModel from "@/assets/StellarSphire_Model.png";
-
+import ShannonModel from "@/assets/ShannonModel.png";
 
 export interface ProductInfo {
   id: string;
@@ -82,6 +82,14 @@ export const products: ProductInfo[] = [
     route: "/StellarPickUpandDeliveryCounter",
     category: "Delivery Counters",
     description: "Technical drawing template"
-  }
+  },
+  {
+    id: "Shannon_Cold",
+    name: "Shannon Cold",
+    thumbnail: ShannonModel,
+    route: "/ShannonCold",
+    category: "Display Units",
+    description: "Technical drawing template"
+  },
   // Add remaining 65 products here following the same pattern
 ];
