@@ -15,6 +15,7 @@ import StellarSpireCold from "./pages/StellarSpireCold";
 import StellarCashCounter from "./pages/StellarCashCounter";
 import StellarPickUpandDeliveryCounter from "./pages/StellarPickUpandDeliveryCounter";
 import ShannonCold from "./pages/ShannonCold";
+import ShannonHot from "./pages/ShannonHot";
 
 const queryClient = new QueryClient();
 
@@ -36,6 +37,7 @@ const App = () => (
           <Route path="/StellarCashCounter" element={<StellarCashCounter />} />
           <Route path="/StellarPickUpandDeliveryCounter" element={<StellarPickUpandDeliveryCounter />} />
           <Route path="/ShannonCold" element={<ShannonCold />} />
+          <Route path="/ShannonHot" element={<ShannonHot />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

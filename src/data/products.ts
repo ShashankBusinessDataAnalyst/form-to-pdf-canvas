@@ -91,5 +91,14 @@ export const products: ProductInfo[] = [
     category: "Display Units",
     description: "Technical drawing template"
   },
+  {
+    id: "Shannon_Hot",
+    name: "Shannon Hot",
+    thumbnail: ShannonModel,
+    route: "/ShannonHot",
+    category: "Display Units",
+    description: "Technical drawing template"
+  },
+
   // Add remaining 65 products here following the same pattern
 ];
