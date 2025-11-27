@@ -74,6 +74,14 @@ export const products: ProductInfo[] = [
     route: "/StellarCashCounter",
     category: "Cash Counters",
     description: "Technical drawing template"
+  },
+  {
+    id: "Stellar_PickUp_and_Delivery_Counter",
+    name: "Stellar PickUp and Delivery Counter",
+    thumbnail: stellarModel,
+    route: "/StellarPickUpandDeliveryCounter",
+    category: "Delivery Counters",
+    description: "Technical drawing template"
   }
   // Add remaining 65 products here following the same pattern
 ];

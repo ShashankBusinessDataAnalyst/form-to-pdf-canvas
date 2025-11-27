@@ -44,7 +44,7 @@ export const FormTextInput: React.FC<FormTextInputProps> = ({
           boxSizing: "border-box",
           display: "flex",
           alignItems: "left",
-          justifyContent: "center",
+          justifyContent: "left",
           height: "20px",
           background: "transparent", // 🔥 transparent background
         }}

@@ -215,7 +215,7 @@ export const TemplateEditor: React.FC<TemplateEditorProps> = ({
         >
           <div className="flex justify-center overflow-hidden">
             {/* MAIN DRAWING AREA */}
-            <div className="ml-[260px] flex-1 bg-[#E0E0E0] min-h-screen overflow-y-auto py-8">
+            <div className="ml-[100px] flex-1 bg-[#E0E0E0] min-h-screen overflow-y-auto >">
               
               {/* Drawing Area - Fixed size container that scales as a unit */}
               <div 
