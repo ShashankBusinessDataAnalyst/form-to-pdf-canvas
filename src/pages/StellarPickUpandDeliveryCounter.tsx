@@ -123,7 +123,7 @@ const StellarPickUpandDeliveryCounter = () => {
           id="soNumber"
           value={formData.soNumber}
           onChange={(val) => handleFieldChange("soNumber", val)}
-          position={{ top: 750, left: 330 }}
+          position={{ top: 752, left: 330 }}
           width={95}
           placeholder="SO Number"
         />
@@ -136,7 +136,7 @@ const StellarPickUpandDeliveryCounter = () => {
         <FormDatePicker
           id="SOdate"
           value={formData.SOdate}
-          onChange={(val) => handleFieldChange("date", val)}
+          onChange={(val) => handleFieldChange("SOdate", val)}
           position={{ top: 750, left: 470 }}
         />
         <FormCheckbox
@@ -366,28 +366,28 @@ const StellarPickUpandDeliveryCounter = () => {
           id="FCC"
           value={formData.FCC}
           onChange={(val) => handleFieldChange("FCC", val)}
-          position={{ top: 585, left: 800 }}
+          position={{ top: 588, left: 800 }}
           width={100}
         />
         <FormTextInput
           id="TCC"
           value={formData.TCC}
           onChange={(val) => handleFieldChange("TCC", val)}
-          position={{ top: 605, left: 800 }}
+          position={{ top: 608, left: 800 }}
           width={100}
         />
         <FormTextInput
           id="FCD"
           value={formData.FCD}
           onChange={(val) => handleFieldChange("FCD", val)}
-          position={{ top: 585, left: 1000 }}
+          position={{ top: 588, left: 1000 }}
           width={100}
         />
         <FormTextInput
           id="TCD"
           value={formData.TCD}
           onChange={(val) => handleFieldChange("TCD", val)}
-          position={{ top: 605, left: 1000 }}
+          position={{ top: 608, left: 1000 }}
           width={100}
         />
         

@@ -104,7 +104,7 @@ const StellarHotCavity = () => {
           id="clientName"
           value={formData.clientName}
           onChange={(val) => handleFieldChange("clientName", val)}
-          position={{ top: 730, left: 360 }}
+          position={{ top: 735, left: 360 }}
           width={300}
           placeholder="Client Name"
         />
@@ -112,21 +112,21 @@ const StellarHotCavity = () => {
           id="soNumber"
           value={formData.soNumber}
           onChange={(val) => handleFieldChange("soNumber", val)}
-          position={{ top: 750, left: 330 }}
+          position={{ top: 753, left: 330 }}
           width={95}
           placeholder="SO Number"
-        />
-        <FormDatePicker
-          id="SOdate"
-          value={formData.date}
-          onChange={(val) => handleFieldChange("date", val)}
-          position={{ top: 19, left: 350 }}
         />
         <FormDatePicker
           id="date"
           value={formData.date}
           onChange={(val) => handleFieldChange("date", val)}
-          position={{ top: 750, left: 450 }}
+          position={{ top: 19, left: 340 }}
+        />
+        <FormDatePicker
+          id="SOdate"
+          value={formData.SOdate}
+          onChange={(val) => handleFieldChange("SOdate", val)}
+          position={{ top: 750, left: 460 }}
         />
         <FormCheckbox
           id="3ft"
@@ -314,14 +314,14 @@ const StellarHotCavity = () => {
           id="FCC"
           value={formData.FCC}
           onChange={(val) => handleFieldChange("FCC", val)}
-          position={{ top: 570, left: 800 }}
+          position={{ top: 570, left: 810 }}
           width={80}
         />
         <FormTextInput
           id="TCC"
           value={formData.TCC}
           onChange={(val) => handleFieldChange("TCC", val)}
-          position={{ top: 587, left: 800 }}
+          position={{ top: 587, left: 810 }}
           width={80}
         />
         <FormTextInput
@@ -342,9 +342,9 @@ const StellarHotCavity = () => {
           id="splnote"
           value={formData.splnote}
           onChange={(val) => handleFieldChange("splnote", val)}
-          position={{ top: 640, left: 410 }}
-          width={610}
-          height={70}
+          position={{ top: 646, left: 370 }}
+          width={700}
+          height={60}
           placeholder="Add Text"
         />
       </TemplateEditor>

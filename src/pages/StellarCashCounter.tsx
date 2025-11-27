@@ -123,7 +123,7 @@ const StellarCashCounter = () => {
           id="soNumber"
           value={formData.soNumber}
           onChange={(val) => handleFieldChange("soNumber", val)}
-          position={{ top: 750, left: 330 }}
+          position={{ top: 753, left: 330 }}
           width={95}
           placeholder="SO Number"
         />
@@ -161,7 +161,7 @@ const StellarCashCounter = () => {
         />
         <FormNumberInput
           id="qty2_6ft"
-          value={formData.qty4ft}
+          value={formData.qty2_6ft}
           onChange={(val) => handleFieldChange("qty2_6ft", val)}
           position={{ top: 362, left: 245 }}
           width={80}
@@ -189,7 +189,7 @@ const StellarCashCounter = () => {
         />
         <FormNumberInput
           id="qty3_6ft"
-          value={formData.qty4ft}
+          value={formData.qty3_6ft}
           onChange={(val) => handleFieldChange("qty3_6ft", val)}
           position={{ top: 400, left: 245 }}
           width={80}
@@ -268,7 +268,7 @@ const StellarCashCounter = () => {
         />
         <FormCheckbox
           id="Sheleves1"
-          checked={formData.Sheleves}
+          checked={formData.Sheleves1}
           onChange={(val) => handleFieldChange("Sheleves1", val)}
           position={{ top: 399, left: 815 }}
         />

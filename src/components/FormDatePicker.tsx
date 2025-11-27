@@ -38,7 +38,7 @@ export const FormDatePicker: React.FC<FormDatePickerProps> = ({
         className="absolute text-center text-xs text-black"
         style={{
           top: `${position.top - 2}px`,
-          left: `${position.left + 20}px`,
+          left: `${position.left}px`,
           width: '90px',
           lineHeight: '1',
           fontSize: '12px',
@@ -75,8 +75,8 @@ export const FormDatePicker: React.FC<FormDatePickerProps> = ({
               !value && "text-muted-foreground"
             )}
           >
-            <CalendarIcon className="mr-1 h-3 w-3" />
             {value ? format(value, "dd/MM/yyyy") : <span>{placeholder}</span>}
+            <CalendarIcon className="mr-1 h-3 w-3" />
           </Button>
         </PopoverTrigger>
         <PopoverContent className="w-auto p-0" align="start">

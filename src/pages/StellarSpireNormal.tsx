@@ -111,21 +111,21 @@ const StellarSpireNormal = () => {
           id="soNumber"
           value={formData.soNumber}
           onChange={(val) => handleFieldChange("soNumber", val)}
-          position={{ top: 750, left: 330 }}
+          position={{ top: 753, left: 330 }}
           width={95}
           placeholder="SO Number"
-        />
-        <FormDatePicker
-          id="SOdate"
-          value={formData.date}
-          onChange={(val) => handleFieldChange("date", val)}
-          position={{ top: 19, left: 350 }}
         />
         <FormDatePicker
           id="date"
           value={formData.date}
           onChange={(val) => handleFieldChange("date", val)}
-          position={{ top: 750, left: 450 }}
+          position={{ top: 19, left: 350 }}
+        />
+        <FormDatePicker
+          id="SOdate"
+          value={formData.SOdate}
+          onChange={(val) => handleFieldChange("SOdate", val)}
+          position={{ top: 750, left: 458 }}
         />
         <FormCheckbox
           id="3ft"
@@ -214,7 +214,7 @@ const StellarSpireNormal = () => {
         />
         <FormCheckbox
           id="Sheleves1"
-          checked={formData.Sheleves}
+          checked={formData.Sheleves1}
           onChange={(val) => handleFieldChange("Sheleves1", val)}
           position={{ top: 455, left: 1078 }}
         />
@@ -292,7 +292,7 @@ const StellarSpireNormal = () => {
           id="FCC"
           value={formData.FCC}
           onChange={(val) => handleFieldChange("FCC", val)}
-          position={{ top: 624, left: 800 }}
+          position={{ top: 626, left: 808 }}
           width={100}
         />
         
@@ -300,7 +300,7 @@ const StellarSpireNormal = () => {
           id="FCD"
           value={formData.FCD}
           onChange={(val) => handleFieldChange("FCD", val)}
-          position={{ top: 624, left: 1000 }}
+          position={{ top: 626, left: 1000 }}
           width={100}
         />
         
@@ -308,8 +308,8 @@ const StellarSpireNormal = () => {
           id="splnote"
           value={formData.splnote}
           onChange={(val) => handleFieldChange("splnote", val)}
-          position={{ top: 650, left: 360 }}
-          width={690}
+          position={{ top: 650, left: 340 }}
+          width={750}
           height={58}
           placeholder="Add Text"
         />

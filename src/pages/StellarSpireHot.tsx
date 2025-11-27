@@ -125,7 +125,7 @@ const StellarSpireHot = () => {
           id="date"
           value={formData.date}
           onChange={(val) => handleFieldChange("date", val)}
-          position={{ top: 750, left: 450 }}
+          position={{ top: 750, left: 465 }}
         />
         <FormCheckbox
           id="3ft"
@@ -214,7 +214,7 @@ const StellarSpireHot = () => {
         />
         <FormCheckbox
           id="Sheleves1"
-          checked={formData.Sheleves}
+          checked={formData.Sheleves1}
           onChange={(val) => handleFieldChange("Sheleves1", val)}
           position={{ top: 455, left: 1078 }}
         />
@@ -308,8 +308,8 @@ const StellarSpireHot = () => {
           id="splnote"
           value={formData.splnote}
           onChange={(val) => handleFieldChange("splnote", val)}
-          position={{ top: 664, left: 360 }}
-          width={690}
+          position={{ top: 664, left: 345 }}
+          width={750}
           height={50}
           placeholder="Add Text"
         />

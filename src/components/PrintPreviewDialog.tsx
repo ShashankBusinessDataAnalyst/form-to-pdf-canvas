@@ -31,7 +31,10 @@ export const PrintPreviewDialog: React.FC<PrintPreviewDialogProps> = ({
         <DialogHeader className="flex-shrink-0">
           <DialogTitle>PDF Preview</DialogTitle>
           <DialogDescription>
-            Preview how your {templateName} will look in the downloaded PDF
+            Preview how your {templateName} will look in the downloaded PDF 
+          </DialogDescription>
+          <DialogDescription>
+            (Note: Select "Fit to Printable area" when printing)
           </DialogDescription>
         </DialogHeader>
         

@@ -115,7 +115,7 @@ const ShannonCold = () => {
           id="soNumber"
           value={formData.soNumber}
           onChange={(val) => handleFieldChange("soNumber", val)}
-          position={{ top: 750, left: 330 }}
+          position={{ top: 752, left: 330 }}
           width={95}
           placeholder="SO Number"
         />
@@ -123,7 +123,7 @@ const ShannonCold = () => {
           id="date"
           value={formData.date}
           onChange={(val) => handleFieldChange("date", val)}
-          position={{ top: 19, left: 350 }}
+          position={{ top: 19, left: 330 }}
         />
         <FormDatePicker
           id="SOdate"
@@ -276,7 +276,7 @@ const ShannonCold = () => {
         />
         <FormCheckbox
           id="GMirror"
-          checked={formData.RGMirror}
+          checked={formData.GMirror}
           onChange={(val) => handleFieldChange("GMirror", val)}
           position={{ top: 437, left: 1080 }}
         />
@@ -354,28 +354,28 @@ const ShannonCold = () => {
           id="FCC"
           value={formData.FCC}
           onChange={(val) => handleFieldChange("FCC", val)}
-          position={{ top: 586, left: 800 }}
+          position={{ top: 588, left: 800 }}
           width={80}
         />
         <FormTextInput
           id="TCC"
           value={formData.TCC}
           onChange={(val) => handleFieldChange("TCC", val)}
-          position={{ top: 601, left: 800 }}
+          position={{ top: 607, left: 800 }}
           width={80}
         />
         <FormTextInput
           id="FCD"
           value={formData.FCD}
           onChange={(val) => handleFieldChange("FCD", val)}
-          position={{ top: 586, left: 1000 }}
+          position={{ top: 588, left: 1000 }}
           width={80}
         />
         <FormTextInput
           id="TCD"
           value={formData.TCD}
           onChange={(val) => handleFieldChange("TCD", val)}
-          position={{ top: 601, left: 1000 }}
+          position={{ top: 607, left: 1000 }}
           width={80}
         />
         <FormTextarea

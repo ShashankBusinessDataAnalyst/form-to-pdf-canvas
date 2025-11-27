@@ -104,7 +104,7 @@ const StellarCold = () => {
           id="clientName"
           value={formData.clientName}
           onChange={(val) => handleFieldChange("clientName", val)}
-          position={{ top: 735, left: 360 }}
+          position={{ top: 737, left: 360 }}
           width={300}
           placeholder="Client Name"
         />
@@ -112,21 +112,21 @@ const StellarCold = () => {
           id="soNumber"
           value={formData.soNumber}
           onChange={(val) => handleFieldChange("soNumber", val)}
-          position={{ top: 750, left: 330 }}
+          position={{ top: 753, left: 330 }}
           width={95}
           placeholder="SO Number"
-        />
-        <FormDatePicker
-          id="SOdate"
-          value={formData.date}
-          onChange={(val) => handleFieldChange("date", val)}
-          position={{ top: 19, left: 350 }}
         />
         <FormDatePicker
           id="date"
           value={formData.date}
           onChange={(val) => handleFieldChange("date", val)}
-          position={{ top: 750, left: 450 }}
+          position={{ top: 19, left: 350 }}
+        />
+        <FormDatePicker
+          id="SOdate"
+          value={formData.SOdate}
+          onChange={(val) => handleFieldChange("SOdate", val)}
+          position={{ top: 750, left: 460 }}
         />
         <FormCheckbox
           id="3ft"
@@ -314,14 +314,14 @@ const StellarCold = () => {
           id="FCC"
           value={formData.FCC}
           onChange={(val) => handleFieldChange("FCC", val)}
-          position={{ top: 585, left: 800 }}
+          position={{ top: 585, left: 810 }}
           width={80}
         />
         <FormTextInput
           id="TCC"
           value={formData.TCC}
           onChange={(val) => handleFieldChange("TCC", val)}
-          position={{ top: 600, left: 800 }}
+          position={{ top: 605, left: 810 }}
           width={80}
         />
         <FormTextInput
@@ -335,15 +335,15 @@ const StellarCold = () => {
           id="TCD"
           value={formData.TCD}
           onChange={(val) => handleFieldChange("TCD", val)}
-          position={{ top: 600, left: 1000 }}
+          position={{ top: 605, left: 1000 }}
           width={80}
         />
         <FormTextarea
           id="splnote"
           value={formData.splnote}
           onChange={(val) => handleFieldChange("splnote", val)}
-          position={{ top: 640, left: 480 }}
-          width={590}
+          position={{ top: 640, left: 380 }}
+          width={690}
           height={70}
           placeholder="Add Text"
         />
