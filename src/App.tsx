@@ -21,6 +21,7 @@ import ShannonHotCavity from "./pages/ShannonHotCavity";
 import ShannonCashCounter from "./pages/ShannonCashCounter";
 import ShannonPickUpDeliveryCounter from "./pages/ShannonPickUpDeliveryCounter";
 import ShannonCornerCounter from "./pages/ShannonCornerCounter";
+import SilyaCold3 from "./pages/SilyaCold3";
 
 const queryClient = new QueryClient();
 
@@ -48,6 +49,7 @@ const App = () => (
           <Route path="/ShannonCashCounter" element={<ShannonCashCounter />} />
           <Route path="/ShannonPickUpDeliveryCounter" element={<ShannonPickUpDeliveryCounter />} />
           <Route path="/ShannonCornerCounter" element={<ShannonCornerCounter/>} />
+          <Route path="/SilyaCold3" element={<SilyaCold3/>} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

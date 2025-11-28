@@ -1,6 +1,7 @@
 import stellarModel from "@/assets/stellar_model.png";
 import stellarSpireModel from "@/assets/StellarSphire_Model.png";
 import ShannonModel from "@/assets/ShannonModel.png";
+import SilyaModel from "@/assets/SilyaModel.png";
 
 export interface ProductInfo {
   id: string;
@@ -139,6 +140,15 @@ export const products: ProductInfo[] = [
     category: "Display Units",
     description: "Technical drawing template"
   },
+  {
+    id: "Silya_Cold_3",
+    name: "Silya Cold 3+1 Counter",
+    thumbnail: SilyaModel,
+    route: "/SilyaCold3",
+    category: "Display Units",
+    description: "Technical drawing template"
+  },
+
 
   // Add remaining 65 products here following the same pattern
 ];
