@@ -123,6 +123,14 @@ export const products: ProductInfo[] = [
     category: "Display Units",
     description: "Technical drawing template"
   },
+  {
+    id: "Shannon_PickUp_Delivery_Counter",
+    name: "Shannon PickUp Delivery Counter",
+    thumbnail: ShannonModel,
+    route: "/ShannonPickUpDeliveryCounter",
+    category: "Display Units",
+    description: "Technical drawing template"
+  },
 
   // Add remaining 65 products here following the same pattern
 ];
