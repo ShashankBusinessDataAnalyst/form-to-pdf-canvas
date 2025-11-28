@@ -131,6 +131,14 @@ export const products: ProductInfo[] = [
     category: "Display Units",
     description: "Technical drawing template"
   },
+  {
+    id: "Shannon_Corner_Counter",
+    name: "Shannon Corner Counter",
+    thumbnail: ShannonModel,
+    route: "/ShannonCornerCounter",
+    category: "Display Units",
+    description: "Technical drawing template"
+  },
 
   // Add remaining 65 products here following the same pattern
 ];
