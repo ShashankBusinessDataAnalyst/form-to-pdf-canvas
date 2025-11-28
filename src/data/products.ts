@@ -115,6 +115,14 @@ export const products: ProductInfo[] = [
     category: "Display Units",
     description: "Technical drawing template"
   },
+  {
+    id: "Shannon_Cash_Counter",
+    name: "Shannon Cash Counter",
+    thumbnail: ShannonModel,
+    route: "/ShannonCashCounter",
+    category: "Display Units",
+    description: "Technical drawing template"
+  },
 
   // Add remaining 65 products here following the same pattern
 ];

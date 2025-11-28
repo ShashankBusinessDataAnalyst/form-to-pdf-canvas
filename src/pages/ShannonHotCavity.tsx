@@ -71,6 +71,7 @@ const ShannonHotCavity = () => {
       CCW: false,
       SWW: false,
       DWW: false,
+      DCW: false,
       wheels: false,
       Alegs: false,
       Sheleves: false,
