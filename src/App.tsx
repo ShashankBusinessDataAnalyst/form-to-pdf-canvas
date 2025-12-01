@@ -31,6 +31,9 @@ import SilyaNormal4 from "./pages/SilyaNormal4";
 import SilyaCornerCounter from "./pages/SilyaCornerCounter";
 import SilyaCashCounter from "./pages/SilyaCashCounter";
 import SilyaPickUpDeliveryCounter from "./pages/SilyaPickUpDeliveryCounter";
+import ShannonLowBaseHot from "./pages/ShannonLowBaseHot";
+import ShannonLowBaseNormal from "./pages/ShannonLowBaseNormal";
+import ShannonLowBaseHotCavity from "./pages/ShannonLowBaseHotCavity";
 
 const queryClient = new QueryClient();
 
@@ -68,6 +71,9 @@ const App = () => (
           <Route path="/SilyaCornerCounter" element={<SilyaCornerCounter/>} />
           <Route path="/SilyaCashCounter" element={<SilyaCashCounter/>} />
           <Route path="/SilyaPickUpDeliveryCounter" element={<SilyaPickUpDeliveryCounter/>} />
+          <Route path="/ShannonLowBaseHot" element={<ShannonLowBaseHot/>} />
+          <Route path="/ShannonLowBaseNormal" element={<ShannonLowBaseNormal/>} />
+          <Route path="/ShannonLowBaseHotCavity" element={<ShannonLowBaseHotCavity/>} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

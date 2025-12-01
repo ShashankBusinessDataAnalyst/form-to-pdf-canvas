@@ -13,7 +13,7 @@ export interface ProductInfo {
 }
 
 export const products: ProductInfo[] = [
-  {
+  /*{
     id: "Stellar_Normal",
     name: "Stellar Normal",
     thumbnail: stellarModel,
@@ -219,7 +219,31 @@ export const products: ProductInfo[] = [
     route: "/SilyaPickUpDeliveryCounter",
     category: "Display Units",
     description: "Technical drawing template"
+  },*/
+  {
+    id: "Shannon_Low_Base_Hot_tmpt",
+    name: "Shannon Low Base Hot Counter",
+    thumbnail: ShannonModel,
+    route: "/ShannonLowBaseHot",
+    category: "Display Units",
+    description: "Technical drawing template"
   },
+  {
+    id: "Shannon_Low_Base_Normal_tmpt",
+    name: "Shannon Low Base Normal Counter",
+    thumbnail: ShannonModel,
+    route: "/ShannonLowBaseNormal",
+    category: "Display Units",
+    description: "Technical drawing template"
+  },
+  {
+    id: "Shannon_Low_Base_Hot_Cavity_tmpt",
+    name: "Shannon Low Base Hot Cavity Counter",
+    thumbnail: ShannonModel,
+    route: "/ShannonLowBaseHotCavity",
+    category: "Display Units",
+    description: "Technical drawing template"
+  }
 
 
   // Add remaining 65 products here following the same pattern
