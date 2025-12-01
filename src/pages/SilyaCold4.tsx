@@ -115,7 +115,7 @@ const SilyaCold4 = () => {
           id="soNumber"
           value={formData.soNumber}
           onChange={(val) => handleFieldChange("soNumber", val)}
-          position={{ top: 750, left: 330 }}
+          position={{ top: 752, left: 330 }}
           width={95}
           placeholder="SO Number"
         />

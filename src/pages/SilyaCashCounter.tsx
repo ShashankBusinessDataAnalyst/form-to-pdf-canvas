@@ -112,7 +112,7 @@ const SilyaCashCounter = () => {
           id="clientName"
           value={formData.clientName}
           onChange={(val) => handleFieldChange("clientName", val)}
-          position={{ top: 730, left: 360 }}
+          position={{ top: 732, left: 360 }}
           width={300}
           placeholder="Client Name"
         />
@@ -120,7 +120,7 @@ const SilyaCashCounter = () => {
           id="soNumber"
           value={formData.soNumber}
           onChange={(val) => handleFieldChange("soNumber", val)}
-          position={{ top: 746, left: 345 }}
+          position={{ top: 748, left: 345 }}
           width={80}
           placeholder="SO Number"
         />
@@ -211,25 +211,25 @@ const SilyaCashCounter = () => {
           id="CNW"
           checked={formData.CNW}
           onChange={(val) => handleFieldChange("CNW", val)}
-          position={{ top: 324, left: 816 }}
+          position={{ top: 326, left: 818 }}
         />
         <FormCheckbox
           id="SNW"
           checked={formData.SNW}
           onChange={(val) => handleFieldChange("SNW", val)}
-          position={{ top: 324, left: 960 }}
+          position={{ top: 326, left: 960 }}
         />
         <FormCheckbox
           id="DNW"
           checked={formData.DNW}
           onChange={(val) => handleFieldChange("DNW", val)}
-          position={{ top: 324, left: 1078 }}
+          position={{ top: 326, left: 1078 }}
         />
         <FormCheckbox
           id="CCW"
           checked={formData.CCW}
           onChange={(val) => handleFieldChange("CCW", val)}
-          position={{ top: 346, left: 816 }}
+          position={{ top: 345, left: 818 }}
         />
         <FormCheckbox
           id="SWW"
@@ -273,13 +273,13 @@ const SilyaCashCounter = () => {
           id="Alegs"
           checked={formData.Alegs}
           onChange={(val) => handleFieldChange("Alegs", val)}
-          position={{ top: 455, left: 816 }}
+          position={{ top: 453, left: 818 }}
         />
         <FormCheckbox
           id="CWheels"
           checked={formData.CWheels}
           onChange={(val) => handleFieldChange("CWheels", val)}
-          position={{ top: 475, left: 816 }}
+          position={{ top: 473, left: 818 }}
         />
         
         
