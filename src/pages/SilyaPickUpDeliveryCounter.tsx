@@ -6,9 +6,9 @@ import { FormDatePicker } from "@/components/FormDatePicker";
 import { FormCheckbox } from "@/components/FormCheckbox";
 import { PrintModeProvider } from "@/contexts/PrintModeContext";
 import { FormTextarea } from "@/components/FormTextarea";
-import Shannon_PickUp_Delivery_Counter_tmpt from "@/assets/Shannon_PickUp_Delivery_Counter_tmpt.png"; //Make sure the file name matches the actual template background file in assets folder.
+import Silya_PickUp_Delivery_Counter_tmpt from "@/assets/Silya_PickUp_Delivery_Counter_tmpt.png"; //Make sure the file name matches the actual template background file in assets folder.
 
-const ShannonPickUpDeliveryCounter = () => {
+const SilyaPickUpDeliveryCounter = () => {
   const [formData, setFormData] = useState<Record<string, any>>({
     clientName: "",
     soNumber: "",
@@ -109,8 +109,8 @@ const ShannonPickUpDeliveryCounter = () => {
   return (
     <PrintModeProvider>
       <TemplateEditor
-        templateImage={Shannon_PickUp_Delivery_Counter_tmpt} //Background image of the template.The png file should be of high quality.
-        templateName="Shannon PickUp and Delivery Counter Template"
+        templateImage={Silya_PickUp_Delivery_Counter_tmpt} //Background image of the template.The png file should be of high quality.
+        templateName="Silya PickUp and Delivery Counter Template"
         onClearAll={handleClearAll}
       >
         <FormTextInput
@@ -407,4 +407,4 @@ const ShannonPickUpDeliveryCounter = () => {
   );
 };
 
-export default ShannonPickUpDeliveryCounter;
+export default SilyaPickUpDeliveryCounter;

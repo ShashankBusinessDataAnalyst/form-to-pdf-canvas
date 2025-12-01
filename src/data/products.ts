@@ -204,6 +204,22 @@ export const products: ProductInfo[] = [
     category: "Display Units",
     description: "Technical drawing template"
   },
+  {
+    id: "Silya_Cash_Counter",
+    name: "Silya Cash Counter",
+    thumbnail: SilyaModel,
+    route: "/SilyaCashCounter",
+    category: "Display Units",
+    description: "Technical drawing template"
+  },
+  {
+    id: "Silya_PickUp_Delivery_Counter",
+    name: "Silya PickUp Delivery Counter",
+    thumbnail: SilyaModel,
+    route: "/SilyaPickUpDeliveryCounter",
+    category: "Display Units",
+    description: "Technical drawing template"
+  },
 
 
   // Add remaining 65 products here following the same pattern

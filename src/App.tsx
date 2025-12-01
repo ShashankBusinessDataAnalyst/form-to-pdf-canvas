@@ -29,6 +29,9 @@ import SilyaCold4 from "./pages/SilyaCold4";
 import SilyaHot4 from "./pages/SilyaHot4";
 import SilyaNormal4 from "./pages/SilyaNormal4";
 import SilyaCornerCounter from "./pages/SilyaCornerCounter";
+import SilyaCashCounter from "./pages/SilyaCashCounter";
+import SilyaPickUpDeliveryCounter from "./pages/SilyaPickUpDeliveryCounter";
+
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -63,6 +66,8 @@ const App = () => (
           <Route path="/SilyaHot4" element={<SilyaHot4/>} />
           <Route path="/SilyaNormal4" element={<SilyaNormal4/>} />
           <Route path="/SilyaCornerCounter" element={<SilyaCornerCounter/>} />
+          <Route path="/SilyaCashCounter" element={<SilyaCashCounter/>} />
+          <Route path="/SilyaPickUpDeliveryCounter" element={<SilyaPickUpDeliveryCounter/>} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
