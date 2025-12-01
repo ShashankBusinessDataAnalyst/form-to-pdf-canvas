@@ -13,7 +13,7 @@ export interface ProductInfo {
 }
 
 export const products: ProductInfo[] = [
-  /*{
+  {
     id: "Stellar_Normal",
     name: "Stellar Normal",
     thumbnail: stellarModel,
@@ -139,7 +139,7 @@ export const products: ProductInfo[] = [
     route: "/ShannonCornerCounter",
     category: "Display Units",
     description: "Technical drawing template"
-  },*/
+  },
   {
     id: "Silya_Cold_3",
     name: "Silya Cold 3+1 Counter",
