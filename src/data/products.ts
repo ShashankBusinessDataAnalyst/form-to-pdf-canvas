@@ -196,6 +196,14 @@ export const products: ProductInfo[] = [
     category: "Display Units",
     description: "Technical drawing template"
   },
+  {
+    id: "Silya_Corner_Counter",
+    name: "Silya Corner Counter",
+    thumbnail: SilyaModel,
+    route: "/SilyaCornerCounter",
+    category: "Display Units",
+    description: "Technical drawing template"
+  },
 
 
   // Add remaining 65 products here following the same pattern
