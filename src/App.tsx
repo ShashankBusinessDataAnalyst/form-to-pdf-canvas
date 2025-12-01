@@ -22,7 +22,12 @@ import ShannonCashCounter from "./pages/ShannonCashCounter";
 import ShannonPickUpDeliveryCounter from "./pages/ShannonPickUpDeliveryCounter";
 import ShannonCornerCounter from "./pages/ShannonCornerCounter";
 import SilyaCold3 from "./pages/SilyaCold3";
-
+import SilyaHot3 from "./pages/SilyaHot3";
+import SilyaNormal3 from "./pages/SilyaNormal3";
+import SilyaHotCavity3 from "./pages/SilyaHotCavity3";
+import SilyaCold4 from "./pages/SilyaCold4";
+import SilyaHot4 from "./pages/SilyaHot4";
+import SilyaNormal4 from "./pages/SilyaNormal4";
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -50,6 +55,12 @@ const App = () => (
           <Route path="/ShannonPickUpDeliveryCounter" element={<ShannonPickUpDeliveryCounter />} />
           <Route path="/ShannonCornerCounter" element={<ShannonCornerCounter/>} />
           <Route path="/SilyaCold3" element={<SilyaCold3/>} />
+          <Route path="/SilyaHot3" element={<SilyaHot3/>} />
+          <Route path="/SilyaNormal3" element={<SilyaNormal3/>} />
+          <Route path="/SilyaHotCavity3" element={<SilyaHotCavity3/>} />
+          <Route path="/SilyaCold4" element={<SilyaCold4/>} />
+          <Route path="/SilyaHot4" element={<SilyaHot4/>} />
+          <Route path="/SilyaNormal4" element={<SilyaNormal4/>} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

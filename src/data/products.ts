@@ -13,7 +13,7 @@ export interface ProductInfo {
 }
 
 export const products: ProductInfo[] = [
-  {
+  /*{
     id: "Stellar_Normal",
     name: "Stellar Normal",
     thumbnail: stellarModel,
@@ -139,12 +139,60 @@ export const products: ProductInfo[] = [
     route: "/ShannonCornerCounter",
     category: "Display Units",
     description: "Technical drawing template"
-  },
+  },*/
   {
     id: "Silya_Cold_3",
     name: "Silya Cold 3+1 Counter",
     thumbnail: SilyaModel,
     route: "/SilyaCold3",
+    category: "Display Units",
+    description: "Technical drawing template"
+  },
+  {
+    id: "Silya_Hot_3",
+    name: "Silya Hot 3+1 Counter",
+    thumbnail: SilyaModel,
+    route: "/SilyaHot3",
+    category: "Display Units",
+    description: "Technical drawing template"
+  },
+  {
+    id: "Silya_Normal_3",
+    name: "Silya Normal 3+1 Counter",
+    thumbnail: SilyaModel,
+    route: "/SilyaNormal3",
+    category: "Display Units",
+    description: "Technical drawing template"
+  },
+  {
+    id: "Silya_Hot_Cavity_3",
+    name: "Silya Hot Cavity 3+1 Counter",
+    thumbnail: SilyaModel,
+    route: "/SilyaHotCavity3",
+    category: "Display Units",
+    description: "Technical drawing template"
+  },
+  {
+    id: "Silya_Cold_4",
+    name: "Silya Cold 4+1 Counter",
+    thumbnail: SilyaModel,
+    route: "/SilyaCold4",
+    category: "Display Units",
+    description: "Technical drawing template"
+  },
+  {
+    id: "Silya_Hot_4",
+    name: "Silya Hot 4+1 Counter",
+    thumbnail: SilyaModel,
+    route: "/SilyaHot4",
+    category: "Display Units",
+    description: "Technical drawing template"
+  },
+  {
+    id: "Silya_Normal_4",
+    name: "Silya Normal 4+1 Counter",
+    thumbnail: SilyaModel,
+    route: "/SilyaNormal4",
     category: "Display Units",
     description: "Technical drawing template"
   },
