@@ -40,6 +40,7 @@ import SteffaniaNormal from "./pages/SteffaniaNormal";
 import SteffaniaPickUpDeliveryCounter from "./pages/SteffaniaPickUpDeliveryCounter";
 import SteffaniaCashCounter from "./pages/SteffaniaCashCounter";
 import SteffaniaCornerCounter from "./pages/SteffaniaCornerCounter";
+import SteffaniaPrimaCold from "./pages/SteffaniaPrimaCold";
 
 const queryClient = new QueryClient();
 
@@ -86,6 +87,7 @@ const App = () => (
           <Route path="/SteffaniaPickUpDeliveryCounter" element={<SteffaniaPickUpDeliveryCounter/>} />
           <Route path="/SteffaniaCashCounter" element={<SteffaniaCashCounter/>} />
           <Route path="/SteffaniaCornerCounter" element={<SteffaniaCornerCounter/>} />
+          <Route path="/SteffaniaPrimaCold" element={<SteffaniaPrimaCold/>} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

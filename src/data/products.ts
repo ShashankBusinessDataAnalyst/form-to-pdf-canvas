@@ -293,6 +293,15 @@ export const products: ProductInfo[] = [
     category: "Display Units",
     description: "Technical drawing template"
   },
+  {
+    id: "Steffania_Prima_Cold_tmpt",
+    name: "Steffania Prima Cold",
+    thumbnail: SteffaniaModel,
+    route: "/SteffaniaPrimaCold",
+    category: "Display Units",
+    description: "Technical drawing template"
+  },
+
 
 
 
