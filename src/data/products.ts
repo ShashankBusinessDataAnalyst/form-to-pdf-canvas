@@ -269,6 +269,14 @@ export const products: ProductInfo[] = [
     category: "Display Units",
     description: "Technical drawing template"
   },
+  {
+    id: "Steffania_PickUp_Delivery_Counter_tmpt",
+    name: "Steffania PickUp Delivery Counter",
+    thumbnail: SteffaniaModel,
+    route: "/SteffaniaPickUpDeliveryCounter",
+    category: "Display Units",
+    description: "Technical drawing template"
+  },
 
 
 

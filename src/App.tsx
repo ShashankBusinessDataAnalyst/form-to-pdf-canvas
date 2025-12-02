@@ -37,6 +37,8 @@ import ShannonLowBaseHotCavity from "./pages/ShannonLowBaseHotCavity";
 import SteffaniaCold from "./pages/SteffaniaCold";
 import SteffaniaHot from "./pages/SteffaniaHot";
 import SteffaniaNormal from "./pages/SteffaniaNormal";
+import SteffaniaPickUpDeliveryCounter from "./pages/SteffaniaPickUpDeliveryCounter";
+
 
 const queryClient = new QueryClient();
 
@@ -80,6 +82,7 @@ const App = () => (
           <Route path="/SteffaniaCold" element={<SteffaniaCold/>} />
           <Route path="/SteffaniaHot" element={<SteffaniaHot/>} />
           <Route path="/SteffaniaNormal" element={<SteffaniaNormal/>} />
+          <Route path="/steffaniaPickUpDeliveryCounter" element={<SteffaniaPickUpDeliveryCounter/>} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
