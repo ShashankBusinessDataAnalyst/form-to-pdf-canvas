@@ -2,6 +2,7 @@ import stellarModel from "@/assets/stellar_model.png";
 import stellarSpireModel from "@/assets/StellarSphire_Model.png";
 import ShannonModel from "@/assets/ShannonModel.png";
 import SilyaModel from "@/assets/SilyaModel.png";
+import SteffaniaModel from "@/assets/SteffaniaModel.png";
 
 export interface ProductInfo {
   id: string;
@@ -219,7 +220,7 @@ export const products: ProductInfo[] = [
     route: "/SilyaPickUpDeliveryCounter",
     category: "Display Units",
     description: "Technical drawing template"
-  },*/
+  },
   {
     id: "Shannon_Low_Base_Hot_tmpt",
     name: "Shannon Low Base Hot Counter",
@@ -243,7 +244,16 @@ export const products: ProductInfo[] = [
     route: "/ShannonLowBaseHotCavity",
     category: "Display Units",
     description: "Technical drawing template"
+  },*/
+  {
+    id: "Steffania_Cold_tmpt",
+    name: "Steffania Cold",
+    thumbnail: SteffaniaModel,
+    route: "/SteffaniaCold",
+    category: "Display Units",
+    description: "Technical drawing template"
   }
+
 
 
   // Add remaining 65 products here following the same pattern
