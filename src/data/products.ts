@@ -285,6 +285,14 @@ export const products: ProductInfo[] = [
     category: "Display Units",
     description: "Technical drawing template"
   },
+  {
+    id: "Steffania_Corner_Counter_tmpt",
+    name: "Steffania Corner Counter",
+    thumbnail: SteffaniaModel,
+    route: "/SteffaniaCornerCounter",
+    category: "Display Units",
+    description: "Technical drawing template"
+  },
 
 
 
