@@ -42,6 +42,7 @@ import SteffaniaCashCounter from "./pages/SteffaniaCashCounter";
 import SteffaniaCornerCounter from "./pages/SteffaniaCornerCounter";
 import SteffaniaPrimaCold from "./pages/SteffaniaPrimaCold";
 import SteffaniaPrimaHot from "./pages/SteffaniaPrimaHot";
+import SteffaniaPrimaNormal from "./pages/SteffaniaPrimaNormal";
 
 
 
@@ -92,6 +93,7 @@ const App = () => (
           <Route path="/SteffaniaCornerCounter" element={<SteffaniaCornerCounter/>} />
           <Route path="/SteffaniaPrimaCold" element={<SteffaniaPrimaCold/>} />
           <Route path="/SteffaniaPrimaHot" element={<SteffaniaPrimaHot/>} />
+          <Route path="/SteffaniaPrimaNormal" element={<SteffaniaPrimaNormal/>} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
