@@ -1,8 +1,10 @@
 import stellarModel from "@/assets/stellar_model.png";
 import stellarSpireModel from "@/assets/StellarSphire_Model.png";
+import stellarSlantModel from "@/assets/StellarSlant_Model.png";
 import ShannonModel from "@/assets/ShannonModel.png";
 import SilyaModel from "@/assets/SilyaModel.png";
 import SteffaniaModel from "@/assets/SteffaniaModel.png";
+import SlaviaModel from "@/assets/Slavia_Model.png";
 
 export interface ProductInfo {
   id: string;
@@ -14,6 +16,7 @@ export interface ProductInfo {
 }
 
 export const products: ProductInfo[] = [
+  /*
   {
     id: "Stellar_Normal",
     name: "Stellar Normal",
@@ -73,7 +76,7 @@ export const products: ProductInfo[] = [
   {
     id: "Stellar_Slant_Cold",
     name: "Stellar Slant Cold",
-    thumbnail: stellarSpireModel,
+    thumbnail: stellarSlantModel,
     route: "/StellarSlantCold",
     category: "Display Units",
     description: "Technical drawing template"
@@ -81,7 +84,7 @@ export const products: ProductInfo[] = [
   {
     id: "Stellar_Slant_Hot",
     name: "Stellar Slant Hot",
-    thumbnail: stellarSpireModel,
+    thumbnail: stellarSlantModel,
     route: "/StellarSlantHot",
     category: "Display Units",
     description: "Technical drawing template"
@@ -89,7 +92,7 @@ export const products: ProductInfo[] = [
   {
     id: "Stellar_Slant_Hot_Cavity",
     name: "Stellar Slant Hot Cavity",
-    thumbnail: stellarSpireModel,
+    thumbnail: stellarSlantModel,
     route: "/StellarSlantHotCavity",
     category: "Display Units",
     description: "Technical drawing template"
@@ -97,8 +100,8 @@ export const products: ProductInfo[] = [
   {
     id: "Stellar_Slant_Normal",
     name: "Stellar Slant Normal",
-    thumbnail: stellarSpireModel,
-    route: "/StellarSlantNormal",
+    thumbnail: stellarSlantModel,
+    route: "/stellarSlantModel",
     category: "Display Units",
     description: "Technical drawing template"
   },
@@ -118,7 +121,7 @@ export const products: ProductInfo[] = [
     route: "/StellarPickUpandDeliveryCounter",
     category: "Delivery Counters",
     description: "Technical drawing template"
-  },/*
+  },
   {
     id: "Shannon_Cold",
     name: "Shannon Cold",
@@ -351,6 +354,14 @@ export const products: ProductInfo[] = [
     category: "Display Units",
     description: "Technical drawing template"
   },*/
+  {
+    id: "Slavia_Cold_tmpt",
+    name: "Slavia Cold",
+    thumbnail: SlaviaModel,
+    route: "/SlaviaCold",
+    category: "Display Units",
+    description: "Technical drawing template"
+  },
 
 
 
