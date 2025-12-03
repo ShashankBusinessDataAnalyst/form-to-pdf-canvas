@@ -46,7 +46,7 @@ import SteffaniaPrimaNormal from "./pages/SteffaniaPrimaNormal";
 import StellarSlantCold from "./pages/StellarSlantCold";
 import StellarSlantHot from "./pages/StellarSlantHot";
 import StellarSlantHotCavity from "./pages/StellarSlantHotCavity";
-//import StellarSlantNormal from "./pages/StellarSlantNormal";
+import StellarSlantNormal from "./pages/StellarSlantNormal";
 
 
 const queryClient = new QueryClient();
@@ -100,6 +100,7 @@ const App = () => (
           <Route path="/StellarSlantCold" element={<StellarSlantCold/>} />
           <Route path="/StellarSlantHot" element={<StellarSlantHot/>} />
           <Route path="/StellarSlantHotCavity" element={<StellarSlantHotCavity/>} />
+          <Route path="/StellarSlantNormal" element={<StellarSlantNormal/>} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
