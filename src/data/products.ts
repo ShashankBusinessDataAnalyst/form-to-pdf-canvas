@@ -402,6 +402,23 @@ export const products: ProductInfo[] = [
     category: "Display Units",
     description: "Technical drawing template"
   },
+  {
+    id: "Slavia_Inner_Corner_Counter_tmpt",
+    name: "Slavia Inner Corner Counter",
+    thumbnail: SlaviaModel,
+    route: "/SlaviaInnerCornerCounter",
+    category: "Display Units",
+    description: "Technical drawing template"
+  },
+  {
+    id: "Slavia_Outter_Corner_Counter_tmpt",
+    name: "Slavia Outter Corner Counter",
+    thumbnail: SlaviaModel,
+    route: "/SlaviaOutterCornerCounter",
+    category: "Display Units",
+    description: "Technical drawing template"
+  },
+
 
 
 
