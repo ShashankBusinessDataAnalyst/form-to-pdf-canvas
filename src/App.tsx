@@ -52,6 +52,7 @@ import SlaviaHot from "./pages/SlaviaHot";
 import SlaviaHotCavity from "./pages/SlaviaHotCavity";
 import SlaviaNormal from "./pages/SlaviaNormal";
 import SlaviaCashCounter from "./pages/SlaviaCashCounter";
+import SlaviaPickUpDeliveryCounter from "./pages/SlaviaPickUpDeliveryCounter";
 
 
 const queryClient = new QueryClient();
@@ -111,6 +112,7 @@ const App = () => (
           <Route path="/SlaviaHotCavity" element={<SlaviaHotCavity/>} />
           <Route path="/SlaviaNormal" element={<SlaviaNormal/>} />
           <Route path="/SlaviaCashCounter" element={<SlaviaCashCounter/>} />
+          <Route path="/SlaviaPickUpDeliveryCounter" element={<SlaviaPickUpDeliveryCounter />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

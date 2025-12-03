@@ -394,6 +394,14 @@ export const products: ProductInfo[] = [
     category: "Display Units",
     description: "Technical drawing template"
   },
+  {
+    id: "Slavia_PickUp_and_Delivery_Counter_tmpt",
+    name: "Slavia PickUp and Delivery Counter",
+    thumbnail: SlaviaModel,
+    route: "/SlaviaPickUpDeliveryCounter",
+    category: "Display Units",
+    description: "Technical drawing template"
+  },
 
 
 
