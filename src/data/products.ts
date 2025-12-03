@@ -370,6 +370,14 @@ export const products: ProductInfo[] = [
     category: "Display Units",
     description: "Technical drawing template"
   },
+  {
+    id: "Slavia_Hot_Cavity_tmpt",
+    name: "Slavia Hot Cavity",
+    thumbnail: SlaviaModel,
+    route: "/SlaviaHotCavity",
+    category: "Display Units",
+    description: "Technical drawing template"
+  },
 
 
 
