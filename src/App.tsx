@@ -44,7 +44,7 @@ import SteffaniaPrimaCold from "./pages/SteffaniaPrimaCold";
 import SteffaniaPrimaHot from "./pages/SteffaniaPrimaHot";
 import SteffaniaPrimaNormal from "./pages/SteffaniaPrimaNormal";
 import StellarSlantCold from "./pages/StellarSlantCold";
-//import StellarSlantHot from "./pages/StellarSlantHot";
+import StellarSlantHot from "./pages/StellarSlantHot";
 //import StellarSlantNormal from "./pages/StellarSlantNormal";
 
 
@@ -97,6 +97,7 @@ const App = () => (
           <Route path="/SteffaniaPrimaHot" element={<SteffaniaPrimaHot/>} />
           <Route path="/SteffaniaPrimaNormal" element={<SteffaniaPrimaNormal/>} />
           <Route path="/StellarSlantCold" element={<StellarSlantCold/>} />
+          <Route path="/StellarSlantHot" element={<StellarSlantHot/>} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
