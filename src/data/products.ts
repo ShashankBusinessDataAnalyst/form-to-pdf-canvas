@@ -14,7 +14,7 @@ export interface ProductInfo {
 }
 
 export const products: ProductInfo[] = [
-  /*{
+  {
     id: "Stellar_Normal",
     name: "Stellar Normal",
     thumbnail: stellarModel,
@@ -69,6 +69,15 @@ export const products: ProductInfo[] = [
     category: "Display Units",
     description: "Technical drawing template"
   },
+
+  {
+    id: "Stellar_Slant_Cold",
+    name: "Stellar Slant Cold",
+    thumbnail: stellarSpireModel,
+    route: "/StellarSlantCold",
+    category: "Display Units",
+    description: "Technical drawing template"
+  },
   {
     id: "Stellar_Cash_Counter",
     name: "Stellar Cash Counter",
@@ -77,6 +86,7 @@ export const products: ProductInfo[] = [
     category: "Cash Counters",
     description: "Technical drawing template"
   },
+  
   {
     id: "Stellar_PickUp_and_Delivery_Counter",
     name: "Stellar PickUp and Delivery Counter",
@@ -84,7 +94,7 @@ export const products: ProductInfo[] = [
     route: "/StellarPickUpandDeliveryCounter",
     category: "Delivery Counters",
     description: "Technical drawing template"
-  },
+  },/*
   {
     id: "Shannon_Cold",
     name: "Shannon Cold",
@@ -244,7 +254,7 @@ export const products: ProductInfo[] = [
     route: "/ShannonLowBaseHotCavity",
     category: "Display Units",
     description: "Technical drawing template"
-  },*/
+  },
   {
     id: "Steffania_Cold_tmpt",
     name: "Steffania Cold",
@@ -316,7 +326,7 @@ export const products: ProductInfo[] = [
     route: "/SteffaniaPrimaNormal",
     category: "Display Units",
     description: "Technical drawing template"
-  },
+  },*/
 
 
 

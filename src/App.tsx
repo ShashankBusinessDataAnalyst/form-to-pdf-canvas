@@ -43,7 +43,9 @@ import SteffaniaCornerCounter from "./pages/SteffaniaCornerCounter";
 import SteffaniaPrimaCold from "./pages/SteffaniaPrimaCold";
 import SteffaniaPrimaHot from "./pages/SteffaniaPrimaHot";
 import SteffaniaPrimaNormal from "./pages/SteffaniaPrimaNormal";
-
+import StellarSlantCold from "./pages/StellarSlantCold";
+//import StellarSlantHot from "./pages/StellarSlantHot";
+//import StellarSlantNormal from "./pages/StellarSlantNormal";
 
 
 const queryClient = new QueryClient();
@@ -94,6 +96,7 @@ const App = () => (
           <Route path="/SteffaniaPrimaCold" element={<SteffaniaPrimaCold/>} />
           <Route path="/SteffaniaPrimaHot" element={<SteffaniaPrimaHot/>} />
           <Route path="/SteffaniaPrimaNormal" element={<SteffaniaPrimaNormal/>} />
+          <Route path="/StellarSlantCold" element={<StellarSlantCold/>} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
