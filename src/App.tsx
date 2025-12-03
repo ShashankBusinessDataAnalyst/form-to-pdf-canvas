@@ -48,6 +48,7 @@ import StellarSlantHot from "./pages/StellarSlantHot";
 import StellarSlantHotCavity from "./pages/StellarSlantHotCavity";
 import StellarSlantNormal from "./pages/StellarSlantNormal";
 import SlaviaCold from "./pages/SlaviaCold";
+import SlaviaHot from "./pages/SlaviaHot";
 
 
 const queryClient = new QueryClient();
@@ -102,6 +103,7 @@ const App = () => (
           <Route path="/StellarSlantHot" element={<StellarSlantHot/>} />
           <Route path="/StellarSlantHotCavity" element={<StellarSlantHotCavity/>} />
           <Route path="/StellarSlantNormal" element={<StellarSlantNormal/>} />
+          <Route path="/SlaviaHot" element={<SlaviaHot/>} />
           <Route path="/SlaviaCold" element={<SlaviaCold/>} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />

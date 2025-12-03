@@ -6,9 +6,9 @@ import { FormDatePicker } from "@/components/FormDatePicker";
 import { FormCheckbox } from "@/components/FormCheckbox";
 import { PrintModeProvider } from "@/contexts/PrintModeContext";
 import { FormTextarea } from "@/components/FormTextarea";
-import Slavia_Cold_tmpt from "@/assets/Slavia_Cold_tmpt.png"; //Make sure the file name matches the actual template background file in assets folder.
+import Slavia_Hot_tmpt from "@/assets/Slavia_Hot_tmpt.png"; //Make sure the file name matches the actual template background file in assets folder.
 
-const SlaviaCold = () => {
+const SlaviaHot = () => {
   const [formData, setFormData] = useState<Record<string, any>>({
     clientName: "",
     SalesPerson: "",
@@ -101,8 +101,8 @@ const SlaviaCold = () => {
   return (
     <PrintModeProvider>
       <TemplateEditor
-        templateImage={Slavia_Cold_tmpt} //Background image of the template.The png file should be of high quality.
-        templateName="Slavia Cold Template"
+        templateImage={Slavia_Hot_tmpt} //Background image of the template.The png file should be of high quality.
+        templateName="Slavia Hot Template"
         onClearAll={handleClearAll}
       >
         <FormTextInput
@@ -133,7 +133,7 @@ const SlaviaCold = () => {
           id="date"
           value={formData.date}
           onChange={(val) => handleFieldChange("date", val)}
-          position={{ top: 19, left: 330 }}
+          position={{ top: 19, left: 335 }}
         />
         <FormDatePicker
           id="SOdate"
@@ -373,4 +373,4 @@ const SlaviaCold = () => {
   );
 };
 
-export default SlaviaCold;
+export default SlaviaHot;
