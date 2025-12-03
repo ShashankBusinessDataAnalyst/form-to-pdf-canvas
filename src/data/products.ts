@@ -378,6 +378,23 @@ export const products: ProductInfo[] = [
     category: "Display Units",
     description: "Technical drawing template"
   },
+  {
+    id: "Slavia_Normal_tmpt",
+    name: "Slavia Normal Cavity",
+    thumbnail: SlaviaModel,
+    route: "/SlaviaNormal",
+    category: "Display Units",
+    description: "Technical drawing template"
+  },
+  {
+    id: "Slavia_Cash_Counter_tmpt",
+    name: "Slavia Cash Counter",
+    thumbnail: SlaviaModel,
+    route: "/SlaviaCashCounter",
+    category: "Display Units",
+    description: "Technical drawing template"
+  },
+
 
 
 
