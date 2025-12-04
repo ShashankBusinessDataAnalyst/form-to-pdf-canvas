@@ -65,6 +65,7 @@ import ShantelInnerCornerCounter from "./pages/ShantelInnerCornerCounter";
 import ShantelOutterCornerCounter from "./pages/ShantelOutterCornerCounter";
 import ShannallePickUpDeliveryCounter from "./pages/ShannallePickUpDeliveryCounter";
 import ShannalleCashCounter from "./pages/ShannalleCashCounter";
+import ShannalleInnerCornerCounter from "./pages/ShannalleInnerCornerCounter";
 
 
 const queryClient = new QueryClient();
@@ -137,6 +138,7 @@ const App = () => (
           <Route path="/ShantelOutterCornerCounter" element={<ShantelOutterCornerCounter />} />
           <Route path="/ShannallePickUpDeliveryCounter" element={<ShannallePickUpDeliveryCounter />} />
           <Route path="/ShannalleCashCounter" element={<ShannalleCashCounter />} />
+          <Route path="/ShannalleInnerCornerCounter" element={<ShannalleInnerCornerCounter />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

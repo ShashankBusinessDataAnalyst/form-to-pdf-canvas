@@ -498,6 +498,14 @@ export const products: ProductInfo[] = [
     category: "Display Units",
     description: "Technical drawing template"
   },
+  {
+    id: "Shannalle_Inner_Corner_Counter_tmpt",
+    name: "Shannalle Inner Corner Counter",
+    thumbnail: "na", 
+    route: "/ShannalleInnerCornerCounter",
+    category: "Display Units",
+    description: "Technical drawing template"
+  }
 
 
 
