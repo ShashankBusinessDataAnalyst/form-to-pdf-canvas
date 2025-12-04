@@ -457,6 +457,14 @@ export const products: ProductInfo[] = [
     route: "/ShantelPickUpDeliveryCounter",
     category: "Display Units",
     description: "Technical drawing template"
+  },
+  {
+    id: "Shantel_Cash_Counter_tmpt",
+    name: "Shantel Cash Counter",
+    thumbnail: "na",
+    route: "/ShantelCashCounter",
+    category: "Display Units",
+    description: "Technical drawing template"
   }
 
 

@@ -60,6 +60,7 @@ import ShantelHot from "./pages/ShantelHot";
 import ShantelNormal from "./pages/ShantelNormal";
 import ShantelHotCavity from "./pages/ShantelHotCavity";
 import ShantelPickUpDeliveryCounter from "./pages/ShantelPickUpDeliveryCounter";
+import ShantelCashCounter from "./pages/ShantelCashCounter";
 
 
 const queryClient = new QueryClient();
@@ -127,6 +128,7 @@ const App = () => (
           <Route path="/ShantelNormal" element={<ShantelNormal />} />
           <Route path="/ShantelHotCavity" element={<ShantelHotCavity />} />
           <Route path="/ShantelPickUpDeliveryCounter" element={<ShantelPickUpDeliveryCounter />} />
+          <Route path="/ShantelCashCounter" element={<ShantelCashCounter />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
