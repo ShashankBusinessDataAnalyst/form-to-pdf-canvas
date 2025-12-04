@@ -417,7 +417,7 @@ export const products: ProductInfo[] = [
     route: "/SlaviaOutterCornerCounter",
     category: "Display Units",
     description: "Technical drawing template"
-  },*/
+  },
   {
     id: "Shantel_Cold_tmpt",
     name: "Shantel Cold",
@@ -479,6 +479,14 @@ export const products: ProductInfo[] = [
     name: "Shantel Outter Corner Counter",
     thumbnail: "na",  
     route: "/ShantelOutterCornerCounter",
+    category: "Display Units",
+    description: "Technical drawing template"
+  },*/
+  {
+    id: "Shannalle_PickUp_and_Delivery_Counter_tmpt",
+    name: "Shannalle PickUp and Delivery Counter",
+    thumbnail: "na",
+    route: "/ShannallePickUpDeliveryCounter",
     category: "Display Units",
     description: "Technical drawing template"
   }
