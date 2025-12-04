@@ -16,7 +16,7 @@ export interface ProductInfo {
 }
 
 export const products: ProductInfo[] = [
-  
+  /*
   {
     id: "Stellar_Normal",
     name: "Stellar Normal",
@@ -415,6 +415,14 @@ export const products: ProductInfo[] = [
     name: "Slavia Outter Corner Counter",
     thumbnail: SlaviaModel,
     route: "/SlaviaOutterCornerCounter",
+    category: "Display Units",
+    description: "Technical drawing template"
+  },*/
+  {
+    id: "Shantel_Cold_tmpt",
+    name: "Shantel Cold",
+    thumbnail: "na" ,
+    route: "/ShantelCold",
     category: "Display Units",
     description: "Technical drawing template"
   },
