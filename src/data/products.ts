@@ -505,7 +505,16 @@ export const products: ProductInfo[] = [
     route: "/ShannalleInnerCornerCounter",
     category: "Display Units",
     description: "Technical drawing template"
-  }
+  },
+  {
+    id: "Shannalle_Outter_Corner_Counter_tmpt",
+    name: "Shannalle Outter Corner Counter",
+    thumbnail: "na", 
+    route: "/ShannalleOutterCornerCounter",
+    category: "Display Units",
+    description: "Technical drawing template"
+  },
+
 
 
 
