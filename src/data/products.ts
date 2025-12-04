@@ -449,6 +449,14 @@ export const products: ProductInfo[] = [
     route: "/ShantelHotCavity",
     category: "Display Units",
     description: "Technical drawing template"
+  },
+  {
+    id: "Shantel_PickUp_and_Delivery_Counter_tmpt",
+    name: "Shantel PickUp and Delivery Counter",
+    thumbnail: "na",
+    route: "/ShantelPickUpDeliveryCounter",
+    category: "Display Units",
+    description: "Technical drawing template"
   }
 
 
