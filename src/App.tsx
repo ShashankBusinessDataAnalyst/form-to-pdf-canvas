@@ -56,6 +56,7 @@ import SlaviaPickUpDeliveryCounter from "./pages/SlaviaPickUpDeliveryCounter";
 import SlaviaInnerCornerCounter from "./pages/SlaviaInnerCornerCounter";
 import SlaviaOutterCornerCounter from "./pages/SlaviaOutterCornerCounter";
 import ShantelCold from "./pages/ShantelCold";
+import ShantelHot from "./pages/ShantelHot";
 
 
 const queryClient = new QueryClient();
@@ -119,6 +120,7 @@ const App = () => (
           <Route path="/SlaviaInnerCornerCounter" element={<SlaviaInnerCornerCounter />} />
           <Route path="/SlaviaOutterCornerCounter" element={<SlaviaOutterCornerCounter />} />
           <Route path="/ShantelCold" element={<ShantelCold />} />
+          <Route path="/ShantelHot" element={<ShantelHot />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

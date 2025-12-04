@@ -426,6 +426,14 @@ export const products: ProductInfo[] = [
     category: "Display Units",
     description: "Technical drawing template"
   },
+  {
+    id: "Shantel_Hot_tmpt",
+    name: "Shantel Hot", 
+    thumbnail: "na",
+    route: "/ShantelHot",
+    category: "Display Units",
+    description: "Technical drawing template"
+  },
 
 
 
