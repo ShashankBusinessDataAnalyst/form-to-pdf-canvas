@@ -465,6 +465,22 @@ export const products: ProductInfo[] = [
     route: "/ShantelCashCounter",
     category: "Display Units",
     description: "Technical drawing template"
+  },
+  {
+    id: "Shantel_Inner_Corner_Counter_tmpt",
+    name: "Shantel Inner Corner Counter",
+    thumbnail: "na",
+    route: "/ShantelInnerCornerCounter",
+    category: "Display Units",
+    description: "Technical drawing template"
+  },
+  {
+    id: "Shantel_Outter_Corner_Counter_tmpt",
+    name: "Shantel Outter Corner Counter",
+    thumbnail: "na",  
+    route: "/ShantelOutterCornerCounter",
+    category: "Display Units",
+    description: "Technical drawing template"
   }
 
 
