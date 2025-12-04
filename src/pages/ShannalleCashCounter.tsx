@@ -6,23 +6,23 @@ import { FormDatePicker } from "@/components/FormDatePicker";
 import { FormCheckbox } from "@/components/FormCheckbox";
 import { PrintModeProvider } from "@/contexts/PrintModeContext";
 import { FormTextarea } from "@/components/FormTextarea";
-import Shannalle_PickUp_and_Delivery_Counter_tmpt from "@/assets/Shannalle_PickUp_and_Delivery_Counter_tmpt.png"; //Make sure the file name matches the actual template background file in assets folder.
+import Shannalle_Cash_Counter_tmpt from "@/assets/Shannalle_Cash_Counter_tmpt.png"; //Make sure the file name matches the actual template background file in assets folder.
 
-const ShannallePickUpDeliveryCounter = () => {
+const ShannalleCashCounter = () => {
   const [formData, setFormData] = useState<Record<string, any>>({
     SalesPerson: "",
     clientName: "",
     soNumber: "",
     date: new Date(),
-    SODate:"",
-    qty2ft: "",
+    SOdate: "",
     qty3ft: "",
     qty4ft: "",
     qty5ft: "",
-    "2ft": false,
+    qty6ft: "",
     "3ft": false,
     "4ft": false,
     "5ft": false,
+    "6ft": false,
     CNW: false,
     SNW: false,
     DNW: false,
@@ -31,11 +31,15 @@ const ShannallePickUpDeliveryCounter = () => {
     DWW: false,
     Sheleves: false,
     Sheleves1: false,
-    RDRW: false,
-    SSDRW: false,
+    RDrawer: false,
+    SSDrawer: false,
+    Alegs: false,
     WireManager: false,
     SSDoor: false,
     WSSDoor: false,
+    FLogo: false,
+    WithBacklight: false,
+    WithoutBacklight: false,
     SSMatt: false,
     SSMirror: false,
     RGMatt: false,
@@ -75,15 +79,15 @@ const ShannallePickUpDeliveryCounter = () => {
       clientName: "",
       soNumber: "",
       date: new Date(),
-      SODate:"",
-      qty2ft: "",
+      SOdate: "",
       qty3ft: "",
       qty4ft: "",
       qty5ft: "",
-      "2ft": false,
+      qty6ft: "",
       "3ft": false,
       "4ft": false,
       "5ft": false,
+      "6ft": false,
       CNW: false,
       SNW: false,
       DNW: false,
@@ -92,11 +96,15 @@ const ShannallePickUpDeliveryCounter = () => {
       DWW: false,
       Sheleves: false,
       Sheleves1: false,
-      RDRW: false,
-      SSDRW: false,
+      RDrawer: false,
+      SSDrawer: false,
+      Alegs: false,
       WireManager: false,
       SSDoor: false,
       WSSDoor: false,
+      FLogo: false,
+      WithBacklight: false,
+      WithoutBacklight: false,
       SSMatt: false,
       SSMirror: false,
       RGMatt: false,
@@ -130,8 +138,8 @@ const ShannallePickUpDeliveryCounter = () => {
   return (
     <PrintModeProvider>
       <TemplateEditor
-        templateImage={Shannalle_PickUp_and_Delivery_Counter_tmpt} //Background image of the template.The png file should be of high quality.
-        templateName="Shannalle PickUp and Delivery Counter Template"
+        templateImage={Shannalle_Cash_Counter_tmpt} //Background image of the template.The png file should be of high quality.
+        templateName="Shannalle Cash Counter Template"
         onClearAll={handleClearAll}
       >
         <FormTextInput
@@ -154,7 +162,7 @@ const ShannallePickUpDeliveryCounter = () => {
           id="soNumber"
           value={formData.soNumber}
           onChange={(val) => handleFieldChange("soNumber", val)}
-          position={{ top: 752, left: 330 }}
+          position={{ top: 753, left: 330 }}
           width={95}
           placeholder="SO Number"
         />
@@ -162,28 +170,15 @@ const ShannallePickUpDeliveryCounter = () => {
           id="date"
           value={formData.date}
           onChange={(val) => handleFieldChange("date", val)}
-          position={{ top: 19, left: 390 }}
+          position={{ top: 18, left: 395 }}
         />
         <FormDatePicker
           id="SOdate"
           value={formData.SOdate}
           onChange={(val) => handleFieldChange("SOdate", val)}
-          position={{ top: 750, left: 470 }}
+          position={{ top: 750, left: 459 }}
         />
-        <FormCheckbox
-          id="2ft"
-          checked={formData["2ft"]}
-          onChange={(val) => handleFieldChange("2ft", val)}
-          position={{ top: 345, left: 225 }}
-        />
-        <FormNumberInput
-          id="qty2ft"
-          value={formData.qty2ft}
-          onChange={(val) => handleFieldChange("qty2ft", val)}
-          position={{ top: 345, left: 245 }}
-          width={80}
-          placeholder="Qty"
-        />
+        
         <FormCheckbox
           id="3ft"
           checked={formData["3ft"]}
@@ -208,12 +203,12 @@ const ShannallePickUpDeliveryCounter = () => {
           id="qty4ft"
           value={formData.qty4ft}
           onChange={(val) => handleFieldChange("qty4ft", val)}
-          position={{ top: 382, left: 245 }}
+          position={{ top: 383, left: 245 }}
           width={80}
           placeholder="Qty"
         />
         <FormCheckbox
-          id="5t"
+          id="5ft"
           checked={formData["5ft"]}
           onChange={(val) => handleFieldChange("5ft", val)}
           position={{ top: 400, left: 225 }}
@@ -226,71 +221,90 @@ const ShannallePickUpDeliveryCounter = () => {
           width={80}
           placeholder="Qty"
         />
+        <FormCheckbox
+          id="6ft"
+          checked={formData["6ft"]}
+          onChange={(val) => handleFieldChange("6ft", val)}
+          position={{ top: 345, left: 225 }}
+        />
+        <FormNumberInput
+          id="qty6ft"
+          value={formData.qty6ft}
+          onChange={(val) => handleFieldChange("qty6ft", val)}
+          position={{ top: 345, left: 245 }}
+          width={80}
+          placeholder="Qty"
+        />
         
-
         <FormCheckbox
           id="CNW"
           checked={formData.CNW}
           onChange={(val) => handleFieldChange("CNW", val)}
-          position={{ top: 327, left: 815 }}
+          position={{ top: 326, left: 813 }}
         />
         <FormCheckbox
           id="SNW"
           checked={formData.SNW}
           onChange={(val) => handleFieldChange("SNW", val)}
-          position={{ top: 327, left: 958 }}
+          position={{ top: 326, left: 960 }}
         />
         <FormCheckbox
           id="DNW"
           checked={formData.DNW}
           onChange={(val) => handleFieldChange("DNW", val)}
-          position={{ top: 327, left: 1078 }}
+          position={{ top: 326, left: 1078 }}
         />
         <FormCheckbox
           id="CCW"
           checked={formData.CCW}
           onChange={(val) => handleFieldChange("CCW", val)}
-          position={{ top: 345, left: 815 }}
+          position={{ top: 346, left: 813 }}
         />
         <FormCheckbox
           id="SWW"
           checked={formData.SWW}
           onChange={(val) => handleFieldChange("SWW", val)}
-          position={{ top: 345, left: 958 }}
+          position={{ top: 346, left: 960 }}
         />
         <FormCheckbox
           id="DWW"
           checked={formData.DWW}
           onChange={(val) => handleFieldChange("DWW", val)}
-          position={{ top: 345, left: 1078 }}
+          position={{ top: 346, left: 1078 }}
         />
-
+        
         <FormCheckbox
           id="Sheleves"
           checked={formData.Sheleves}
           onChange={(val) => handleFieldChange("Sheleves", val)}
-          position={{ top: 418, left: 815 }}
+          position={{ top: 400, left: 813 }}
         />
         <FormCheckbox
           id="Sheleves1"
           checked={formData.Sheleves1}
           onChange={(val) => handleFieldChange("Sheleves1", val)}
-          position={{ top: 399, left: 815 }}
+          position={{ top: 418, left: 813 }}
+        />
+        <FormCheckbox
+          id="RDrawer"
+          checked={formData.RDrawer}
+          onChange={(val) => handleFieldChange("RDrawer", val)}
+          position={{ top: 400, left: 960 }}
+        />
+        <FormCheckbox
+          id="SSDrawer"
+          checked={formData.SSDrawer}
+          onChange={(val) => handleFieldChange("SSDrawer", val)}
+          position={{ top: 418, left: 960 }}
         />
 
         <FormCheckbox
-          id="RDRW"
-          checked={formData.RDRW}
-          onChange={(val) => handleFieldChange("RDRW", val)}
-          position={{ top: 399, left: 958 }}
+          id="Alegs"
+          checked={formData.Alegs}
+          onChange={(val) => handleFieldChange("Alegs", val)}
+          position={{ top: 455, left: 813 }}
         />
-        <FormCheckbox
-          id="SSDRW"
-          checked={formData.SSDRW}
-          onChange={(val) => handleFieldChange("SSDRW", val)}
-          position={{ top: 418, left: 958 }}
-        />
-
+             
         <FormCheckbox
           id="WireManager"
           checked={formData.WireManager}
@@ -301,75 +315,92 @@ const ShannallePickUpDeliveryCounter = () => {
           id="SSDoor"
           checked={formData.SSDoor}
           onChange={(val) => handleFieldChange("SSDoor", val)}
-          position={{ top: 399, left: 1078 }}
+          position={{ top: 400, left: 1078 }}
         />
         <FormCheckbox
           id="WSSDoor"
-          checked={formData.WSSDoor}
+          checked={formData.RGMatt}
           onChange={(val) => handleFieldChange("WSSDoor", val)}
           position={{ top: 418, left: 1078 }}
+        />
+        <FormCheckbox
+          id="FLogo"
+          checked={formData.FLogo}
+          onChange={(val) => handleFieldChange("FLogo", val)}
+          position={{ top: 436, left: 1078 }}
+        />
+        <FormCheckbox
+          id="WithBacklight"
+          checked={formData.WithBacklight}
+          onChange={(val) => handleFieldChange("WithBacklight", val)}
+          position={{ top: 455, left: 1078 }}
+        />
+        <FormCheckbox
+          id="WithoutBacklight"
+          checked={formData.WithoutBacklight}
+          onChange={(val) => handleFieldChange("WithoutBacklight", val)}
+          position={{ top: 473, left: 1078 }}
         />
         <FormCheckbox
           id="SSMatt"
           checked={formData.SSMatt}
           onChange={(val) => handleFieldChange("SSMatt", val)}
-          position={{ top: 455, left: 985 }}
+          position={{ top: 455, left: 880 }}
         />
         <FormCheckbox
           id="SSMirror"
           checked={formData.SSMirror}
           onChange={(val) => handleFieldChange("SSMirror", val)}
-          position={{ top: 455, left: 1080 }}
+          position={{ top: 455, left: 960 }}
         />
         <FormCheckbox
           id="RGMatt"
           checked={formData.RGMatt}
           onChange={(val) => handleFieldChange("RGMatt", val)}
-          position={{ top: 474, left: 985 }}
+          position={{ top: 474, left: 880 }}
         />
         <FormCheckbox
           id="RGMirror"
           checked={formData.RGMirror}
           onChange={(val) => handleFieldChange("RGMirror", val)}
-          position={{ top: 474, left: 1080 }}
+          position={{ top: 474, left: 960 }}
         />
         <FormCheckbox
           id="GMatt"
           checked={formData.GMatt}
           onChange={(val) => handleFieldChange("GMatt", val)}
-          position={{ top: 492, left: 985 }}
+          position={{ top: 492, left: 880 }}
         />
         <FormCheckbox
           id="GMirror"
           checked={formData.GMirror}
           onChange={(val) => handleFieldChange("GMirror", val)}
-          position={{ top: 492, left: 1080 }}
+          position={{ top: 492, left: 960 }}
         />
 
-        
         <FormCheckbox
           id="CF1"
           checked={formData.CF1}
           onChange={(val) => handleFieldChange("CF1", val)}
-          position={{ top: 546, left: 848 }}
+          position={{ top: 547, left: 848 }}
         />
         <FormCheckbox
           id="CF2"
           checked={formData.CF2}
           onChange={(val) => handleFieldChange("CF2", val)}
-          position={{ top: 565, left: 848 }}
+          position={{ top: 566, left: 848 }}
         />
         <FormCheckbox
           id="CF3"
           checked={formData.CF3}
           onChange={(val) => handleFieldChange("CF3", val)}
-          position={{ top: 585, left: 848 }}
+          position={{ top: 584, left: 848 }}
         />
         <FormCheckbox
           id="CF4"
           checked={formData.CF4}
           onChange={(val) => handleFieldChange("CF4", val)}
-          position={{ top: 602, left: 848 }}
+          position={{ top: 603, left: 848 }}
         />
         <FormCheckbox
           id="CF5"
@@ -381,107 +412,106 @@ const ShannallePickUpDeliveryCounter = () => {
           id="CT1"
           checked={formData.CT1}
           onChange={(val) => handleFieldChange("CT1", val)}
-          position={{ top: 546, left: 890 }}
+          position={{ top: 547, left: 885 }}
         />
         <FormCheckbox
           id="CT2"
           checked={formData.CT2}
           onChange={(val) => handleFieldChange("CT2", val)}
-          position={{ top: 565, left: 890 }}
+          position={{ top: 566, left: 885 }}
         />
         <FormCheckbox
           id="CT3"
           checked={formData.CT3}
           onChange={(val) => handleFieldChange("CT3", val)}
-          position={{ top: 585, left: 890 }}
+          position={{ top: 584, left: 885 }}
         />
         <FormCheckbox
           id="CT4"
           checked={formData.CT4}
           onChange={(val) => handleFieldChange("CT4", val)}
-          position={{ top: 602, left: 890 }}
+          position={{ top: 603, left: 885 }}
         />
         <FormCheckbox
           id="CT5"
           checked={formData.CT5}
           onChange={(val) => handleFieldChange("CT5", val)}
-          position={{ top: 620, left: 890 }}
+          position={{ top: 620, left: 885 }}
         />
         <FormCheckbox
           id="CS1"
           checked={formData.CS1}
           onChange={(val) => handleFieldChange("CS1", val)}
-          position={{ top: 546, left: 930 }}
+          position={{ top: 546, left: 925 }}
         />
         <FormCheckbox
           id="CS2"
           checked={formData.CS2}
           onChange={(val) => handleFieldChange("CS2", val)}
-          position={{ top: 565, left: 930 }}
+          position={{ top: 565, left: 925 }}
         />
         <FormCheckbox
           id="CS3"
           checked={formData.CS3}
           onChange={(val) => handleFieldChange("CS3", val)}
-          position={{ top: 585, left: 930 }}
+          position={{ top: 585, left: 925 }}
         />
         <FormCheckbox
           id="CS4"
           checked={formData.CS4}
           onChange={(val) => handleFieldChange("CS4", val)}
-          position={{ top: 602, left: 930 }}
+          position={{ top: 602, left: 925 }}
         />
         <FormCheckbox
           id="CS5"
           checked={formData.CS5}
           onChange={(val) => handleFieldChange("CS5", val)}
-          position={{ top: 620, left: 930 }}
+          position={{ top: 620, left: 925 }}
         />
         <FormTextarea
           id="sampleTextarea"
           value={formData.sampleTextarea}
           onChange={(val) => handleFieldChange("sampleTextarea", val)}
-          position={{ top: 552, left: 960 }}
-          width={130}
-          height={80}
+          position={{ top: 550, left: 955 }}
+          width={140}
+          height={90}
           placeholder="Add Text"
         />
         <FormTextInput
           id="FCC"
           value={formData.FCC}
           onChange={(val) => handleFieldChange("FCC", val)}
-          position={{ top: 642, left: 810 }}
-          width={100}
+          position={{ top: 641, left: 810 }}
+          width={80}
         />
         <FormTextInput
           id="TCC"
           value={formData.TCC}
           onChange={(val) => handleFieldChange("TCC", val)}
-          position={{ top: 658, left: 810 }}
-          width={100}
+          position={{ top: 660, left: 810 }}
+          width={80}
         />
         <FormTextInput
           id="FCD"
           value={formData.FCD}
           onChange={(val) => handleFieldChange("FCD", val)}
-          position={{ top: 642, left: 1000 }}
-          width={100}
+          position={{ top: 641, left: 1000 }}
+          width={80}
         />
         <FormTextInput
           id="TCD"
           value={formData.TCD}
           onChange={(val) => handleFieldChange("TCD", val)}
-          position={{ top: 658, left: 1000 }}
-          width={100}
+          position={{ top: 660, left: 1000 }}
+          width={80}
         />
-        
         <FormTextarea
           id="splnote"
           value={formData.splnote}
           onChange={(val) => handleFieldChange("splnote", val)}
-          position={{ top: 485, left: 30 }}
+          position={{ top: 480, left: 30 }}
           width={670}
-          height={225}
+          height={230}
           placeholder="Add Text"
         />
       </TemplateEditor>
@@ -489,4 +519,4 @@ const ShannallePickUpDeliveryCounter = () => {
   );
 };
 
-export default ShannallePickUpDeliveryCounter;
+export default ShannalleCashCounter;
