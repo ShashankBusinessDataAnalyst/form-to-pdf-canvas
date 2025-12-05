@@ -571,7 +571,23 @@ export const products: ProductInfo[] = [
     route: "/WallRack",
     category: "Racks",
     description: "Technical drawing template"
-  }
+  },
+  {
+    id: "Gift_Rack1_tmpt",
+    name: "Gift Rack 1",
+    thumbnail: "na",
+    route: "/GiftRack1",
+    category: "Racks",
+    description: "Technical drawing template"
+  },
+  {
+    id: "Gift_Rack2_tmpt",
+    name: "Gift Rack 2",
+    thumbnail: "na",
+    route: "/GiftRack2",
+    category: "Racks",
+    description: "Technical drawing template"
+  },
 
 
 

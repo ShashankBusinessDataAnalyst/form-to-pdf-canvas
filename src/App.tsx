@@ -74,6 +74,8 @@ import BackCounter450 from "./pages/BackCounter450";
 import BackCounter500 from "./pages/BackCounter500";
 import ImplusRack from "./pages/ImplusRack";
 import WallRack from "./pages/WallRack";
+import GiftRack1 from "./pages/GiftRack1";
+import GiftRack2 from "./pages/GiftRack2";
 
 
 const queryClient = new QueryClient();
@@ -155,6 +157,8 @@ const App = () => (
           <Route path="/BackCounter500" element={<BackCounter500 />} />
           <Route path="/ImplusRack" element={<ImplusRack />} />
           <Route path="/WallRack" element={<WallRack />} />
+          <Route path="/GiftRack1" element={<GiftRack1 />} />
+          <Route path="/GiftRack2" element={<GiftRack2 />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
