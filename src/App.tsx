@@ -76,6 +76,7 @@ import ImplusRack from "./pages/ImplusRack";
 import WallRack from "./pages/WallRack";
 import GiftRack1 from "./pages/GiftRack1";
 import GiftRack2 from "./pages/GiftRack2";
+import GandolaCounter1 from "./pages/GandolaCounter1";
 
 
 const queryClient = new QueryClient();
@@ -159,6 +160,7 @@ const App = () => (
           <Route path="/WallRack" element={<WallRack />} />
           <Route path="/GiftRack1" element={<GiftRack1 />} />
           <Route path="/GiftRack2" element={<GiftRack2 />} />
+          <Route path="/GandolaCounter1" element={<GandolaCounter1 />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

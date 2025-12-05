@@ -515,7 +515,7 @@ export const products: ProductInfo[] = [
     route: "/ShannalleOutterCornerCounter",
     category: "Display Units",
     description: "Technical drawing template"
-  },*/
+  },
   {
     id: "Serenity_Cold_tmpt",
     name: "Serenity Cold",
@@ -587,7 +587,16 @@ export const products: ProductInfo[] = [
     route: "/GiftRack2",
     category: "Racks",
     description: "Technical drawing template"
-  },
+  },*/
+  {
+    id:"Gandola_Counter1_tmpt",
+    name: "Gandola Counter 1",
+    thumbnail : "na",
+    route : "/GandolaCounter1",
+    category : "Racks",
+    description: "Technical drawing template"
+
+  }
 
 
 
