@@ -6,6 +6,7 @@ import SilyaModel from "@/assets/SilyaModel.png";
 import SteffaniaModel from "@/assets/SteffaniaModel.png";
 import SlaviaModel from "@/assets/Slavia_Model.png";
 import SerenityModel from "@/assets/Serenity_Model.png";
+import ScenicPrimaModel from "@/assets/ScenicPrima_Model.png";
 
 export interface ProductInfo {
   id: string;
@@ -520,6 +521,14 @@ export const products: ProductInfo[] = [
     name: "Serenity Cold",
     thumbnail: SerenityModel,
     route: "/SerenityCold",
+    category: "Display Units",
+    description: "Technical drawing template"
+  },
+  {
+    id: "Scenic_Prima_Chiller_tmpt",
+    name: "Scenic Prima Chiller",
+    thumbnail: ScenicPrimaModel,
+    route: "/ScenicPrimaChiller",
     category: "Display Units",
     description: "Technical drawing template"
   }
