@@ -531,6 +531,14 @@ export const products: ProductInfo[] = [
     route: "/ScenicPrimaChiller",
     category: "Display Units",
     description: "Technical drawing template"
+  },
+  {
+    id: "Scenic_Prima_Freezer_tmpt",
+    name: "Scenic Prima Freezer",
+    thumbnail: ScenicPrimaModel,
+    route: "/ScenicPrimaFreezer",
+    category: "Display Units",
+    description: "Technical drawing template"
   }
 
 

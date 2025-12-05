@@ -6,9 +6,9 @@ import { FormDatePicker } from "@/components/FormDatePicker";
 import { FormCheckbox } from "@/components/FormCheckbox";
 import { PrintModeProvider } from "@/contexts/PrintModeContext";
 import { FormTextarea } from "@/components/FormTextarea";
-import Scenic_Prima_Chiller_tmpt from "@/assets/Scenic_Prima_Chiller_tmpt.png"; //Make sure the file name matches the actual template background file in assets folder.
+import Scenic_Prima_Freezer_tmpt from "@/assets/Scenic_Prima_Freezer_tmpt.png"; //Make sure the file name matches the actual template background file in assets folder.
 
-const ScenicPrimaChiller = () => {
+const ScenicPrimaFreezer = () => {
   const [formData, setFormData] = useState<Record<string, any>>({
     SalesPerson: "",
     clientName: "",
@@ -54,8 +54,8 @@ const ScenicPrimaChiller = () => {
   return (
     <PrintModeProvider>
       <TemplateEditor
-        templateImage={Scenic_Prima_Chiller_tmpt} //Background image of the template.The png file should be of high quality.
-        templateName="Scenic Prima Chiller Template"
+        templateImage={Scenic_Prima_Freezer_tmpt} //Background image of the template.The png file should be of high quality.
+        templateName="Scenic Prima Freezer Template"
         onClearAll={handleClearAll}
       >
         <FormTextInput
@@ -165,4 +165,4 @@ const ScenicPrimaChiller = () => {
   );
 };
 
-export default ScenicPrimaChiller;
+export default ScenicPrimaFreezer;
