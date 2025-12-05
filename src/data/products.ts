@@ -5,6 +5,7 @@ import ShannonModel from "@/assets/ShannonModel.png";
 import SilyaModel from "@/assets/SilyaModel.png";
 import SteffaniaModel from "@/assets/SteffaniaModel.png";
 import SlaviaModel from "@/assets/Slavia_Model.png";
+import SerenityModel from "@/assets/Serenity_Model.png";
 
 export interface ProductInfo {
   id: string;
@@ -481,7 +482,7 @@ export const products: ProductInfo[] = [
     route: "/ShantelOutterCornerCounter",
     category: "Display Units",
     description: "Technical drawing template"
-  },*/
+  },
   {
     id: "Shannalle_PickUp_and_Delivery_Counter_tmpt",
     name: "Shannalle PickUp and Delivery Counter",
@@ -513,7 +514,15 @@ export const products: ProductInfo[] = [
     route: "/ShannalleOutterCornerCounter",
     category: "Display Units",
     description: "Technical drawing template"
-  },
+  },*/
+  {
+    id: "Serenity_Cold_tmpt",
+    name: "Serenity Cold",
+    thumbnail: SerenityModel,
+    route: "/SerenityCold",
+    category: "Display Units",
+    description: "Technical drawing template"
+  }
 
 
 
