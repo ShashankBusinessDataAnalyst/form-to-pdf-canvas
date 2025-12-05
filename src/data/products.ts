@@ -539,7 +539,15 @@ export const products: ProductInfo[] = [
     route: "/ScenicPrimaFreezer",
     category: "Display Units",
     description: "Technical drawing template"
-  }
+  },
+  {
+    id: "Back_Counter_450_tmpt",
+    name: "Back Counter 450",
+    thumbnail: "na",
+    route: "/BackCounter450",
+    category: "Back Counters",
+    description: "Technical drawing template"
+  },
 
 
 
