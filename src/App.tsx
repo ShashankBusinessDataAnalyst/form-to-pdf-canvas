@@ -73,6 +73,7 @@ import ScenicPrimaFreezer from "./pages/ScenicPrimaFreezer";
 import BackCounter450 from "./pages/BackCounter450";
 import BackCounter500 from "./pages/BackCounter500";
 import ImplusRack from "./pages/ImplusRack";
+import WallRack from "./pages/WallRack";
 
 
 const queryClient = new QueryClient();
@@ -153,6 +154,7 @@ const App = () => (
           <Route path="/BackCounter450" element={<BackCounter450 />} />
           <Route path="/BackCounter500" element={<BackCounter500 />} />
           <Route path="/ImplusRack" element={<ImplusRack />} />
+          <Route path="/WallRack" element={<WallRack />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

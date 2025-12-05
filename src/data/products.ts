@@ -563,6 +563,14 @@ export const products: ProductInfo[] = [
     route: "/ImplusRack",
     category: "Racks",
     description: "Technical drawing template"
+  },
+  {
+    id: "Wall_Rack_tmpt",
+    name: "Wall Rack",
+    thumbnail: "na", 
+    route: "/WallRack",
+    category: "Racks",
+    description: "Technical drawing template"
   }
 
 
