@@ -71,6 +71,7 @@ import SerenityCold from "./pages/SerenityCold";
 import ScenicPrimaChiller from "./pages/ScenicPrimaChiller";
 import ScenicPrimaFreezer from "./pages/ScenicPrimaFreezer";
 import BackCounter450 from "./pages/BackCounter450";
+import BackCounter500 from "./pages/BackCounter500";
 
 
 const queryClient = new QueryClient();
@@ -149,6 +150,7 @@ const App = () => (
           <Route path="/ScenicPrimaChiller" element={<ScenicPrimaChiller />} />
           <Route path="/ScenicPrimaFreezer" element={<ScenicPrimaFreezer />} />
           <Route path="/BackCounter450" element={<BackCounter450 />} />
+          <Route path="/BackCounter500" element={<BackCounter500 />} />
 
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />

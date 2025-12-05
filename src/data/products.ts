@@ -548,6 +548,14 @@ export const products: ProductInfo[] = [
     category: "Back Counters",
     description: "Technical drawing template"
   },
+  {
+    id: "Back_Counter_500_tmpt",
+    name: "Back Counter 500",
+    thumbnail: "na",
+    route: "/BackCounter500",
+    category: "Back Counters",
+    description: "Technical drawing template"
+  },
 
 
 
