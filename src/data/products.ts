@@ -18,7 +18,7 @@ export interface ProductInfo {
 }
 
 export const products: ProductInfo[] = [
-  /*
+  
   {
     id: "Stellar_Normal",
     name: "Stellar Normal",
@@ -587,7 +587,7 @@ export const products: ProductInfo[] = [
     route: "/GiftRack2",
     category: "Racks",
     description: "Technical drawing template"
-  },*/
+  },
   {
     id:"Gandola_Counter1_tmpt",
     name: "Gandola Counter 1",
@@ -595,8 +595,32 @@ export const products: ProductInfo[] = [
     route : "/GandolaCounter1",
     category : "Racks",
     description: "Technical drawing template"
+  },
+  {
+    id:"Gandola_Counter2_tmpt",
+    name: "Gandola Counter 2",
+    thumbnail : "na",
+    route : "/GandolaCounter2",
+    category : "Racks",
+    description: "Technical drawing template"
+  },
+  {
+    id:"Gandola_Counter3_tmpt",
+    name: "Gandola Counter 3",
+    thumbnail : "na",
+    route : "/GandolaCounter3",
+    category : "Racks",
+    description: "Technical drawing template"
+  },
+  {
+    id:"Gandola_Counter4_tmpt",
+    name: "Gandola Counter 4",
+    thumbnail : "na",
+    route : "/GandolaCounter4",
+    category : "Racks",
+    description: "Technical drawing template"
+  },
 
-  }
 
 
 
