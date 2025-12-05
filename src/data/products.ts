@@ -556,6 +556,14 @@ export const products: ProductInfo[] = [
     category: "Back Counters",
     description: "Technical drawing template"
   },
+  {
+    id: "Implus_Rack_tmpt",
+    name: "Implus Rack",
+    thumbnail: "na", 
+    route: "/ImplusRack",
+    category: "Racks",
+    description: "Technical drawing template"
+  }
 
 
 
